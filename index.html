@@ -1033,6 +1033,18 @@ section.band.deepest p a, section.band.imaged p a, .statement p a { color: var(-
 
 </style>
 <script>
+/* ---------------------------------------------------------------
+   COMMERCE DOMAIN SWITCH
+   The six commerce URLs below currently use the custom domain, which
+   Squarespace still serves. The moment DNS moves to GitHub Pages they
+   will break. Before that switch, replace every occurrence of
+       www.stperformanceglobal.com
+   in the commerce and form URLs with the Squarespace built-in domain,
+   found under Settings, Domains, Built-in Domain. It looks like
+       something.squarespace.com
+   Nothing else in this file needs changing.
+   --------------------------------------------------------------- */
+
 /* ST Performance Global — central link configuration
    Edit the values below once and every button across the site updates.
    After DNS moves to GitHub Pages, replace the stperformanceglobal.com
@@ -1062,7 +1074,7 @@ const STP_LINKS = {
   /* Your existing Squarespace contact form page. Paste the full URL here,
      for example https://yoursite.squarespace.com/contact. The contact page
      then shows a button through to it. Leave empty and the button hides. */
-  squarespaceForm: "",
+  squarespaceForm: "https://www.stperformanceglobal.com/contact",
   /* Cloudflare Web Analytics. Free, cookieless, no consent banner needed.
      Sign in at dash.cloudflare.com, Analytics, Web Analytics, Add a site,
      then paste the token from the snippet here. Leave empty to disable. */
@@ -1075,7 +1087,8 @@ const STP_LINKS = {
   emailAdmin: "mailto:admin@stperformanceglobal.com",
   instagram: "https://www.instagram.com/st_performance_global",
   instagramPersonal: "https://www.instagram.com/st_performancecoach",
-  linkedin: "https://www.linkedin.com/in/simon-thomas-5656b540/"
+  linkedin: "https://www.linkedin.com/company/st-performanceglobal/",
+  linkedinPersonal: "https://www.linkedin.com/in/simon-thomas-5656b540/"
 };
 
 document.addEventListener("DOMContentLoaded", function () {
