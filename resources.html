@@ -5,6 +5,7 @@
 <meta name="color-scheme" content="light only">
 <meta name="supported-color-schemes" content="light">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="stp-build" content="2026-09-19 update 3">
 <title>Resources | ST Performance Global</title>
 <meta name="description" content="Workbooks and e-books from the ST Performance frameworks. Practical tools for people, leadership and culture.">
 <link rel="canonical" href="https://www.stperformanceglobal.com/resources.html">
@@ -532,6 +533,7 @@ section.band.imaged.people .notice { background: rgba(8,15,27,0.72); }
 .mark-story img.emblem-lg {
   width: 150px; height: auto; margin: 0 auto 26px; display: block;
 }
+.mark-story h1,
 .mark-story h2 { margin-bottom: 22px; }
 .mark-story p { max-width: 62ch; margin-left: auto; margin-right: auto; }
 .mark-story .closer {
@@ -556,6 +558,7 @@ section.band.imaged.story::after {
     linear-gradient(to bottom, rgba(8,15,27,0.5), rgba(8,15,27,0.25) 40%, rgba(8,15,27,0.7));
 }
 section.band.imaged.story h2 { font-size: clamp(2.6rem, 7vw, 5rem); }
+section.band.imaged.story h1 .script,
 section.band.imaged.story h2 .script { display: block; font-size: 0.82em; margin-top: 0.04em; }
 section.band.imaged.story p { color: #DCE0E6; }
 @media (max-width: 700px) {
@@ -863,7 +866,11 @@ h3 { font-size: 1.35rem; letter-spacing: -0.015em; }
 
 .hero h1 { max-width: 17ch; }
 .page-hero h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); }
+/* Story page. This heading carries the page h1 because the page hero was cut.
+   Held at the old h2 scale, so the change is semantic and not visual. */
+section.band.imaged.story h1,
 section.band.imaged.story h2 { font-size: clamp(2.2rem, 5.4vw, 3.8rem); }
+section.band.imaged.story h1 { letter-spacing: -0.022em; }
 .fork h2 { font-size: clamp(1.7rem, 3.2vw, 2.4rem); }
 .card h3 { font-size: 1.4rem; }
 .tl-item h3, .article-row h3, .def-row h3 { font-size: 1.4rem; }
@@ -1056,8 +1063,14 @@ const STP_LINKS = {
   subscribeSelfStarter: "https://www.stperformanceglobal.com/services-store/p/advanced-service-lpyxb",
   subscribeProfessional: "https://www.stperformanceglobal.com/services-store/p/intermediate-service-7k5s4",
   subscribeEnterprise: "https://www.stperformanceglobal.com/services-store/p/basic-service-69xk5",
-  productPressureWorkbook: "https://www.stperformanceglobal.com/shop/p/pressure-by-desin-workbook-st-performance",
-  productRiskCascadeEbook: "https://www.stperformanceglobal.com/shop/p/risk-cascade-e-book-organizational-culture-series",
+  productPressureWorkbook: "https://www.stperformanceglobal.com/shop/p/pressure-by-design-workbook",
+  productRiskCascadeEbook: "https://www.stperformanceglobal.com/shop/p/risk-avoidance-cascade-toolbox-document",
+  productCandourWorkbook: "https://www.stperformanceglobal.com/shop/p/candour-by-design-workbook",
+  productValuesToActionCompanion: "https://www.stperformanceglobal.com/shop/p/from-values-to-action-companion",
+  articlePerformanceEngine: "https://stperformanceglobal.github.io/performance-engine/",
+  articleTeamBehindTheTeam: "https://stperformanceglobal.github.io/team-behind-the-team/",
+  articleDevelopThePeople: "https://stperformanceglobal.github.io/develop-the-people/",
+  articleIndispensability: "https://stperformanceglobal.github.io/the-indispensability-problem/",
   articleShadowLoad: "https://stperformanceglobal.github.io/Shadow-load/",
   articleValuesCultureGap: "https://stperformanceglobal.github.io/values-culture-gap/",
   articleRiskCascade: "https://stperformanceglobal.github.io/risk-cascade/",
@@ -1162,24 +1175,48 @@ document.addEventListener("DOMContentLoaded", function () {
       <div class="card">
         <span class="card-label">Workbook</span>
         <h3>Pressure, By Design</h3>
-        <p style="margin-top:12px;">A structured workbook for building deliberate exposure to pressure into your preparation, so that performance under it is trained.</p>
+        <p style="margin-top:12px;">A leadership framework and workbook for sustaining high performing professionals under constant pressure. It helps you design how pressure enters, moves through and exits your team long before the next high stakes moment arrives.</p>
         <ul>
-          <li>Practical exercises and reflection prompts</li>
-          <li>Designed for individual or team use</li>
-          <li>Instant digital download</li>
+          <li>The Pressure Pathway, four distortion patterns and six field tools</li>
+          <li>Recovery built into the structure of the week</li>
+          <li>31 page A4 workbook, PDF download</li>
         </ul>
         <a class="btn solid" data-link="productPressureWorkbook" href="#" target="_blank" rel="noopener">Get the Workbook</a>
       </div>
       <div class="card">
-        <span class="card-label">E-Book · Organisational Culture Series</span>
-        <h3>The Risk Cascade</h3>
-        <p style="margin-top:12px;">The companion e-book to the Risk Avoidance Cascade framework. How caution compounds through an organisation and what leaders can do to interrupt it.</p>
+        <span class="card-label">Workbook</span>
+        <h3>Candour By Design</h3>
+        <p style="margin-top:12px;">Courageous communication in high performance environments. Written for the conversations that sit between a performance environment and its potential, for coaches, performance and medical staff, athletes and the leaders who hold them together.</p>
         <ul>
-          <li>Full framework with applied examples</li>
-          <li>Part of the Organisational Culture Series</li>
-          <li>Instant digital download</li>
+          <li>Five conversation types and a decision flow for the one you keep avoiding</li>
+          <li>Six techniques, an eleven question preparation sheet and a phrase bank</li>
+          <li>29 page A4 workbook, PDF download</li>
         </ul>
-        <a class="btn solid" data-link="productRiskCascadeEbook" href="#" target="_blank" rel="noopener">Get the E-Book</a>
+        <a class="btn solid" data-link="productCandourWorkbook" href="#" target="_blank" rel="noopener">Get the Workbook</a>
+      </div>
+    </div>
+    <div class="cards two" style="margin-top:22px;">
+      <div class="card">
+        <span class="card-label">Organisational Culture Series</span>
+        <h3>The Risk Avoidance Cascade</h3>
+        <p style="margin-top:12px;">How caution at the top becomes fragility at the bottom and how leaders in performance sport can reverse it. The practitioner's analysis behind the framework, built on the fragile, robust and antifragile states of a culture.</p>
+        <ul>
+          <li>Four levels of the cascade and three culture states</li>
+          <li>Fifteen spectrum actions and ten targeted responses</li>
+          <li>16 page PDF and interactive web edition</li>
+        </ul>
+        <a class="btn solid" data-link="productRiskCascadeEbook" href="#" target="_blank" rel="noopener">Get the Digital Edition</a>
+      </div>
+      <div class="card">
+        <span class="card-label">Book Companion</span>
+        <h3>From Values to Action</h3>
+        <p style="margin-top:12px;">A companion for leaders in performance sport, written to be read alongside the second edition of Harry Kraemer's <em>From Values to Action</em>. It turns the book into leadership behaviour across a performance programme, from the executive table to the floor.</p>
+        <ul>
+          <li>Twelve chapter guides and seven visual models</li>
+          <li>A 16 point self assessment, 90 day action plan and six session team guide</li>
+          <li>30 page PDF and interactive web edition</li>
+        </ul>
+        <a class="btn solid" data-link="productValuesToActionCompanion" href="#" target="_blank" rel="noopener">Get the Companion</a>
       </div>
     </div>
     <div class="cards two" style="margin-top:22px;">

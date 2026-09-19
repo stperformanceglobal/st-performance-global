@@ -5,6 +5,7 @@
 <meta name="color-scheme" content="light only">
 <meta name="supported-color-schemes" content="light">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="stp-build" content="2026-09-19 update 3">
 <title>For Organisations | ST Performance Global</title>
 <meta name="description" content="Embedded advisory, department design and culture builds for organisations, backed by a track record spanning the Crusaders, Major League Baseball and national unions.">
 <link rel="canonical" href="https://www.stperformanceglobal.com/organisations.html">
@@ -532,6 +533,7 @@ section.band.imaged.people .notice { background: rgba(8,15,27,0.72); }
 .mark-story img.emblem-lg {
   width: 150px; height: auto; margin: 0 auto 26px; display: block;
 }
+.mark-story h1,
 .mark-story h2 { margin-bottom: 22px; }
 .mark-story p { max-width: 62ch; margin-left: auto; margin-right: auto; }
 .mark-story .closer {
@@ -556,6 +558,7 @@ section.band.imaged.story::after {
     linear-gradient(to bottom, rgba(8,15,27,0.5), rgba(8,15,27,0.25) 40%, rgba(8,15,27,0.7));
 }
 section.band.imaged.story h2 { font-size: clamp(2.6rem, 7vw, 5rem); }
+section.band.imaged.story h1 .script,
 section.band.imaged.story h2 .script { display: block; font-size: 0.82em; margin-top: 0.04em; }
 section.band.imaged.story p { color: #DCE0E6; }
 @media (max-width: 700px) {
@@ -863,7 +866,11 @@ h3 { font-size: 1.35rem; letter-spacing: -0.015em; }
 
 .hero h1 { max-width: 17ch; }
 .page-hero h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); }
+/* Story page. This heading carries the page h1 because the page hero was cut.
+   Held at the old h2 scale, so the change is semantic and not visual. */
+section.band.imaged.story h1,
 section.band.imaged.story h2 { font-size: clamp(2.2rem, 5.4vw, 3.8rem); }
+section.band.imaged.story h1 { letter-spacing: -0.022em; }
 .fork h2 { font-size: clamp(1.7rem, 3.2vw, 2.4rem); }
 .card h3 { font-size: 1.4rem; }
 .tl-item h3, .article-row h3, .def-row h3 { font-size: 1.4rem; }
@@ -1056,8 +1063,14 @@ const STP_LINKS = {
   subscribeSelfStarter: "https://www.stperformanceglobal.com/services-store/p/advanced-service-lpyxb",
   subscribeProfessional: "https://www.stperformanceglobal.com/services-store/p/intermediate-service-7k5s4",
   subscribeEnterprise: "https://www.stperformanceglobal.com/services-store/p/basic-service-69xk5",
-  productPressureWorkbook: "https://www.stperformanceglobal.com/shop/p/pressure-by-desin-workbook-st-performance",
-  productRiskCascadeEbook: "https://www.stperformanceglobal.com/shop/p/risk-cascade-e-book-organizational-culture-series",
+  productPressureWorkbook: "https://www.stperformanceglobal.com/shop/p/pressure-by-design-workbook",
+  productRiskCascadeEbook: "https://www.stperformanceglobal.com/shop/p/risk-avoidance-cascade-toolbox-document",
+  productCandourWorkbook: "https://www.stperformanceglobal.com/shop/p/candour-by-design-workbook",
+  productValuesToActionCompanion: "https://www.stperformanceglobal.com/shop/p/from-values-to-action-companion",
+  articlePerformanceEngine: "https://stperformanceglobal.github.io/performance-engine/",
+  articleTeamBehindTheTeam: "https://stperformanceglobal.github.io/team-behind-the-team/",
+  articleDevelopThePeople: "https://stperformanceglobal.github.io/develop-the-people/",
+  articleIndispensability: "https://stperformanceglobal.github.io/the-indispensability-problem/",
   articleShadowLoad: "https://stperformanceglobal.github.io/Shadow-load/",
   articleValuesCultureGap: "https://stperformanceglobal.github.io/values-culture-gap/",
   articleRiskCascade: "https://stperformanceglobal.github.io/risk-cascade/",
@@ -1233,7 +1246,7 @@ document.addEventListener("DOMContentLoaded", function () {
           <div role="listitem"><div class="num">7</div><div class="lbl">Affiliate sites overseen, Red Sox</div></div>
           <div role="listitem"><div class="num">3</div><div class="lbl">National advisory engagements</div></div>
         </div>
-        <div class="notice">Advisory engagements have spanned Brazil Rugby, Singapore Rugby and the Panasonic Wild Knights, alongside an ongoing High Performance Advisor role with the Major League Rugby Players Association.</div>
+        <div class="notice">Advisory engagements have spanned Brazil Rugby, Singapore Rugby and the Panasonic Wild Knights, alongside an ongoing appointment as Director of High Performance with the United States Rugby Players Association.</div>
       </div>
       <div>
         <figure class="brand-visual">
@@ -1292,7 +1305,7 @@ document.addEventListener("DOMContentLoaded", function () {
       <div class="card">
         <span class="card-label">Option One</span>
         <h3>Ongoing Support</h3>
-        <p style="margin-top:12px;">Simon works with your performance and development staff continuously, as the external structure they do not currently have. Regular contact, individual development, and a person outside the reporting line they can be honest with.</p>
+        <p style="margin-top:12px;">Simon works with your performance and development staff continuously, as the external structure they do not currently have. Regular contact, individual development and a person outside the reporting line they can be honest with.</p>
       </div>
       <div class="card">
         <span class="card-label">Option Two</span>
@@ -1301,7 +1314,7 @@ document.addEventListener("DOMContentLoaded", function () {
       </div>
     </div>
 
-    <div class="notice">This service grew directly out of the Shadow Load framework, which examines the load practitioners carry while managing everyone else's. Read it on the <a href="articles.html">Articles page</a>.</div>
+    <div class="notice">This service grew directly out of the Shadow Load framework, which examines the load practitioners carry while managing everyone else's. The evidence behind it is set out in <a data-link="articleTeamBehindTheTeam" href="#" target="_blank" rel="noopener">The Team Behind the Team</a>, with a practical pathway for any organisation in <a data-link="articleDevelopThePeople" href="#" target="_blank" rel="noopener">Develop the People Who Set the Standard</a>. Read all three on the <a href="articles.html">Articles page</a>.</div>
   </div>
 </section>
 

@@ -5,6 +5,7 @@
 <meta name="color-scheme" content="light only">
 <meta name="supported-color-schemes" content="light">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="stp-build" content="2026-09-19 update 3">
 <title>ST Performance Global | People. Leadership. Culture.</title>
 <meta name="description" content="ST Performance Global helps individuals, departments and organisations thrive. Two decades of elite sport and high-performing business, applied to your environment.">
 <link rel="canonical" href="https://www.stperformanceglobal.com/">
@@ -532,6 +533,7 @@ section.band.imaged.people .notice { background: rgba(8,15,27,0.72); }
 .mark-story img.emblem-lg {
   width: 150px; height: auto; margin: 0 auto 26px; display: block;
 }
+.mark-story h1,
 .mark-story h2 { margin-bottom: 22px; }
 .mark-story p { max-width: 62ch; margin-left: auto; margin-right: auto; }
 .mark-story .closer {
@@ -556,6 +558,7 @@ section.band.imaged.story::after {
     linear-gradient(to bottom, rgba(8,15,27,0.5), rgba(8,15,27,0.25) 40%, rgba(8,15,27,0.7));
 }
 section.band.imaged.story h2 { font-size: clamp(2.6rem, 7vw, 5rem); }
+section.band.imaged.story h1 .script,
 section.band.imaged.story h2 .script { display: block; font-size: 0.82em; margin-top: 0.04em; }
 section.band.imaged.story p { color: #DCE0E6; }
 @media (max-width: 700px) {
@@ -863,7 +866,11 @@ h3 { font-size: 1.35rem; letter-spacing: -0.015em; }
 
 .hero h1 { max-width: 17ch; }
 .page-hero h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); }
+/* Story page. This heading carries the page h1 because the page hero was cut.
+   Held at the old h2 scale, so the change is semantic and not visual. */
+section.band.imaged.story h1,
 section.band.imaged.story h2 { font-size: clamp(2.2rem, 5.4vw, 3.8rem); }
+section.band.imaged.story h1 { letter-spacing: -0.022em; }
 .fork h2 { font-size: clamp(1.7rem, 3.2vw, 2.4rem); }
 .card h3 { font-size: 1.4rem; }
 .tl-item h3, .article-row h3, .def-row h3 { font-size: 1.4rem; }
@@ -1056,8 +1063,14 @@ const STP_LINKS = {
   subscribeSelfStarter: "https://www.stperformanceglobal.com/services-store/p/advanced-service-lpyxb",
   subscribeProfessional: "https://www.stperformanceglobal.com/services-store/p/intermediate-service-7k5s4",
   subscribeEnterprise: "https://www.stperformanceglobal.com/services-store/p/basic-service-69xk5",
-  productPressureWorkbook: "https://www.stperformanceglobal.com/shop/p/pressure-by-desin-workbook-st-performance",
-  productRiskCascadeEbook: "https://www.stperformanceglobal.com/shop/p/risk-cascade-e-book-organizational-culture-series",
+  productPressureWorkbook: "https://www.stperformanceglobal.com/shop/p/pressure-by-design-workbook",
+  productRiskCascadeEbook: "https://www.stperformanceglobal.com/shop/p/risk-avoidance-cascade-toolbox-document",
+  productCandourWorkbook: "https://www.stperformanceglobal.com/shop/p/candour-by-design-workbook",
+  productValuesToActionCompanion: "https://www.stperformanceglobal.com/shop/p/from-values-to-action-companion",
+  articlePerformanceEngine: "https://stperformanceglobal.github.io/performance-engine/",
+  articleTeamBehindTheTeam: "https://stperformanceglobal.github.io/team-behind-the-team/",
+  articleDevelopThePeople: "https://stperformanceglobal.github.io/develop-the-people/",
+  articleIndispensability: "https://stperformanceglobal.github.io/the-indispensability-problem/",
   articleShadowLoad: "https://stperformanceglobal.github.io/Shadow-load/",
   articleValuesCultureGap: "https://stperformanceglobal.github.io/values-culture-gap/",
   articleRiskCascade: "https://stperformanceglobal.github.io/risk-cascade/",
@@ -1168,7 +1181,7 @@ document.addEventListener("DOMContentLoaded", function () {
   <a class="channel" href="organisations.html">
     <div class="channel-label">Pathway Two</div>
     <h2>For Organisations</h2>
-    <p>Departments and organisations aligning people, leadership and culture. Embedded advisory, facilitated group work, and support structures for the staff who deliver performance to everyone else.</p>
+    <p>Departments and organisations aligning people, leadership and culture. Embedded advisory, facilitated group work and support structures for the staff who deliver performance to everyone else.</p>
     <span class="go">Explore organisational support</span>
   </a>
 </div>
@@ -1207,7 +1220,7 @@ document.addEventListener("DOMContentLoaded", function () {
     <div class="split">
       <div>
         <p>Simon has spent close to two decades shaping performance systems across international and professional rugby, Major League Baseball and international consulting. His career runs from hands-on programme builds at the Tasman Mako and Canterbury, through eight years with the Crusaders, the final four leading the performance department across four consecutive Super Rugby titles, to department leadership at the Western Force and the Boston Red Sox.</p>
-        <p>Alongside embedded roles he has advised Brazil Rugby on a full national framework build, supported Singapore Rugby through a two-year remote engagement, provided leadership oversight at the Panasonic Wild Knights in Japan and serves as High Performance Advisor to the Major League Rugby Players Association.</p>
+        <p>Alongside embedded roles he has advised Brazil Rugby on a full national framework build, supported Singapore Rugby through a two-year remote engagement, provided leadership oversight at the Panasonic Wild Knights in Japan and serves as Director of High Performance, an advisory role with the United States Rugby Players Association.</p>
         <p style="margin-top:26px;"><a class="btn" href="about.html">More about Simon</a></p>
       </div>
       <div>
