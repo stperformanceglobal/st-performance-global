@@ -5,7 +5,7 @@
 <meta name="color-scheme" content="light only">
 <meta name="supported-color-schemes" content="light">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="stp-build" content="2026-09-19 update 3">
+<meta name="stp-build" content="2026-09-19 update 4">
 <title>For Individuals | ST Performance Global</title>
 <meta name="description" content="Coaching and structured development for coaches, practitioners and executives. Choose the level of support that fits where you are.">
 <link rel="canonical" href="https://www.stperformanceglobal.com/individuals.html">
@@ -1038,6 +1038,39 @@ section.band.deepest .notice, section.band.imaged .notice { background-color: rg
 p a { color: #A8791A; text-decoration: none; border-bottom: 1px solid rgba(168,121,26,.4); }
 section.band.deepest p a, section.band.imaged p a, .statement p a { color: var(--gold-hi); border-bottom-color: rgba(234,193,72,.45); }
 
+
+/* Update 4. Resources product covers, cropped from the product flyers. */
+.card-cover { margin: 0 0 24px; aspect-ratio: 16 / 9; overflow: hidden; background: #0C1524; }
+.card-cover img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+/* Update 4. Articles shown as a grid of cards rather than a single column list. */
+.grid-intro { max-width: 64ch; font-size: 0.97rem; }
+.article-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: 36px; }
+.article-grid .article-row {
+  position: relative; display: flex; flex-direction: column; align-items: stretch; gap: 0;
+  padding: 34px 28px 30px; background: #FFFFFF; border: 1px solid var(--hairline);
+}
+.article-grid .article-row:first-of-type { border-top: 1px solid var(--hairline); }
+.article-grid .article-row::before {
+  content: ""; position: absolute; top: 0; left: 24px; right: 24px; height: 22px;
+  background: linear-gradient(to bottom right, transparent 49.5%, var(--gold) 49.5%, var(--gold) 50.5%, transparent 50.5%) left/50.2% 100% no-repeat,
+              linear-gradient(to bottom left, transparent 49.5%, var(--gold) 49.5%, var(--gold) 50.5%, transparent 50.5%) right/50.2% 100% no-repeat;
+  transform: translateY(-11px); opacity: 0.9; pointer-events: none;
+}
+.article-grid .article-row .series { display: block; margin-bottom: 12px; }
+.article-grid .article-row > div { flex: 1; }
+.article-grid .article-row h3 { font-size: 1.3rem; line-height: 1.15; }
+.article-grid .article-row p { margin-top: 10px; font-size: 0.93rem; max-width: none; }
+.article-grid .article-row .read { align-self: flex-start; margin-top: 20px; }
+.article-grid .article-row:hover { border-color: var(--gold); }
+@media (max-width: 1000px) {
+  .article-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 700px) {
+  .article-grid { grid-template-columns: 1fr; gap: 0; margin-top: 24px; }
+  .article-grid .article-row { background: transparent; border: none; border-top: 1px solid var(--hairline); padding: 26px 0 28px; }
+  .article-grid .article-row::before { left: 0; right: auto; width: 46px; }
+}
 </style>
 <script>
 /* ---------------------------------------------------------------
