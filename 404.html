@@ -5,7 +5,7 @@
 <meta name="color-scheme" content="light only">
 <meta name="supported-color-schemes" content="light">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="stp-build" content="2026-09-19 update 4">
+<meta name="stp-build" content="2026-09-20 update 6">
 <title>Page Not Found | ST Performance Global</title>
 <meta name="description" content="That page is not here. Find your way back to ST Performance Global.">
 <meta name="robots" content="noindex, follow">
@@ -1071,6 +1071,34 @@ section.band.deepest p a, section.band.imaged p a, .statement p a { color: var(-
   .article-grid .article-row { background: transparent; border: none; border-top: 1px solid var(--hairline); padding: 26px 0 28px; }
   .article-grid .article-row::before { left: 0; right: auto; width: 46px; }
 }
+
+/* Update 6. Booking page. Six compact option buttons, two across. */
+.book-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 32px; }
+.book-option {
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 18px;
+  padding: 18px 22px; background: #FFFFFF; border: 1px solid var(--hairline);
+  text-decoration: none; transition: border-color 0.18s ease;
+}
+.book-option:hover { border-color: var(--gold); }
+.bo-text { display: flex; flex-direction: column; min-width: 0; }
+.bo-name {
+  font-family: "Bricolage Grotesque", "Archivo", sans-serif; font-weight: 700;
+  font-size: 1.02rem; line-height: 1.2; letter-spacing: -0.012em; color: var(--pure);
+}
+.bo-desc { margin-top: 7px; font-size: 0.86rem; line-height: 1.35; color: var(--muted); }
+.bo-right { display: flex; flex-direction: column; align-items: flex-end; white-space: nowrap; }
+.bo-price {
+  font-family: "Bricolage Grotesque", "Archivo", sans-serif; font-weight: 700;
+  font-size: 1.3rem; letter-spacing: -0.02em; color: var(--pure);
+}
+.bo-meta {
+  margin-top: 5px; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--muted);
+}
+@media (max-width: 700px) {
+  .book-grid { grid-template-columns: 1fr; gap: 0; margin-top: 24px; }
+  .book-option { border: none; border-top: 1px solid var(--hairline); padding: 18px 0; }
+}
 </style>
 <script>
 /* ---------------------------------------------------------------
@@ -1092,7 +1120,18 @@ section.band.deepest p a, section.band.imaged p a, .statement p a { color: var(-
    or a subdomain such as store.stperformanceglobal.com. */
 
 const STP_LINKS = {
-  booking: "https://www.stperformanceglobal.com/appointments",
+  /* Booking. `booking` points at the on site booking page. The six Cal.com
+     event links fill the cards there, and each card hides while its link is
+     empty. `calUsername` is the Cal.com handle, used for the embedded booking
+     widget and for the shareable link https://cal.com/<calUsername>. */
+  booking: "booking.html",
+  calUsername: "",
+  bookingIntro15: "",
+  bookingCheckpoint30: "",
+  bookingPlanning45: "",
+  bookingFocus60: "",
+  bookingGroup60: "",
+  bookingGroup90: "",
   subscribeSelfStarter: "https://www.stperformanceglobal.com/services-store/p/advanced-service-lpyxb",
   subscribeProfessional: "https://www.stperformanceglobal.com/services-store/p/intermediate-service-7k5s4",
   subscribeEnterprise: "https://www.stperformanceglobal.com/services-store/p/basic-service-69xk5",
@@ -1117,10 +1156,6 @@ const STP_LINKS = {
      empty string hides itself automatically. */
   pressPeakYou: "https://www.stuff.co.nz/national/health/122216789/peak-you-what-the-crusaders-gym-culture-teaches-the-rest-of-us-about-fitness",
   pressBowynMorgan: "https://www.stuff.co.nz/sport/combat-sports/103265161/New-Zealand-welterweight-boxer-Bowyn-Morgan-taps-into-Crusaders-expertise",
-  /* Your existing Squarespace contact form page. Paste the full URL here,
-     for example https://yoursite.squarespace.com/contact. The contact page
-     then shows a button through to it. Leave empty and the button hides. */
-  squarespaceForm: "https://www.stperformanceglobal.com/contact",
   /* Cloudflare Web Analytics. Free, cookieless, no consent banner needed.
      Sign in at dash.cloudflare.com, Analytics, Web Analytics, Add a site,
      then paste the token from the snippet here. Leave empty to disable. */
@@ -1129,6 +1164,9 @@ const STP_LINKS = {
      they are happy for their words to appear publicly. Their letters were
      written for a confidential proposal, not for marketing. */
   endorsementsApproved: false,
+  /* Stripe Customer Portal. Paste the portal link once Stripe is live. The
+     manage subscription button on subscription-success.html hides while empty. */
+  stripePortal: "",
   emailSimon: "mailto:simon@stperformanceglobal.com",
   emailAdmin: "mailto:admin@stperformanceglobal.com",
   instagram: "https://www.instagram.com/st_performance_global",
