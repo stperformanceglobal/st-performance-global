@@ -216,6 +216,35 @@ nav.primary a.nav-cta:hover { background: var(--gold); color: var(--ink); }
   font-size: 0.76rem; font-weight: 600; letter-spacing: 0.36em;
   text-transform: uppercase; color: var(--gold); margin-bottom: 18px;
 }
+.page-hero .hero-offer-grid {
+  display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(460px, 1.1fr);
+  gap: 54px; align-items: center;
+}
+.hero-offers { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.hero-offer {
+  background: #FFFFFF; border: 1px solid var(--hairline);
+  padding: 24px 22px 22px; position: relative;
+}
+.hero-offer::before {
+  content: ""; position: absolute; top: 0; left: 18px; right: 18px; height: 14px;
+  background: linear-gradient(to bottom right, transparent 49%, var(--gold) 49%, var(--gold) 51%, transparent 51%) left/50.2% 100% no-repeat,
+              linear-gradient(to bottom left, transparent 49%, var(--gold) 49%, var(--gold) 51%, transparent 51%) right/50.2% 100% no-repeat;
+  transform: translateY(-7px); opacity: 0.9;
+}
+.hero-offer .card-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: #A8791A; }
+.hero-offer h2 { margin-top: 10px; color: var(--navy); font-size: 1.45rem; }
+.hero-offer .price { margin-top: 8px; color: var(--navy); font-family: "Bebas Neue", sans-serif; font-size: 2rem; }
+.hero-offer .price span { color: #59616C; font-family: "Archivo", sans-serif; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.hero-offer p { margin-top: 10px; min-height: 4.5em; color: #59616C; font-size: 0.88rem; }
+.hero-offer .btn { margin-top: 18px; padding: 12px 18px; background: var(--navy); border-color: var(--navy); color: #FFFFFF; font-size: 0.7rem; }
+.hero-offer .btn:hover, .hero-offer .btn:focus-visible { background: #0F1D33; color: #FFFFFF; }
+@media (max-width: 980px) {
+  .page-hero .hero-offer-grid { grid-template-columns: 1fr; gap: 38px; }
+}
+@media (max-width: 620px) {
+  .hero-offers { grid-template-columns: 1fr; }
+  .hero-offer p { min-height: 0; }
+}
 
 /* ---------- The Fork ---------- */
 .fork { display: grid; grid-template-columns: 1fr 1fr; position: relative; background: var(--deep); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
@@ -1021,6 +1050,7 @@ section.band.imaged { background-color: #0C1524; }
 header.site { background-color: rgba(8, 15, 27, 0.94); }
 footer.site { background-color: #080F1B; }
 .card { background-color: #FFFFFF; }
+.page-hero .hero-offer { background-color: #FFFFFF; }
 section.band.deepest .card, section.band.imaged .card { background-color: var(--navy-panel); }
 blockquote.pull { background-color: #FFFFFF; }
 .notice { background-color: rgba(24, 44, 77, 0.05); }
@@ -1124,7 +1154,7 @@ const STP_LINKS = {
      event links fill the cards there, and each card hides while its link is
      empty. `calUsername` is the Cal.com handle, used for the embedded booking
      widget and for the shareable link https://cal.com/<calUsername>. */
-  booking: "booking.html",
+  booking: "https://cal.com/st-performance",
   calUsername: "",
   bookingIntro15: "",
   bookingCheckpoint30: "",
@@ -1233,10 +1263,28 @@ document.addEventListener("DOMContentLoaded", function () {
 </header>
 
 <div class="page-hero">
-  <div class="wrap">
-    <div class="kicker">Pathway One</div>
-    <h1>For Individuals</h1>
-    <p class="lede">Coaches, practitioners and executives building their craft, their leadership and their next chapter. Start self-guided or work directly with Simon. Every level is designed to meet you where you are and move you forward.</p>
+  <div class="wrap hero-offer-grid">
+    <div>
+      <div class="kicker">Pathway One</div>
+      <h1>For Individuals</h1>
+      <p class="lede">Coaches, practitioners and executives building their craft, their leadership and their next chapter. Start self-guided or work directly with Simon. Every level is designed to meet you where you are and move you forward.</p>
+    </div>
+    <div class="hero-offers" aria-label="Individual membership options">
+      <div class="hero-offer">
+        <span class="card-label">Foundation</span>
+        <h2>Self Starter</h2>
+        <div class="price">$29 <span>/ month</span></div>
+        <p>Self-guided development with baseline profiling and support that evolves with your progress.</p>
+        <a class="btn solid" data-link="subscribeSelfStarter" href="#" target="_blank" rel="noopener">Commit</a>
+      </div>
+      <div class="hero-offer">
+        <span class="card-label">One-to-One</span>
+        <h2>Professional</h2>
+        <div class="price">$149 <span>/ month</span></div>
+        <p>Advanced profiling, individual coaching and a monthly 60 minute session with action points.</p>
+        <a class="btn solid" data-link="subscribeProfessional" href="#" target="_blank" rel="noopener">Commit</a>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -1321,7 +1369,7 @@ document.addEventListener("DOMContentLoaded", function () {
           <li>Coaching calls available as needed at member rate</li>
           <li>Coaching community and group call access, coming soon</li>
         </ul>
-        <a class="btn" data-link="subscribeSelfStarter" href="#" target="_blank" rel="noopener">Subscribe</a>
+        <a class="btn solid" data-link="subscribeSelfStarter" href="#" target="_blank" rel="noopener">Commit</a>
       </div>
       <div class="card">
         <span class="card-label">One-to-One</span>
@@ -1335,7 +1383,7 @@ document.addEventListener("DOMContentLoaded", function () {
           <li>Additional sessions at member rate, 25% below the one-off price</li>
           <li>Goal tracking and analytics</li>
         </ul>
-        <a class="btn solid" data-link="subscribeProfessional" href="#" target="_blank" rel="noopener">Subscribe</a>
+        <a class="btn solid" data-link="subscribeProfessional" href="#" target="_blank" rel="noopener">Commit</a>
       </div>
     </div>
     <div class="notice">Working across a department or organisation? Your pathway is over on the <a href="organisations.html">Organisations page</a>.</div>

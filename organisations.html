@@ -216,6 +216,31 @@ nav.primary a.nav-cta:hover { background: var(--gold); color: var(--ink); }
   font-size: 0.76rem; font-weight: 600; letter-spacing: 0.36em;
   text-transform: uppercase; color: var(--gold); margin-bottom: 18px;
 }
+.page-hero .hero-offer-grid {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(340px, 0.68fr);
+  gap: 64px; align-items: center;
+}
+.hero-offers { display: grid; grid-template-columns: 1fr; }
+.hero-offer {
+  background: #FFFFFF; border: 1px solid var(--hairline);
+  padding: 28px 26px 26px; position: relative;
+}
+.hero-offer::before {
+  content: ""; position: absolute; top: 0; left: 22px; right: 22px; height: 16px;
+  background: linear-gradient(to bottom right, transparent 49%, var(--gold) 49%, var(--gold) 51%, transparent 51%) left/50.2% 100% no-repeat,
+              linear-gradient(to bottom left, transparent 49%, var(--gold) 49%, var(--gold) 51%, transparent 51%) right/50.2% 100% no-repeat;
+  transform: translateY(-8px); opacity: 0.9;
+}
+.hero-offer .card-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: #A8791A; }
+.hero-offer h2 { margin-top: 10px; color: var(--navy); font-size: 1.7rem; }
+.hero-offer .price { margin-top: 10px; color: var(--navy); font-family: "Bebas Neue", sans-serif; font-size: 2.25rem; }
+.hero-offer .price span { color: #59616C; font-family: "Archivo", sans-serif; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.hero-offer p { margin-top: 12px; color: #59616C; font-size: 0.92rem; }
+.hero-offer .btn { margin-top: 20px; padding: 13px 20px; background: var(--navy); border-color: var(--navy); color: #FFFFFF; font-size: 0.72rem; }
+.hero-offer .btn:hover, .hero-offer .btn:focus-visible { background: #0F1D33; color: #FFFFFF; }
+@media (max-width: 900px) {
+  .page-hero .hero-offer-grid { grid-template-columns: 1fr; gap: 38px; }
+}
 
 /* ---------- The Fork ---------- */
 .fork { display: grid; grid-template-columns: 1fr 1fr; position: relative; background: var(--deep); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
@@ -1021,6 +1046,7 @@ section.band.imaged { background-color: #0C1524; }
 header.site { background-color: rgba(8, 15, 27, 0.94); }
 footer.site { background-color: #080F1B; }
 .card { background-color: #FFFFFF; }
+.page-hero .hero-offer { background-color: #FFFFFF; }
 section.band.deepest .card, section.band.imaged .card { background-color: var(--navy-panel); }
 blockquote.pull { background-color: #FFFFFF; }
 .notice { background-color: rgba(24, 44, 77, 0.05); }
@@ -1124,7 +1150,7 @@ const STP_LINKS = {
      event links fill the cards there, and each card hides while its link is
      empty. `calUsername` is the Cal.com handle, used for the embedded booking
      widget and for the shareable link https://cal.com/<calUsername>. */
-  booking: "booking.html",
+  booking: "https://cal.com/st-performance",
   calUsername: "",
   bookingIntro15: "",
   bookingCheckpoint30: "",
@@ -1233,10 +1259,21 @@ document.addEventListener("DOMContentLoaded", function () {
 </header>
 
 <div class="page-hero">
-  <div class="wrap">
-    <div class="kicker">Pathway Two</div>
-    <h1>For Organisations</h1>
-    <p class="lede">Departments and organisations aligning people, leadership and culture. We build the structures that connect strategy to daily operations, drawing on department builds and rebuilds across professional rugby, Major League Baseball and national unions.</p>
+  <div class="wrap hero-offer-grid">
+    <div>
+      <div class="kicker">Pathway Two</div>
+      <h1>For Organisations</h1>
+      <p class="lede">Departments and organisations aligning people, leadership and culture. We build the structures that connect strategy to daily operations, drawing on department builds and rebuilds across professional rugby, Major League Baseball and national unions.</p>
+    </div>
+    <div class="hero-offers" aria-label="Organisational membership option">
+      <div class="hero-offer">
+        <span class="card-label">Departments and Organisations</span>
+        <h2>Enterprise</h2>
+        <div class="price">$499 <span>/ month</span></div>
+        <p>Embedded mentoring, unlimited coaching, leadership development and facilitated group planning for your team.</p>
+        <a class="btn solid" data-link="subscribeEnterprise" href="#" target="_blank" rel="noopener">Commit</a>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -1470,7 +1507,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <li>Team collaboration tools and facilitated group planning</li>
             <li>Checkpoints, reviews and priority support</li>
           </ul>
-          <a class="btn solid" data-link="subscribeEnterprise" href="#" target="_blank" rel="noopener">Subscribe</a>
+          <a class="btn solid" data-link="subscribeEnterprise" href="#" target="_blank" rel="noopener">Commit</a>
         </div>
       </div>
     </div>
