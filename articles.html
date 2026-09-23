@@ -423,6 +423,10 @@ figure.brand-visual.tile img { aspect-ratio: 3 / 2; object-fit: cover; }
   color: var(--gold-hi); border-bottom: 1px solid var(--gold); padding-bottom: 4px; white-space: nowrap;
 }
 .press-row:hover h3 { color: var(--gold-hi); }
+.media-group {
+  margin-top: 42px; padding-bottom: 14px; border-bottom: 1px solid var(--line);
+  font-size: 1.15rem; letter-spacing: 0.12em; text-transform: uppercase;
+}
 @media (max-width: 780px) { .press-row { grid-template-columns: 1fr; gap: 10px; } }
 
 
@@ -1157,6 +1161,16 @@ const STP_LINKS = {
      empty string hides itself automatically. */
   pressPeakYou: "https://www.stuff.co.nz/national/health/122216789/peak-you-what-the-crusaders-gym-culture-teaches-the-rest-of-us-about-fitness",
   pressBowynMorgan: "https://www.stuff.co.nz/sport/combat-sports/103265161/New-Zealand-welterweight-boxer-Bowyn-Morgan-taps-into-Crusaders-expertise",
+  mediaEliteTeamTalks: "https://www.youtube.com/watch?v=bekT1tUCdQI",
+  mediaPrepareLikePro: "https://www.youtube.com/watch?v=JMQwYOiaz3I",
+  mediaJointDynamicsSustainability: "https://www.youtube.com/watch?v=jlwZr1pcxkA",
+  mediaHoriesPerformanceCoach: "https://www.youtube.com/watch?v=wvx7F6ClJFc",
+  mediaSweetScience: "https://www.youtube.com/watch?v=LSOymLGVIx4",
+  mediaPaceyMilitary: "https://www.youtube.com/watch?v=vHicMzGiQ-M",
+  mediaJointDynamicsCulture: "https://www.youtube.com/watch?v=iOPJzpxtSes",
+  mediaBehaviourGap: "https://open.spotify.com/episode/7CmGLum63rd4KlM2cbXEtA?si=3w0k0rGxTvGJ-dDUwLJl_w",
+  mediaScottyIzzy: "https://open.spotify.com/episode/0A72LxuhuGkKQL2AzHquCK",
+  pressNMITCrusaders: "https://www.nmit.ac.nz/news/coaching-the-crusaders",
   /* Cloudflare Web Analytics. Free, cookieless, no consent banner needed.
      Sign in at dash.cloudflare.com, Analytics, Web Analytics, Add a site,
      then paste the token from the snippet here. Leave empty to disable. */
@@ -1346,6 +1360,91 @@ document.addEventListener("DOMContentLoaded", function () {
       <h2>Coverage and conversations</h2>
     </div>
 
+    <h3 class="media-group">Podcast appearances</h3>
+
+    <a class="press-row" data-link="mediaBehaviourGap" href="#" target="_blank" rel="noopener">
+      <div>
+        <span class="meta">The Behaviour Gap · Podcast · 2026</span>
+        <h3>Culture That Sticks, Roles That Scale and Building Teams That Keep Winning</h3>
+        <p>A long form conversation about building sustainable teams through clear roles, practical systems and culture that can survive leadership change. The discussion traces lessons from provincial rugby and four Crusaders championships through to talent development work in professional baseball.</p>
+      </div>
+      <span class="read">Listen</span>
+    </a>
+
+    <a class="press-row" data-link="mediaScottyIzzy" href="#" target="_blank" rel="noopener">
+      <div>
+        <span class="meta">Scotty and Izzy · Podcast · 2025</span>
+        <h3>From the Crusaders to the Red Sox</h3>
+        <p>A concise conversation about moving from professional rugby into Major League Baseball and beginning a new role within the Boston Red Sox player development system.</p>
+      </div>
+      <span class="read">Listen</span>
+    </a>
+
+    <a class="press-row" data-link="mediaSweetScience" href="#" target="_blank" rel="noopener">
+      <div>
+        <span class="meta">Sweet Science of Fighting · Podcast · 2025</span>
+        <h3>Lessons From the Most Successful Teams</h3>
+        <p>A discussion about strength and conditioning, staff development and the systems behind sustained success, drawing on experience across championship rugby environments and combat sports.</p>
+      </div>
+      <span class="read">Watch</span>
+    </a>
+
+    <a class="press-row" data-link="mediaEliteTeamTalks" href="#" target="_blank" rel="noopener">
+      <div>
+        <span class="meta">Elite Team Talks · Podcast · 2024</span>
+        <h3>How to Create a High Performance Culture</h3>
+        <p>A conversation about the practical work behind high performance culture, shaped by experience with the Crusaders, the Maori All Blacks and other elite sporting environments.</p>
+      </div>
+      <span class="read">Watch</span>
+    </a>
+
+    <a class="press-row" data-link="mediaJointDynamicsSustainability" href="#" target="_blank" rel="noopener">
+      <div>
+        <span class="meta">Joint Dynamics · Podcast · 2024</span>
+        <h3>Personal Sustainability When Your Profession Is Your Passion</h3>
+        <p>Reflections on managing energy, maintaining perspective and staying effective when professional identity, personal passion and the demands of elite sport become closely connected.</p>
+      </div>
+      <span class="read">Watch</span>
+    </a>
+
+    <a class="press-row" data-link="mediaJointDynamicsCulture" href="#" target="_blank" rel="noopener">
+      <div>
+        <span class="meta">Joint Dynamics · Podcast · 2024</span>
+        <h3>Winning Culture at the Crusaders</h3>
+        <p>A focused discussion about repeated success at the Crusaders and the habits, relationships and shared standards that helped turn culture into daily practice.</p>
+      </div>
+      <span class="read">Watch</span>
+    </a>
+
+    <a class="press-row" data-link="mediaPrepareLikePro" href="#" target="_blank" rel="noopener">
+      <div>
+        <span class="meta">Prepare Like a Pro · Podcast · 2023</span>
+        <h3>Creating a Culture of Excellence</h3>
+        <p>A live conversation about practical strategies for high performance, including leadership, preparation and the conditions that allow individuals and teams to perform consistently.</p>
+      </div>
+      <span class="read">Watch</span>
+    </a>
+
+    <a class="press-row" data-link="mediaHoriesPerformanceCoach" href="#" target="_blank" rel="noopener">
+      <div>
+        <span class="meta">Hories Tell Stories · Podcast · 2023</span>
+        <h3>Simon Thomas: Performance Coach</h3>
+        <p>A wider conversation about the path through Tasman rugby and the Crusaders, the development of a performance coaching career and the lessons collected inside successful environments.</p>
+      </div>
+      <span class="read">Watch</span>
+    </a>
+
+    <a class="press-row" data-link="mediaPaceyMilitary" href="#" target="_blank" rel="noopener">
+      <div>
+        <span class="meta">Pacey Performance Podcast · 2022</span>
+        <h3>Using Military Preseason Camps for the Right Reasons</h3>
+        <p>A practical examination of military style preseason camps, why context and purpose matter and how demanding experiences can be designed without confusing hardship with development.</p>
+      </div>
+      <span class="read">Watch</span>
+    </a>
+
+    <h3 class="media-group">Written coverage</h3>
+
     <a class="press-row" data-link="pressPeakYou" href="#" target="_blank" rel="noopener">
       <div>
         <span class="meta">Stuff · Feature · 2020</span>
@@ -1360,6 +1459,15 @@ document.addEventListener("DOMContentLoaded", function () {
         <span class="meta">Stuff · Combat Sports · 2018</span>
         <h3>Bowyn Morgan Taps Into Crusaders Expertise</h3>
         <p>New Zealand's top ranked welterweight worked with Simon on cognitive training to sharpen decision making under fatigue, alongside strength and mobility work. The exchange ran both ways, with Morgan helping Crusaders players returning from injury through boxing based conditioning.</p>
+      </div>
+      <span class="read">Read</span>
+    </a>
+
+    <a class="press-row" data-link="pressNMITCrusaders" href="#" target="_blank" rel="noopener">
+      <div>
+        <span class="meta">NMIT · Profile · 2018</span>
+        <h3>Coaching the Crusaders</h3>
+        <p>A profile tracing the fourteen year path from studying applied fitness at NMIT to leading the Crusaders physical performance programme, including the education, early opportunities and professional experiences that shaped the journey.</p>
       </div>
       <span class="read">Read</span>
     </a>
