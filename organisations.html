@@ -513,6 +513,14 @@ section.band.imaged > .wrap { position: relative; z-index: 2; }
 @media (max-width: 900px) { .cards.four { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 520px) { .cards.four { grid-template-columns: 1fr; } }
 
+.cards.five { grid-template-columns: repeat(5, 1fr); }
+.cards.five .card { padding: 24px 20px 26px; }
+.cards.five .card h3 { margin-top: 0; font-size: 1.1rem; }
+.cards.five .card > p { margin-top: 10px; font-size: 0.85rem; }
+@media (max-width: 1000px) { .cards.five { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 700px) { .cards.five { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 480px) { .cards.five { grid-template-columns: 1fr; } }
+
 /* ---------- Small screen overflow fixes ---------- */
 html { max-width: 100%; }
 body { max-width: 100%; overflow-x: clip; }
@@ -1298,41 +1306,37 @@ document.addEventListener("DOMContentLoaded", function () {
 
 <section class="band">
   <div class="wrap">
-    <div class="rail">
-      <div class="rail-head">
     <div class="band-head">
       <span class="eyebrow">What We Do</span>
       <h2>Five areas of organisational work</h2>
     </div>
+    <p class="grid-intro">Five distinct areas, though most engagements draw on several. The starting point is always your context.</p>
 
-        <p>Five distinct areas, though most engagements draw on several. The starting point is always your context.</p>
-      </div>
-      <div class="rail-body">
-    <div class="def-row">
+    <div class="cards five">
+    <div class="card">
       <h3>Department Design and Role Architecture</h3>
       <p>How a performance department should be structured, staffed and led. Simon has built a department from zero in a start-up league, spent eight years at the Crusaders with the final four leading its performance department through four consecutive title seasons, then moved into overseeing staff across seven affiliate sites in Major League Baseball. His published Role Architecture work turns that experience into a repeatable design method covering role definition, reporting lines and the delivery-versus-leadership balance most organisations get wrong.</p>
     </div>
 
-    <div class="def-row">
+    <div class="card">
       <h3>Leadership Development and Mentoring</h3>
       <p>Structured mentoring for heads of performance, coordinators stepping into leadership and executives inheriting technical departments. The approach is built around leadership architecture rather than technical prescription: growing judgement, communication and the discipline of leading from the balcony instead of operating on the floor.</p>
     </div>
 
-    <div class="def-row">
+    <div class="card">
       <h3>Culture Builds and Seasonal Theming</h3>
       <p>Simon's theming methodology spans eight documented seasons across Canterbury, the Crusaders and Major League Rugby, several of them championship years. The principle is constant: the group must own the theme because they helped build it. Engagements cover values definition, the gap between stated and lived culture and frameworks for constructive conflict and psychological safety.</p>
     </div>
 
-<div class="def-row">
+    <div class="card">
       <h3>Support for the People Who Deliver Support</h3>
       <p>Coaches and performance staff are high performers too, and they almost never have around them the structures they build for everyone else. They monitor athlete load and ignore their own. They plan athlete development and have no plan for their own. This service installs for the staff what the staff install for the athletes: workload visibility, development pathways, review rhythms, recovery expectations and someone whose job is their progression. Delivered either as ongoing support to an existing group or as a system designed and installed then handed to you to run.</p>
     </div>
 
-    <div class="def-row">
+    <div class="card">
       <h3>Reviews, Audits and Framework Builds</h3>
       <p>Independent review of an existing performance system, or a full framework build where none exists. The Brazil Rugby engagement built a complete national framework for sevens and fifteens toward a home Olympics, combining remote advisory with quarterly on-ground audits. The same structure scales down to a single department review.</p>
     </div>
-      </div>
     </div>
 
     <div class="cards two" style="margin:44px 0;">
