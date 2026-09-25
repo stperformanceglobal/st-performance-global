@@ -197,7 +197,7 @@ nav.primary a.nav-cta:hover { background: var(--gold); color: var(--ink); }
   pointer-events: none;
 }
 .hero .wrap {
-  position: relative; z-index: 1; padding-top: 96px; padding-bottom: 84px;
+  position: relative; z-index: 1; padding-top: 64px; padding-bottom: 56px;
   display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); column-gap: 56px; align-items: center;
 }
 .hero .kicker { grid-column: 1; grid-row: 1; }
@@ -213,7 +213,7 @@ nav.primary a.nav-cta:hover { background: var(--gold); color: var(--ink); }
 }
 .hero p.lede strong { color: var(--white); }
 
-.page-hero { background: var(--deeper); padding: 72px 0 60px; position: relative; overflow: hidden; }
+.page-hero { background: var(--deeper); padding: 52px 0 44px; position: relative; overflow: hidden; }
 .page-hero::before {
   content: ""; position: absolute; inset: -30% -10%;
   background: radial-gradient(ellipse at 80% 0%, rgba(231,181,48,0.1), transparent 55%);
@@ -265,13 +265,13 @@ nav.primary a.nav-cta:hover { background: var(--gold); color: var(--ink); }
 }
 
 /* ---------- Sections ---------- */
-section.band { padding: 84px 0; }
+section.band { padding: 56px 0; }
 section.band.panel { background: var(--navy-panel); }
 section.band.deepest { background: var(--deeper); }
-.band-head { margin-bottom: 40px; }
+.band-head { margin-bottom: 28px; }
 .band-head h2 { margin-top: 14px; }
 
-.split { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; align-items: start; }
 @media (max-width: 840px) { .split { grid-template-columns: 1fr; gap: 36px; } }
 
 /* ---------- Full-bleed brand image ---------- */
@@ -405,7 +405,7 @@ footer.site { background: var(--deeper); border-top: 1px solid var(--line); padd
 }
 .foot-motto span { color: var(--white); }
 .foot-motto em { color: var(--gold); font-style: normal; }
-footer .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; padding-top: 46px; }
+footer .foot-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 32px; padding-top: 32px; }
 footer .emblem { width: 96px; height: 96px; border: 1px solid var(--line); margin-bottom: 18px; }
 footer h4 { color: var(--pure); font-family: "Bebas Neue", sans-serif; font-size: 1.05rem; letter-spacing: 0.12em; margin-bottom: 14px; }
 footer a { color: var(--silver); text-decoration: none; display: block; padding: 4px 0; }
@@ -461,7 +461,7 @@ section.band.imaged > .wrap { position: relative; z-index: 2; }
 /* Full-bleed statement image */
 .statement { position: relative; overflow: hidden; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .statement img {
-  display: block; width: 100%; height: 560px; object-fit: cover; object-position: center 8%;
+  display: block; width: 100%; height: 380px; object-fit: cover; object-position: center 8%;
   filter: grayscale(0.25) brightness(0.62);
 }
 .statement .overlay {
@@ -565,7 +565,7 @@ section.band.imaged.people .notice { background: rgba(8,15,27,0.72); }
 .mark-story .eyebrow::after { content: ""; width: 40px; height: 1px; background: var(--line); }
 
 /* Logo story band, image carries the mark so text sits large and clean */
-section.band.imaged.story { padding: 110px 0; }
+section.band.imaged.story { padding: 72px 0; }
 section.band.imaged.story > .bg {
   opacity: 0.92; filter: none;
   background-size: contain; background-repeat: no-repeat;
@@ -691,7 +691,7 @@ section.band.light .value .idx {
 }
 
 /* Story page opens straight into the image band, so it carries the top space */
-section.band.imaged.story:first-of-type { padding-top: 130px; }
+section.band.imaged.story:first-of-type { padding-top: 88px; }
 @media (max-width: 700px) { section.band.imaged.story:first-of-type { padding-top: 92px; } }
 
 /* ============================================================
