@@ -517,6 +517,17 @@ section.band.imaged > .wrap { position: relative; z-index: 2; }
 @media (max-width: 900px) { .cards.four { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 520px) { .cards.four { grid-template-columns: 1fr; } }
 
+.card.step-tile .num {
+  font-family: "Bebas Neue", sans-serif; font-size: 2.4rem; line-height: 1;
+  color: var(--gold); letter-spacing: 0.02em; display: block;
+}
+.card.step-tile .when {
+  font-size: 0.66rem; font-weight: 700; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--silver); display: block; margin-top: 6px;
+}
+.card.step-tile h3 { margin-top: 16px; font-size: 1.25rem; }
+.card.step-tile > p { margin-top: 10px; font-size: 0.9rem; }
+
 /* ---------- Small screen overflow fixes ---------- */
 html { max-width: 100%; }
 body { max-width: 100%; overflow-x: clip; }
@@ -1313,17 +1324,19 @@ document.addEventListener("DOMContentLoaded", function () {
       <span class="eyebrow">Who This Is For</span>
       <h2>Three people we help most often</h2>
     </div>
-    <div class="def-row">
+    <div class="cards three who-tiles">
+    <div class="card">
       <h3>The Practitioner Becoming a Leader</h3>
       <p>You were promoted because you were the best technician in the room, and nobody taught you the next job. Simon made this transition himself, from hands-on delivery at the Tasman Mako through to pure leadership at the Boston Red Sox, and has mentored others through it across rugby, Australian football and baseball. The work covers delegation, feedback, role clarity and the balcony discipline of leading rather than operating.</p>
     </div>
-    <div class="def-row">
+    <div class="card">
       <h3>The Established Head Wanting an Outside Eye</h3>
       <p>You lead a department and have nobody to think out loud with. Structured mentoring gives you a sounding board who has led championship departments, built one from zero and advised national programmes, with session preparation, priority tracking and reflection built into the process.</p>
     </div>
-    <div class="def-row">
+    <div class="card">
       <h3>The Executive or Professional Under Pressure</h3>
       <p>The tools of elite sport translate. Coaching draws on the same anchors Simon uses with professional teams: the growth equation of stress plus rest, psychological safety, the Job Demands-Resources model and his own Shadow Load framework for monitoring the load you carry while looking after everyone else.</p>
+    </div>
     </div>
     <div class="split" style="margin-top:44px; align-items:center;">
       <figure class="brand-visual toned">
@@ -1339,34 +1352,26 @@ document.addEventListener("DOMContentLoaded", function () {
       <h2>Your first thirty days</h2>
     </div>
 
-    <div class="steps">
-      <div class="step">
-        <div><span class="num">01</span><span class="when">Day One</span></div>
-        <div>
-          <h3>A welcome email with your assessment</h3>
-          <p>No waiting and no scheduling required to begin. The assessment link arrives immediately and you complete it in your own time.</p>
-        </div>
+    <div class="cards four step-tiles">
+      <div class="card step-tile">
+        <span class="num">01</span><span class="when">Day One</span>
+        <h3>A welcome email with your assessment</h3>
+        <p>No waiting and no scheduling required to begin. The assessment link arrives immediately and you complete it in your own time.</p>
       </div>
-      <div class="step">
-        <div><span class="num">02</span><span class="when">Week One</span></div>
-        <div>
-          <h3>Your baseline, returned</h3>
-          <p>The assessment produces a profile of where you actually are. Everything that follows is shaped by that profile. Everything after this point is shaped by it.</p>
-        </div>
+      <div class="card step-tile">
+        <span class="num">02</span><span class="when">Week One</span>
+        <h3>Your baseline, returned</h3>
+        <p>The assessment produces a profile of where you actually are. Everything that follows is shaped by that profile. Everything after this point is shaped by it.</p>
       </div>
-      <div class="step">
-        <div><span class="num">03</span><span class="when">Ongoing</span></div>
-        <div>
-          <h3>Guided support that evolves with you</h3>
-          <p>Structured support arrives without you needing to book anything. It adapts as your assessments and progress change, so the guidance moves as you do. Calls are there when you want them, though the value does not depend on booking one.</p>
-        </div>
+      <div class="card step-tile">
+        <span class="num">03</span><span class="when">Ongoing</span>
+        <h3>Guided support that evolves with you</h3>
+        <p>Structured support arrives without you needing to book anything. It adapts as your assessments and progress change, so the guidance moves as you do. Calls are there when you want them, though the value does not depend on booking one.</p>
       </div>
-      <div class="step">
-        <div><span class="num">04</span><span class="when">Professional Tier</span></div>
-        <div>
-          <h3>Your monthly session</h3>
-          <p>A 60 minute video call with follow up action points, held every month. If you want more contact in a given month, additional sessions are available at member rate, which is 25% below the one-off price.</p>
-        </div>
+      <div class="card step-tile">
+        <span class="num">04</span><span class="when">Professional Tier</span>
+        <h3>Your monthly session</h3>
+        <p>A 60 minute video call with follow up action points, held every month. If you want more contact in a given month, additional sessions are available at member rate, which is 25% below the one-off price.</p>
       </div>
     </div>
 
