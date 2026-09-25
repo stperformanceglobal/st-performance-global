@@ -344,11 +344,11 @@ section.band.panel .card { background: var(--deep); }
 
 /* ---------- Stat strip ---------- */
 .stats { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--hairline); }
-.stats div { padding: 30px 22px; border-right: 1px solid var(--hairline); }
-.stats div:last-child { border-right: none; }
+.stats > div { padding: 30px 22px; border-right: 1px solid var(--hairline); text-align: center; }
+.stats > div:last-child { border-right: none; }
 .stats .num { font-family: "Bebas Neue", sans-serif; font-size: 3rem; color: var(--gold-hi); line-height: 1; }
 .stats .lbl { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--silver); margin-top: 8px; font-weight: 600; }
-@media (max-width: 780px) { .stats { grid-template-columns: 1fr 1fr; } .stats div:nth-child(2) { border-right: none; } }
+@media (max-width: 780px) { .stats { grid-template-columns: 1fr 1fr; } .stats > div:nth-child(2) { border-right: none; } }
 
 /* ---------- Timeline ---------- */
 .timeline { border-left: 1px solid var(--line); margin-left: 8px; padding-left: 36px; }
@@ -553,14 +553,14 @@ img, svg, figure, table { max-width: 100%; }
 }
 
 @media (max-width: 560px) {
-  .stats div { padding: 20px 14px; }
+  .stats > div { padding: 20px 14px; }
   .stats .num { font-size: 2.1rem; }
   .stats .lbl { font-size: 0.6rem; letter-spacing: 0.12em; overflow-wrap: break-word; }
 }
 
 @media (max-width: 380px) {
   .stats { grid-template-columns: 1fr; }
-  .stats div { border-right: none; border-bottom: 1px solid var(--hairline); }
+  .stats > div { border-right: none; border-bottom: 1px solid var(--hairline); }
 }
 
 /* Menu button reads as open or closed */
@@ -1037,7 +1037,7 @@ footer h4 { font-weight: 700; letter-spacing: 0.02em; font-size: 0.95rem; text-t
   .cards { gap: 0; }
 
   .stats { border: none; }
-  .stats div { border-right: none; border-bottom: 1px solid var(--hairline); padding: 18px 0; }
+  .stats > div { border-right: none; border-bottom: 1px solid var(--hairline); padding: 18px 0; }
   section.band.imaged.people .stats { background: transparent; }
 
   blockquote.pull { border-left-width: 2px; border-top: none; border-right: none; border-bottom: none; padding: 22px 0 22px 18px; background: transparent; }
