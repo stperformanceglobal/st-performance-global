@@ -5,21 +5,21 @@
 <meta name="color-scheme" content="light only">
 <meta name="supported-color-schemes" content="light">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="stp-build" content="2026-09-20 update 6">
-<title>Articles &amp; Media | ST Performance Global</title>
-<meta name="description" content="Writing on people, leadership and culture in high performance environments. Original frameworks from two decades inside elite sport.">
+<meta name="stp-build" content="2026-10-01 media archive update">
+<title>Articles, Media &amp; Speaking | ST Performance Global</title>
+<meta name="description" content="Original writing, media coverage, podcasts, speaking engagements and published research from Simon Thomas and ST Performance Global.">
 <link rel="canonical" href="https://www.stperformanceglobal.com/articles.html">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="favicon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ST Performance Global">
-<meta property="og:title" content="Articles &amp; Media | ST Performance Global">
-<meta property="og:description" content="Writing on people, leadership and culture in high performance environments. Original frameworks from two decades inside elite sport.">
+<meta property="og:title" content="Articles, Media &amp; Speaking | ST Performance Global">
+<meta property="og:description" content="Original writing, media coverage, podcasts, speaking engagements and published research from Simon Thomas and ST Performance Global.">
 <meta property="og:url" content="https://www.stperformanceglobal.com/articles.html">
 <meta property="og:image" content="https://www.stperformanceglobal.com/og-share.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Articles &amp; Media | ST Performance Global">
-<meta name="twitter:description" content="Writing on people, leadership and culture in high performance environments. Original frameworks from two decades inside elite sport.">
+<meta name="twitter:title" content="Articles, Media &amp; Speaking | ST Performance Global">
+<meta name="twitter:description" content="Original writing, media coverage, podcasts, speaking engagements and published research from Simon Thomas and ST Performance Global.">
 <meta name="twitter:image" content="https://www.stperformanceglobal.com/og-share.jpg">
 <meta name="theme-color" content="#0C1524">
 <style>
@@ -1150,6 +1150,177 @@ section.band.deepest p a, section.band.imaged p a, .statement p a { color: var(-
   .book-grid { grid-template-columns: 1fr; gap: 0; margin-top: 24px; }
   .book-option { border: none; border-top: 1px solid var(--hairline); padding: 18px 0; }
 }
+
+/* ---------- Compact media archive ---------- */
+.archive-intro {
+  max-width: 70ch;
+  margin-top: -18px;
+  margin-bottom: 26px;
+}
+.archive-tabs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin: 26px 0 28px;
+}
+.archive-tab {
+  appearance: none;
+  border: 1px solid var(--hairline);
+  background: var(--navy-panel);
+  color: var(--white);
+  padding: 16px 14px;
+  text-align: left;
+  cursor: pointer;
+  font-family: "Archivo", sans-serif;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+}
+.archive-tab:hover,
+.archive-tab:focus-visible {
+  border-color: var(--gold);
+  color: var(--gold-hi);
+}
+.archive-tab.active {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--ink);
+}
+.archive-tab .tab-name {
+  display: block;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.archive-tab .tab-count {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.76rem;
+  opacity: 0.72;
+}
+.archive-panel {
+  display: none;
+  border-top: 1px solid var(--line);
+  padding-top: 20px;
+}
+.archive-panel.active { display: block; }
+.archive-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+.archive-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 14px;
+  align-items: center;
+  min-height: 92px;
+  padding: 17px 18px;
+  border: 1px solid var(--hairline);
+  background: rgba(20,36,63,0.55);
+  text-decoration: none;
+}
+.archive-item:hover,
+.archive-item:focus-visible {
+  border-color: var(--gold);
+  background: var(--navy-panel);
+}
+.archive-item .archive-meta {
+  display: block;
+  color: var(--gold);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.archive-item .archive-title {
+  display: block;
+  color: var(--pure);
+  font-family: "Archivo", sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.archive-item .archive-open {
+  color: var(--gold-hi);
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.archive-item:hover .archive-title { color: var(--gold-hi); }
+.archive-more {
+  margin-top: 12px;
+  border-top: 1px solid var(--hairline);
+}
+.archive-more > summary {
+  list-style: none;
+  cursor: pointer;
+  color: var(--gold-hi);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 16px 0 2px;
+}
+.archive-more > summary::-webkit-details-marker { display: none; }
+.archive-more > summary::after {
+  content: " +";
+  color: var(--gold);
+}
+.archive-more[open] > summary::after { content: " −"; }
+.archive-more .archive-grid { margin-top: 12px; }
+
+.earlier-writing {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--hairline);
+}
+.earlier-writing h3 {
+  font-family: "Archivo", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+.earlier-writing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.earlier-writing a {
+  border: 1px solid var(--hairline);
+  background: rgba(20,36,63,0.45);
+  color: var(--white);
+  text-decoration: none;
+  padding: 14px 16px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+.earlier-writing a span {
+  display: block;
+  color: var(--silver);
+  font-size: 0.64rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+.earlier-writing a:hover,
+.earlier-writing a:focus-visible {
+  border-color: var(--gold);
+  color: var(--gold-hi);
+}
+@media (max-width: 780px) {
+  .archive-tabs { grid-template-columns: 1fr 1fr; }
+  .archive-grid { grid-template-columns: 1fr; }
+  .earlier-writing-grid { grid-template-columns: 1fr; }
+  .archive-item { min-height: 78px; }
+}
+
 </style>
 <script>
 /* ---------------------------------------------------------------
@@ -1221,6 +1392,40 @@ const STP_LINKS = {
   mediaBehaviourGap: "https://open.spotify.com/episode/7CmGLum63rd4KlM2cbXEtA?si=3w0k0rGxTvGJ-dDUwLJl_w",
   mediaScottyIzzy: "https://open.spotify.com/episode/0A72LxuhuGkKQL2AzHquCK",
   pressNMITCrusaders: "https://www.nmit.ac.nz/news/coaching-the-crusaders",
+  pressTasmanInterview: "https://getstrength.com/interview-with-simon-thomas-tasman-makos-air-new-zealand-cup-tasman-rugby-academy/",
+  pressCanterburyIA: "https://www.industrialathletic.com/blogs/all/canterbury-rugby-football-union",
+  pressCONQACrusaders: "https://www.conqagroup.com/sport-science-and-medicine",
+  pressCatapultLoads: "https://www.catapult.com/blog/inside-crusaders-catapult-individual-team",
+  pressCatapultROI: "https://www.catapult.com/blog/inside-crusaders-roi-front-office",
+  pressRufit: "https://www.nationaltribune.com.au/crusaders-and-university-of-canterbury-team-up-to-target-fans-fitness/",
+  pressUCInterns: "https://www.miragenews.com/university-of-canterbury-interns-go-inside-rope-with-crusaders/",
+  pressAustinPreview: "https://www.americasrugbynews.com/2021/03/16/mlr-2021-preview-austin-gilgronis/",
+  pressAGFacility: "https://markets.financialcontent.com/fourptsmedia.kutv/article/onlineprmedia-2021-6-25-ag-rugby-headquarters-receives-a-makeover-by-koncept-garage",
+  pressForceSurridge: "https://westernforce.rugby/news/force-bolster-backroom-staff-with-surridge-appointment-20231130",
+  pressMentorshipHub: "https://www.linkedin.com/posts/sports-mentorship-hub_sportsmentorshiphub-strengthandconditioning-activity-7265080732761436161-j5_e",
+  pressRedSoxHire: "https://www.mlb.com/press-release/press-release-red-sox-announce-2025-personnel-moves-in-player-development-set-minor-league-field-staffs",
+  pressBoSox: "https://bosoxinjection.com/red-sox-player-development-staff-changes-welcome-former-yankees-employee-for-2025",
+  pressSportsmithProfile: "https://www.sportsmith.co/contributors/simon-thomas/",
+  pressUSRPA: "https://www.linkedin.com/posts/chris-mattina-943147a0_a-bit-of-a-summer-recap-and-update-on-an-activity-7377371930259046400-_r_I",
+  mediaRugbyCoachesCorner: "https://www.ivoox.com/simon-thomas-ep-48-bnz-crusaders-performance-coach-audios-mp3_rf_20727582_1.html",
+  mediaPacey2017: "https://www.sportsmith.co/listen/pacey-performance-podcast-163-simon-thomas/",
+  mediaNoWeakLinks: "https://tunein.com/podcasts/No-Weak-Links-p2075801/",
+  mediaPacey2022: "https://paceyperformancepodcast.podbean.com/e/using-military-pre-season-camps-for-the-right-reasons-answering-the-critics-with-simon-thomas/",
+  mediaJointDynamicsMain: "https://www.buzzsprout.com/1233659/episodes/14584443-episode-99-simon-thomas-on-super-rugby-strength-conditioning",
+  mediaWellSport: "https://podcasts.apple.com/us/podcast/the-wellsport-podcast/id1727355138",
+  speakOlivos: "https://ar.linkedin.com/in/nicolaspuchir",
+  speakChileRugby: "https://chile.rugby/?p=5660",
+  speakUNAB: "https://noticiasrepositorio.unab.cl/unab-recibio-a-preparador-fisico-del-equipo-de-rugby-maori-all-blacks/",
+  speakEstadioObras: "https://ar.linkedin.com/in/nicolaspuchir",
+  speakCongresoPunta: "https://congresodepunta.com/congreso-de-punta-online-2020/",
+  speakSESNZ: "https://sesnz.org.nz/wp-content/uploads/2021/02/SESNZ-2020-Book-of-abstracts.pdf",
+  speakSESNZBooklet: "https://sesnz.org.nz/wp-content/uploads/2020/11/SESNZ-2020-Booklet-V4.pdf",
+  researchTravel: "https://pubmed.ncbi.nlm.nih.gov/39947186/",
+  researchSleepTravel: "https://pubmed.ncbi.nlm.nih.gov/40022638/",
+  researchHeavyHitters: "https://pubmed.ncbi.nlm.nih.gov/40884431/",
+  researchConcussion: "https://pubmed.ncbi.nlm.nih.gov/40849106/",
+  earlierLinkedInArticles: "https://www.linkedin.com/in/simon-thomas-5656b540/",
+  earlierArchitecture: "https://www.linkedin.com/pulse/building-architecture-winning-organisation-simon-thomas-cqgke",
   /* Cloudflare Web Analytics. Free, cookieless, no consent banner needed.
      Sign in at dash.cloudflare.com, Analytics, Web Analytics, Add a site,
      then paste the token from the snippet here. Leave empty to disable. */
@@ -1270,6 +1475,32 @@ document.addEventListener("DOMContentLoaded", function () {
   if (s && STP_LINKS.endorsementsApproved) { s.hidden = false; }
 });
 
+
+document.addEventListener("DOMContentLoaded", function () {
+  var tabs = Array.from(document.querySelectorAll("[data-archive-tab]"));
+  var panels = Array.from(document.querySelectorAll("[data-archive-panel]"));
+  if (!tabs.length || !panels.length) { return; }
+
+  function activateArchive(name) {
+    tabs.forEach(function (tab) {
+      var active = tab.getAttribute("data-archive-tab") === name;
+      tab.classList.toggle("active", active);
+      tab.setAttribute("aria-selected", active ? "true" : "false");
+    });
+    panels.forEach(function (panel) {
+      var active = panel.getAttribute("data-archive-panel") === name;
+      panel.classList.toggle("active", active);
+      panel.hidden = !active;
+    });
+  }
+
+  tabs.forEach(function (tab) {
+    tab.addEventListener("click", function () {
+      activateArchive(tab.getAttribute("data-archive-tab"));
+    });
+  });
+});
+
 </script>
 </head>
 <body>
@@ -1300,7 +1531,7 @@ document.addEventListener("DOMContentLoaded", function () {
 <div class="page-hero">
   <div class="wrap">
     <div class="kicker">Writing</div>
-    <h1>Articles &amp; Media</h1>
+    <h1>Articles, Media &amp; Speaking</h1>
     <p class="lede">Original frameworks and considered writing on people, leadership and culture in high performance environments. Drawn from two decades inside professional sport and applied well beyond it.</p>
   </div>
 </div>
@@ -1405,184 +1636,116 @@ document.addEventListener("DOMContentLoaded", function () {
     </a>
     </div>
 
+    <div class="earlier-writing" aria-label="Earlier published writing">
+      <h3>Earlier published writing</h3>
+      <div class="earlier-writing-grid">
+        <a data-link="earlierArchitecture" href="#" target="_blank" rel="noopener">
+          <span>LinkedIn · 2026</span>
+          Building The Architecture Of A Winning Organisation
+        </a>
+        <a data-link="earlierLinkedInArticles" href="#" target="_blank" rel="noopener">
+          <span>LinkedIn · 2017</span>
+          Performance Session Philosophy
+        </a>
+        <a data-link="earlierLinkedInArticles" href="#" target="_blank" rel="noopener">
+          <span>LinkedIn · 2015</span>
+          Developing Competitive &amp; Dynamic Rugby Athletes
+        </a>
+      </div>
+    </div>
+
     <div class="band-head" style="margin-top:70px;">
-      <span class="eyebrow">In the Media</span>
-      <h2>Coverage and conversations</h2>
+      <span class="eyebrow">Archive</span>
+      <h2>Media, speaking and research</h2>
+    </div>
+    <p class="archive-intro">A verified record of selected coverage, conversations, speaking engagements and published research across the career. Choose a category to explore without extending the page unnecessarily.</p>
+
+    <div class="archive-tabs" role="tablist" aria-label="Media archive categories">
+      <button class="archive-tab active" type="button" role="tab" aria-selected="true" aria-controls="archive-coverage" data-archive-tab="coverage">
+        <span class="tab-name">Coverage</span>
+        <span class="tab-count">21 items</span>
+      </button>
+      <button class="archive-tab" type="button" role="tab" aria-selected="false" aria-controls="archive-podcasts" data-archive-tab="podcasts">
+        <span class="tab-name">Podcasts</span>
+        <span class="tab-count">12 appearances</span>
+      </button>
+      <button class="archive-tab" type="button" role="tab" aria-selected="false" aria-controls="archive-speaking" data-archive-tab="speaking">
+        <span class="tab-name">Speaking</span>
+        <span class="tab-count">7 engagements</span>
+      </button>
+      <button class="archive-tab" type="button" role="tab" aria-selected="false" aria-controls="archive-research" data-archive-tab="research">
+        <span class="tab-name">Research</span>
+        <span class="tab-count">4 publications</span>
+      </button>
     </div>
 
-    <h3 class="media-group">Written coverage</h3>
-
-    <div class="media-grid media-grid-press">
-
-    <a class="press-row" data-link="pressWesternForce" href="#" target="_blank" rel="noopener">
-      <div>
-        <span class="meta">Western Force · Appointment · 2022</span>
-        <h3>Force Enlist the Best to Head Performance</h3>
-        <p>The Western Force announce Simon as Head of Performance, reflecting on the championship systems built at the Crusaders, the turnaround work with Austin Gilgronis and an approach centred on understanding people before shaping their programmes.</p>
+    <div class="archive-panel active" id="archive-coverage" role="tabpanel" data-archive-panel="coverage">
+      <div class="archive-grid">
+        <a class="archive-item" data-link="pressUSRPA" href="#" target="_blank" rel="noopener"><span><span class="archive-meta">US Rugby Players Association · Appointment · 2026</span><span class="archive-title">First High Performance Director appointment</span></span><span class="archive-open">Open</span></a>
+        <a class="archive-item" data-link="pressSportsmithProfile" href="#" target="_blank" rel="noopener"><span><span class="archive-meta">Sportsmith · Profile · Current</span><span class="archive-title">Simon Thomas contributor profile</span></span><span class="archive-open">Open</span></a>
+        <a class="archive-item" data-link="pressRedSoxHire" href="#" target="_blank" rel="noopener"><span><span class="archive-meta">Boston Red Sox / MLB · Appointment · 2025</span><span class="archive-title">Red Sox announce 2025 player development personnel moves</span></span><span class="archive-open">Open</span></a>
+        <a class="archive-item" data-link="pressBoSox" href="#" target="_blank" rel="noopener"><span><span class="archive-meta">BoSox Injection · Coverage · 2025</span><span class="archive-title">Red Sox player development staff changes</span></span><span class="archive-open">Open</span></a>
+        <a class="archive-item" data-link="pressMentorshipHub" href="#" target="_blank" rel="noopener"><span><span class="archive-meta">Sports Mentorship Hub · Profile · 2024</span><span class="archive-title">Mentor profile and career summary</span></span><span class="archive-open">Open</span></a>
+        <a class="archive-item" data-link="pressForceSurridge" href="#" target="_blank" rel="noopener"><span><span class="archive-meta">Western Force · Staff · 2023</span><span class="archive-title">Force bolster backroom staff with Surridge appointment</span></span><span class="archive-open">Open</span></a>
       </div>
-      <span class="read">Read</span>
-    </a>
-
-    <a class="press-row" data-link="pressAustinGilgronis" href="#" target="_blank" rel="noopener">
-      <div>
-        <span class="meta">Stuff · Rugby · 2021</span>
-        <h3>From the Penthouse to the Shouse: A Former Crusaders Fitness Coach on US Rugby</h3>
-        <p>A candid account of moving from a championship Crusaders environment into Major League Rugby and the Austin Gilgronis, including the realities of building standards, systems and performance infrastructure in a younger competition.</p>
-      </div>
-      <span class="read">Read</span>
-    </a>
-
-    <a class="press-row" data-link="pressUSBound" href="#" target="_blank" rel="noopener">
-      <div>
-        <span class="meta">Stuff · Super Rugby · 2021</span>
-        <h3>Crusaders Strength and Conditioning Coach Simon Thomas US Bound</h3>
-        <p>Coverage of Simon's move from the Crusaders to Major League Rugby after four title winning seasons, and the opportunity to help build a developing professional environment from the ground up.</p>
-      </div>
-      <span class="read">Read</span>
-    </a>
-
-    <a class="press-row" data-link="pressPeakYou" href="#" target="_blank" rel="noopener">
-      <div>
-        <span class="meta">Stuff · Feature · 2020</span>
-        <h3>Peak You: What the Crusaders' Gym Culture Teaches the Rest of Us</h3>
-        <p>A feature by John McCrone on what championship level preparation actually looks like from the inside, and which parts of it translate to anyone trying to get fitter rather than only to professional athletes.</p>
-      </div>
-      <span class="read">Read</span>
-    </a>
-
-    <a class="press-row" data-link="pressBowynMorgan" href="#" target="_blank" rel="noopener">
-      <div>
-        <span class="meta">Stuff · Combat Sports · 2018</span>
-        <h3>Bowyn Morgan Taps Into Crusaders Expertise</h3>
-        <p>New Zealand's top ranked welterweight worked with Simon on cognitive training to sharpen decision making under fatigue, alongside strength and mobility work. The exchange ran both ways, with Morgan helping Crusaders players returning from injury through boxing based conditioning.</p>
-      </div>
-      <span class="read">Read</span>
-    </a>
-
-    <a class="press-row" data-link="pressNMITCrusaders" href="#" target="_blank" rel="noopener">
-      <div>
-        <span class="meta">NMIT · Profile · 2018</span>
-        <h3>Coaching the Crusaders</h3>
-        <p>A profile tracing the fourteen year path from studying applied fitness at NMIT to leading the Crusaders physical performance programme, including the education, early opportunities and professional experiences that shaped the journey.</p>
-      </div>
-      <span class="read">Read</span>
-    </a>
-
+      <details class="archive-more">
+        <summary>Show earlier coverage</summary>
+        <div class="archive-grid">
+          <a class="archive-item" data-link="pressWesternForce" href="#" target="_blank" rel="noopener"><span><span class="archive-meta">Western Force · Appointment · 2022</span><span class="archive-title">Force Enlist the Best to Head Performance</span></span><span class="archive-open">Open</span></a>
+          <a class="archive-item" data-link="pressAGFacility" href="#" target="_blank" rel="noopener"><span><span class="archive-meta">AG Rugby · Facility · 2021</span><span class="archive-title">AG Rugby Headquarters Receives a Makeover</span></span><span class="archive-open">Open</span></a>
+          <a class="archive-item" data-link="pressAustinGilgronis" href="#" target="_blank" rel="noopener"><span><span class="archive-meta">Stuff · Rugby · 2021</span><span class="archive-title">From the Penthouse to the Shouse</span></span><span class="archive-open">Open</span></a>
+          <a class="archive-item" data-link="pressUSBound" href="#" target="_blank" rel="noopener"><span><span class="archive-meta">Stuff · Super Rugby · 2021</span><span class="archive-title">Crusaders strength and conditioning coach Simon Thomas US bound</span></span><span class="archive-open">Open</span></a>
+          <a class="archive-item" data-link="pressAustinPreview" href="#" target="_blank" rel="noopener"><span><span class="archive-meta">Americas Rugby News · Preview · 2021</span><span class="archive-title">MLR 2021 Preview: Austin Gilgronis</span></span><span class="archive-open">Open</span></a>
+          <a class="archive-item" data-link="pressPeakYou" href="#" target="_blank" rel="noopener"><span><span class="archive-meta">Stuff · Feature · 2020</span><span class="archive-title">Peak You: What the Crusaders gym culture teaches the rest of us</span></span><span class="archive-open">Open</span></a>
+          <a class="archive-item" data-link="pressRufit" href="#" target="_blank" rel="noopener"><span><span class="archive-meta">University of Canterbury · 2020</span><span class="archive-title">Crusaders and University of Canterbury team up to target fans fitness</span></span><span class="archive-open">Open</span></a>
+          <a class="archive-item" data-link="pressUCInterns" href="#" target="_blank" rel="noopener"><span><span class="archive-meta">University of Canterbury · 2020</span><span class="archive-title">Interns go inside rope with the Crusaders</span></span><span class="archive-open">Open</span></a>
+          <a class="archive-item" data-link="pressBowynMorgan" href="#" target="_blank" rel="noopener"><span><span class="archive-meta">Stuff · Combat Sports · 2018</span><span class="archive-title">Bowyn Morgan taps into Crusaders expertise</span></span><span class="archive-open">Open</span></a>
+          <a class="archive-item" data-link="pressNMITCrusaders" href="#" target="_blank" rel="noopener"><span><span class="archive-meta">NMIT · Profile · 2018</span><span class="archive-title">Coaching the Crusaders</span></span><span class="archive-open">Open</span></a>
+          <a class="archive-item" data-link="pressCatapultLoads" href="#" target="_blank" rel="noopener"><span><span class="archive-meta">Catapult · Performance · 2018</span><span class="archive-title">Using Catapult to manage individual and team loads</span></span><span class="archive-open">Open</span></a>
+          <a class="archive-item" data-link="pressCatapultROI" href="#" target="_blank" rel="noopener"><span><span class="archive-meta">Catapult · Performance · 2018</span><span class="archive-title">Generating ROI in the Front Office</span></span><span class="archive-open">Open</span></a>
+          <a class="archive-item" data-link="pressCONQACrusaders" href="#" target="_blank" rel="noopener"><span><span class="archive-meta">CONQA · Interview · 2017</span><span class="archive-title">Maintained Conditioning: How the Crusaders Keep Getting Fitter</span></span><span class="archive-open">Open</span></a>
+          <a class="archive-item" data-link="pressCanterburyIA" href="#" target="_blank" rel="noopener"><span><span class="archive-meta">Industrial Athletic · Archive</span><span class="archive-title">Canterbury Rugby Football Union</span></span><span class="archive-open">Open</span></a>
+          <a class="archive-item" data-link="pressTasmanInterview" href="#" target="_blank" rel="noopener"><span><span class="archive-meta">Getstrength · Early Career</span><span class="archive-title">Interview with Simon Thomas: Tasman Makos and Tasman Rugby Academy</span></span><span class="archive-open">Open</span></a>
+        </div>
+      </details>
     </div>
 
-    <h3 class="media-group">Spotify conversations</h3>
-
-    <div class="platform-heading">
-      <svg viewBox="0 0 24 24" role="img" aria-label="Spotify">
-        <path fill="#1DB954" d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0Zm5.488 17.312a.747.747 0 0 1-1.027.249c-2.812-1.719-6.353-2.107-10.52-1.155a.748.748 0 1 1-.333-1.458c4.56-1.042 8.475-.593 11.632 1.336a.748.748 0 0 1 .248 1.028Zm1.469-3.268a.936.936 0 0 1-1.287.308c-3.219-1.978-8.126-2.551-11.934-1.396a.936.936 0 1 1-.543-1.791c4.355-1.32 9.763-.682 13.456 1.587a.936.936 0 0 1 .308 1.292Zm.126-3.403C15.223 8.349 8.854 8.116 5.169 9.23a1.123 1.123 0 1 1-.651-2.149c4.229-1.282 11.263-1.008 15.718 1.637a1.123 1.123 0 0 1-1.153 1.923Z"/>
-      </svg>
-      <span>Spotify</span>
+    <div class="archive-panel" id="archive-podcasts" role="tabpanel" data-archive-panel="podcasts" hidden>
+      <div class="archive-grid">
+        <a class="archive-item" data-link="mediaBehaviourGap" href="#" target="_blank" rel="noopener"><span><span class="archive-meta">The Behaviour Gap · 2026</span><span class="archive-title">Culture That Sticks, Roles That Scale and Building Teams That Keep Winning</span></span><span class="archive-open">Listen</span></a>
+        <a class="archive-item" data-link="mediaWellSport" href="#" target="_blank" rel="noopener"><span><span class="archive-meta">The WellSport Podcast · 2025</span><span class="archive-title">Boston Red Sox Physical Performance Coordinator: Simon Thomas</span></span><span class="archive-open">Listen</span></a>
+        <a class="archive-item" data-link="mediaScottyIzzy" href="#" target="_blank" rel="noopener"><span><span class="archive-meta">Scotty and Izzy · 2025</span><span class="archive-title">From the Crusaders to the Red Sox</span></span><span class="archive-open">Listen</span></a>
+        <a class="archive-item" data-link="mediaSweetScience" href="#" target="_blank" rel="noopener"><span><span class="archive-meta">Sweet Science of Fighting · 2025</span><span class="archive-title">S&amp;C Lessons From The Most Winningest Teams</span></span><span class="archive-open">Watch</span></a>
+        <a class="archive-item" data-link="mediaJointDynamicsMain" href="#" target="_blank" rel="noopener"><span><span class="archive-meta">Joint Dynamics · 2024</span><span class="archive-title">Simon Thomas on Super Rugby strength and conditioning</span></span><span class="archive-open">Listen</span></a>
+        <a class="archive-item" data-link="mediaEliteTeamTalks" href="#" target="_blank" rel="noopener"><span><span class="archive-meta">Elite Team Talks · 2024</span><span class="archive-title">How To Create A High Performance Culture</span></span><span class="archive-open">Watch</span></a>
+        <a class="archive-item" data-link="mediaPrepareLikePro" href="#" target="_blank" rel="noopener"><span><span class="archive-meta">Prepare Like A Pro · 2023</span><span class="archive-title">Simon Thomas, Head of High Performance at Western Force</span></span><span class="archive-open">Watch</span></a>
+        <a class="archive-item" data-link="mediaHoriesPerformanceCoach" href="#" target="_blank" rel="noopener"><span><span class="archive-meta">Hories Tell Stories · 2023</span><span class="archive-title">Simon Thomas: Performance Coach</span></span><span class="archive-open">Watch</span></a>
+        <a class="archive-item" data-link="mediaPacey2022" href="#" target="_blank" rel="noopener"><span><span class="archive-meta">Pacey Performance Podcast · 2022</span><span class="archive-title">Using military preseason camps for the right reasons</span></span><span class="archive-open">Listen</span></a>
+        <a class="archive-item" data-link="mediaNoWeakLinks" href="#" target="_blank" rel="noopener"><span><span class="archive-meta">No Weak Links · 2022</span><span class="archive-title">Quantifying and Training for Contact</span></span><span class="archive-open">Listen</span></a>
+        <a class="archive-item" data-link="mediaPacey2017" href="#" target="_blank" rel="noopener"><span><span class="archive-meta">Pacey Performance Podcast · 2017</span><span class="archive-title">Periodisation across different parts of the season in rugby union</span></span><span class="archive-open">Listen</span></a>
+        <a class="archive-item" data-link="mediaRugbyCoachesCorner" href="#" target="_blank" rel="noopener"><span><span class="archive-meta">The Rugby Coach's Corner · 2017</span><span class="archive-title">Simon Thomas, BNZ Crusaders Performance Coach</span></span><span class="archive-open">Listen</span></a>
+      </div>
     </div>
 
-    <div class="media-grid media-grid-spotify">
-
-    <a class="press-row" data-link="mediaBehaviourGap" href="#" target="_blank" rel="noopener">
-      <div>
-        <span class="meta">The Behaviour Gap · Podcast · 2026</span>
-        <h3>Culture That Sticks, Roles That Scale and Building Teams That Keep Winning</h3>
-        <p>A long form conversation about building sustainable teams through clear roles, practical systems and culture that can survive leadership change. The discussion traces lessons from provincial rugby and four Crusaders championships through to talent development work in professional baseball.</p>
+    <div class="archive-panel" id="archive-speaking" role="tabpanel" data-archive-panel="speaking" hidden>
+      <div class="archive-grid">
+        <a class="archive-item" data-link="speakCongresoPunta" href="#" target="_blank" rel="noopener"><span><span class="archive-meta">Congreso de Punta · 2020</span><span class="archive-title">Los Secretos de Nueva Zelanda en el Entrenamiento de Rugby, with Shaun Owen</span></span><span class="archive-open">View</span></a>
+        <a class="archive-item" data-link="speakSESNZ" href="#" target="_blank" rel="noopener"><span><span class="archive-meta">SESNZ Annual Conference · 2020</span><span class="archive-title">The Art and Science of Coaching, with Scott Robertson</span></span><span class="archive-open">View</span></a>
+        <a class="archive-item" data-link="speakSESNZBooklet" href="#" target="_blank" rel="noopener"><span><span class="archive-meta">SESNZ Annual Conference · 2020</span><span class="archive-title">Developing a Successful S&amp;C Environment</span></span><span class="archive-open">View</span></a>
+        <a class="archive-item" data-link="speakEstadioObras" href="#" target="_blank" rel="noopener"><span><span class="archive-meta">Estadio Obras, Buenos Aires · 2019</span><span class="archive-title">Professional Development Seminar in Physical Preparation for Rugby</span></span><span class="archive-open">Source</span></a>
+        <a class="archive-item" data-link="speakChileRugby" href="#" target="_blank" rel="noopener"><span><span class="archive-meta">Chile Rugby, Santiago · 2018</span><span class="archive-title">High Performance and Physical Preparation Seminar</span></span><span class="archive-open">View</span></a>
+        <a class="archive-item" data-link="speakUNAB" href="#" target="_blank" rel="noopener"><span><span class="archive-meta">Universidad Andrés Bello, Chile · 2018</span><span class="archive-title">Primer Curso de Preparación Física para Rugby</span></span><span class="archive-open">View</span></a>
+        <a class="archive-item" data-link="speakOlivos" href="#" target="_blank" rel="noopener"><span><span class="archive-meta">Olivos Rugby Club, Argentina · 2015</span><span class="archive-title">Rugby Workshop</span></span><span class="archive-open">Source</span></a>
       </div>
-      <span class="read">Listen</span>
-    </a>
-
-    <a class="press-row" data-link="mediaScottyIzzy" href="#" target="_blank" rel="noopener">
-      <div>
-        <span class="meta">Scotty and Izzy · Podcast · 2025</span>
-        <h3>From the Crusaders to the Red Sox</h3>
-        <p>A concise conversation about moving from professional rugby into Major League Baseball and beginning a new role within the Boston Red Sox player development system.</p>
-      </div>
-      <span class="read">Listen</span>
-    </a>
-
     </div>
 
-    <h3 class="media-group">Podcast appearances</h3>
-
-    <div class="platform-heading">
-      <svg viewBox="0 0 24 24" role="img" aria-label="YouTube">
-        <path fill="#FF0000" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.017 3.017 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.016 3.016 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"/>
-        <path fill="#FFFFFF" d="m9.545 15.568 6.273-3.568-6.273-3.568z"/>
-      </svg>
-      <span>YouTube</span>
-    </div>
-
-    <div class="media-grid media-grid-youtube">
-
-    <a class="press-row has-thumb" data-link="mediaSweetScience" href="#" target="_blank" rel="noopener">
-      <img class="media-thumb" loading="lazy" decoding="async" src="https://i.ytimg.com/vi/LSOymLGVIx4/hqdefault.jpg" alt="">
-      <div>
-        <span class="meta">Sweet Science of Fighting · Podcast · 2025</span>
-        <h3>Lessons From the Most Successful Teams</h3>
-        <p>A discussion about strength and conditioning, staff development and the systems behind sustained success, drawing on experience across championship rugby environments and combat sports.</p>
+    <div class="archive-panel" id="archive-research" role="tabpanel" data-archive-panel="research" hidden>
+      <div class="archive-grid">
+        <a class="archive-item" data-link="researchConcussion" href="#" target="_blank" rel="noopener"><span><span class="archive-meta">International Journal of Sports Physiology and Performance · 2025</span><span class="archive-title">Sleep Architecture Immediately After a Sport Related Concussion Sustained During a Professional Rugby Union Match</span></span><span class="archive-open">PubMed</span></a>
+        <a class="archive-item" data-link="researchHeavyHitters" href="#" target="_blank" rel="noopener"><span><span class="archive-meta">European Journal of Sport Science · 2025</span><span class="archive-title">Heavy Hitters, Light Sleepers</span></span><span class="archive-open">PubMed</span></a>
+        <a class="archive-item" data-link="researchSleepTravel" href="#" target="_blank" rel="noopener"><span><span class="archive-meta">Journal of Sports Sciences · 2025</span><span class="archive-title">Sleep Architecture Is Altered With Travel and Matches in Professional Rugby Union Players</span></span><span class="archive-open">PubMed</span></a>
+        <a class="archive-item" data-link="researchTravel" href="#" target="_blank" rel="noopener"><span><span class="archive-meta">International Journal of Sports Physiology and Performance · 2025</span><span class="archive-title">Immediate Effects of Overnight Long Haul Travel on Physical and Cognitive Performance and Sleep in Professional Male Rugby Union Players</span></span><span class="archive-open">PubMed</span></a>
       </div>
-      <span class="read">Watch</span>
-    </a>
-
-    <a class="press-row has-thumb" data-link="mediaEliteTeamTalks" href="#" target="_blank" rel="noopener">
-      <img class="media-thumb" loading="lazy" decoding="async" src="https://i.ytimg.com/vi/bekT1tUCdQI/hqdefault.jpg" alt="">
-      <div>
-        <span class="meta">Elite Team Talks · Podcast · 2024</span>
-        <h3>How to Create a High Performance Culture</h3>
-        <p>A conversation about the practical work behind high performance culture, shaped by experience with the Crusaders, the Maori All Blacks and other elite sporting environments.</p>
-      </div>
-      <span class="read">Watch</span>
-    </a>
-
-    <a class="press-row has-thumb" data-link="mediaJointDynamicsSustainability" href="#" target="_blank" rel="noopener">
-      <img class="media-thumb" loading="lazy" decoding="async" src="https://i.ytimg.com/vi/jlwZr1pcxkA/hqdefault.jpg" alt="">
-      <div>
-        <span class="meta">Joint Dynamics · Podcast · 2024</span>
-        <h3>Personal Sustainability When Your Profession Is Your Passion</h3>
-        <p>Reflections on managing energy, maintaining perspective and staying effective when professional identity, personal passion and the demands of elite sport become closely connected.</p>
-      </div>
-      <span class="read">Watch</span>
-    </a>
-
-    <a class="press-row has-thumb" data-link="mediaJointDynamicsCulture" href="#" target="_blank" rel="noopener">
-      <img class="media-thumb" loading="lazy" decoding="async" src="https://i.ytimg.com/vi/iOPJzpxtSes/hqdefault.jpg" alt="">
-      <div>
-        <span class="meta">Joint Dynamics · Podcast · 2024</span>
-        <h3>Winning Culture at the Crusaders</h3>
-        <p>A focused discussion about repeated success at the Crusaders and the habits, relationships and shared standards that helped turn culture into daily practice.</p>
-      </div>
-      <span class="read">Watch</span>
-    </a>
-
-    <a class="press-row has-thumb" data-link="mediaPrepareLikePro" href="#" target="_blank" rel="noopener">
-      <img class="media-thumb" loading="lazy" decoding="async" src="https://i.ytimg.com/vi/JMQwYOiaz3I/hqdefault.jpg" alt="">
-      <div>
-        <span class="meta">Prepare Like a Pro · Podcast · 2023</span>
-        <h3>Creating a Culture of Excellence</h3>
-        <p>A live conversation about practical strategies for high performance, including leadership, preparation and the conditions that allow individuals and teams to perform consistently.</p>
-      </div>
-      <span class="read">Watch</span>
-    </a>
-
-    <a class="press-row has-thumb" data-link="mediaHoriesPerformanceCoach" href="#" target="_blank" rel="noopener">
-      <img class="media-thumb" loading="lazy" decoding="async" src="https://i.ytimg.com/vi/wvx7F6ClJFc/hqdefault.jpg" alt="">
-      <div>
-        <span class="meta">Hories Tell Stories · Podcast · 2023</span>
-        <h3>Simon Thomas: Performance Coach</h3>
-        <p>A wider conversation about the path through Tasman rugby and the Crusaders, the development of a performance coaching career and the lessons collected inside successful environments.</p>
-      </div>
-      <span class="read">Watch</span>
-    </a>
-
-    <a class="press-row has-thumb" data-link="mediaPaceyMilitary" href="#" target="_blank" rel="noopener">
-      <img class="media-thumb" loading="lazy" decoding="async" src="https://i.ytimg.com/vi/vHicMzGiQ-M/hqdefault.jpg" alt="">
-      <div>
-        <span class="meta">Pacey Performance Podcast · 2022</span>
-        <h3>Using Military Preseason Camps for the Right Reasons</h3>
-        <p>A practical examination of military style preseason camps, why context and purpose matter and how demanding experiences can be designed without confusing hardship with development.</p>
-      </div>
-      <span class="read">Watch</span>
-    </a>
-
     </div>
 
     <div class="notice">Workbooks and e-books that accompany these frameworks are available on the <a href="resources.html">Resources page</a>.</div>
