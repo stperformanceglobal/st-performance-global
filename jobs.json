@@ -542,6 +542,24 @@
    "setting": "pro"
   },
   {
+   "id": "us-suns-bds",
+   "title": "Basketball Data Scientist",
+   "org": "Phoenix Suns",
+   "sport": "Basketball (NBA)",
+   "region": "US",
+   "location": "Phoenix AZ",
+   "salary": "",
+   "closes": null,
+   "added": "2026-10-11",
+   "url": "https://www.teamworkonline.com/basketball-jobs/phoenix-suns/phoenix-suns/basketball-data-scientist-phoenix-suns-2181513",
+   "source": "TeamWork Online",
+   "note": "Basketball operations data role. Listed about two months ago with no closing date, so check the ad before applying.",
+   "country": "US",
+   "level": "prac",
+   "discipline": "science",
+   "setting": "pro"
+  },
+  {
    "id": "us-nats-dpd",
    "title": "Director, Physical Development",
    "org": "Washington Nationals",
