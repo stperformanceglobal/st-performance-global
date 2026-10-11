@@ -985,7 +985,7 @@
    "region": "US",
    "name": "NSCA Job Board",
    "url": "https://nsca.com/professional-development/nsca-job-board",
-   "desc": "Strength and conditioning roles from the NSCA."
+   "desc": "National Strength and Conditioning Association board. Mostly gyms and private roles, with some team and university posts."
   },
   {
    "region": "US",
@@ -1028,6 +1028,12 @@
    "name": "Strength Coach Job Network",
    "url": "https://talent.strengthcoachjobnetwork.com/job-board",
    "desc": "Strength and conditioning and sports performance jobs. Mixes professional sport with college and private roles, so filter to the pro level."
+  },
+  {
+   "region": "ALL",
+   "name": "SimpliFaster Job Board",
+   "url": "https://jobboard.simplifaster.com/",
+   "desc": "Strength and conditioning and sports performance roles from the SimpliFaster community. Mixed sectors, so filter to professional sport."
   },
   {
    "region": "ALL",
