@@ -252,6 +252,8 @@ footer .legal { margin-top: 42px; padding-top: 20px; border-top: 1px solid var(-
 .chip{border:1px solid var(--chip);background:transparent;color:var(--white);padding:7px 13px;font:600 .8rem "Archivo",sans-serif;cursor:pointer;display:inline-flex;gap:8px;align-items:center}
 .chip:hover{border-color:var(--gold)}
 .chip[aria-pressed=true]{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+.bar .row>.row{flex:1 1 0;min-width:0}
+.chip svg.si{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:none}
 .chip small{font-weight:700;color:var(--silver);font-size:.7rem}
 .chip[aria-pressed=true] small{color:var(--ink)}
 .sw{width:11px;height:11px;display:inline-block;border:1px solid rgba(255,255,255,.35)}
@@ -375,11 +377,11 @@ nav.primary a.nav-cta.here{background:var(--gold);color:var(--ink)}
   <div class="bar" id="bar">
    <div class="row"><span class="lab">Setting</span><span id="f-setting" class="row"></span></div>
    <div class="row"><span class="lab">Region</span><span id="f-region" class="row"></span></div>
+   <div class="row"><span class="lab">Sport</span><span id="f-sport" class="row"></span></div>
    <div class="row"><span class="lab">Discipline</span><span id="f-disc" class="row"></span></div>
    <div class="tools">
     <input type="search" id="q" placeholder="Search title, club or sport" aria-label="Search roles">
-    <select id="sport" aria-label="Sport"></select>
-    <select id="sort" aria-label="Sort" title="Salaries in other currencies are compared as approximate Australian dollars. Roles with no stated salary come last."><option value="close">Sort: closing date, soonest first</option><option value="pay">Sort: salary, highest first</option></select>
+    <select id="sort" aria-label="Sort" title="Sorted by the salary figure as stated, in any currency. Roles with no stated salary come last."><option value="close">Sort: closing date, soonest first</option><option value="pay">Sort: salary, highest first</option></select>
     <label><input type="checkbox" id="paid"> Salary stated</label>
     <label><input type="checkbox" id="soon"> Closing within 7 days</label>
    </div>
@@ -490,12 +492,12 @@ function match(j,skip){
  if(skip!=='setting'&&S.setting&&j.setting!==S.setting)return false;
  if(skip!=='region'&&S.region&&j.region!==S.region)return false;
  if(skip!=='disc'&&S.disc&&j.discipline!==S.disc)return false;
- if(S.sport&&j.sport!==S.sport)return false;
+ if(skip!=='sport'&&S.sport&&j.sport!==S.sport)return false;
  if(S.paid&&!j.salary)return false;
  if(S.soon){var d=days(j);if(d===null||d>7)return false}
  if(S.q){var h=(j.title+' '+j.org+' '+j.sport+' '+j.location).toLowerCase();if(h.indexOf(S.q.toLowerCase())<0)return false}
  return true}
-function count(k,v){var n=0;D.jobs.forEach(function(j){var f={level:j.level,setting:j.setting,region:j.region,disc:j.discipline}[k];if(f===v&&match(j,k))n++});return n}
+function count(k,v){var n=0;D.jobs.forEach(function(j){var f={level:j.level,setting:j.setting,region:j.region,disc:j.discipline,sport:j.sport}[k];if(f===v&&match(j,k))n++});return n}
 function chip(k,v,label,extra){return '<button type="button" class="chip" data-k="'+k+'" data-v="'+esc(v)+'" aria-pressed="'+(S[k]===v)+'">'+(extra||'')+esc(label)+' <small>'+count(k,v)+'</small></button>'}
 function stats(){
  var L=D.jobs.filter(live),w=L.filter(function(j){var d=days(j);return d!==null&&d<=7}).length,n=L.filter(isNew).length;
@@ -508,13 +510,25 @@ function filters(){
  $('f-setting').innerHTML=SETTINGS.map(function(s){return chip('setting',s[0],s[1],'<span class="sw" style="background:'+s[2]+'"></span>')}).join('');
  $('f-region').innerHTML=REGIONS.map(function(r){return chip('region',r[0],r[1],'<svg width="20" height="10" style="border:1px solid rgba(255,255,255,.3)" aria-hidden="true"><use href="#f-'+r[0]+'"/></svg>')}).join('');
  $('f-disc').innerHTML=DISC.map(function(d){return chip('disc',d[0],d[1])}).join('');
- var sp={};D.jobs.forEach(function(j){if(live(j))sp[j.sport]=(sp[j.sport]||0)+1});
- SPORTS_FIXED.forEach(function(k){if(!(k in sp))sp[k]=0});
- var keys=Object.keys(sp).sort();
- $('sport').innerHTML='<option value="">All sports</option>'+keys.map(function(k){return '<option value="'+esc(k)+'"'+(S.sport===k?' selected':'')+'>'+esc(k)+' ('+sp[k]+')</option>'}).join('')}
+ var sp={};D.jobs.forEach(function(j){if(live(j))sp[j.sport]=1});
+ SPORTS_FIXED.forEach(function(k){sp[k]=1});
+ var rest=Object.keys(sp).filter(function(k){return SPORTS_FIXED.indexOf(k)<0}).sort();
+ $('f-sport').innerHTML=SPORTS_FIXED.concat(rest).sort().map(function(k){return chip('sport',k,k,sportIcon(k))}).join('')}
+var ICONS={
+ 'American football (NFL)':'<ellipse cx="12" cy="12" rx="10" ry="6" transform="rotate(-35 12 12)"/><path d="M9.5 14.5l5-5M11 11l1.5 1.5M13 9.5l1.5 1.5M9 13l1.5 1.5"/>',
+ 'Basketball (NBA and WNBA)':'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3v18M5.6 5.6c3.5 3.5 3.5 9.3 0 12.8M18.4 5.6c-3.5 3.5-3.5 9.3 0 12.8"/>',
+ 'Football (soccer)':'<circle cx="12" cy="12" r="9"/><path d="M12 8.5l3 2.2-1.1 3.5h-3.8L9 10.7zM12 8.5V3.2M15 10.7l5-1.6M13.9 14.2l3.2 4.2M10.1 14.2l-3.2 4.2M9 10.7l-5-1.6"/>',
+ 'Ice hockey (NHL)':'<ellipse cx="12" cy="9" rx="8" ry="3.5"/><path d="M4 9v6c0 1.9 3.6 3.5 8 3.5s8-1.6 8-3.5V9"/>',
+ 'Baseball':'<circle cx="12" cy="12" r="9"/><path d="M6 5.5c2.5 2.5 2.5 10.5 0 13M18 5.5c-2.5 2.5-2.5 10.5 0 13"/>',
+ 'Cricket':'<path d="M15 3l5 5-8.5 8.5-5-5z"/><path d="M6.5 11.5L3 15"/><circle cx="17.5" cy="18" r="2.5"/>',
+ 'Rugby league (NRL, NRLW and UK)':'<ellipse cx="12" cy="12" rx="10" ry="6" transform="rotate(-35 12 12)"/><path d="M8.5 15.5l7-7"/>',
+ 'Rugby union':'<ellipse cx="12" cy="12" rx="10" ry="6" transform="rotate(-35 12 12)"/><path d="M8.5 15.5l7-7M10 10.5l3 3M12.5 8.5l2.5 2.5M9 13l2.5 2.5"/>',
+ 'Australian rules (AFL and AFLW)':'<ellipse cx="12" cy="12" rx="10" ry="6.5" transform="rotate(-50 12 12)"/><path d="M8 9l7 7M10.5 6.5l7 7M5.5 11.5l7 7"/>',
+ 'Olympic and institute':'<circle cx="12" cy="13" r="7"/><path d="M12 13V9M10 3h4M12 3v3"/>',
+ 'Sport technology':'<rect x="7" y="6" width="10" height="12" rx="3"/><path d="M9 6l1-3h4l1 3M9 18l1 3h4l1-3M12 10v2.5l1.5 1"/>'};
+function sportIcon(k){return '<svg class="si" viewBox="0 0 24 24" aria-hidden="true">'+(ICONS[k]||'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/>')+'</svg>'}
 function cl(j){var d=days(j);return d===null?9999:d}
-var FX={AUD:1,NZD:.92,USD:1.5,GBP:1.95,EUR:1.65};
-function salVal(j){var s=j.salary||'';if(!s)return 0;var m=s.match(/(AUD|NZD|USD|GBP|EUR)/);var fx=FX[m?m[1]:'AUD']||1;
+function salVal(j){var s=j.salary||'';if(!s)return 0;var m=s.match(/(AUD|NZD|USD|GBP|EUR)/);var fx=1;
  var nums=(s.replace(/,/g,'').match(/\d+(?:\.\d+)?\s*k?/gi)||[]).map(function(x){var k=/k/i.test(x);var n=parseFloat(x);return k?n*1000:n}).filter(function(n){return n>0});
  if(!nums.length)return 0;var top=Math.max.apply(null,nums);if(/per day/i.test(s))top*=230;return top*fx}
 function cmp(a,b){
@@ -557,7 +571,6 @@ document.addEventListener('click',function(e){
  S[k]=S[k]===v?'':v;render();
  if(k==='level'){var o=$('bar');if(o&&o.scrollIntoView)o.scrollIntoView({block:'nearest',behavior:'smooth'})}});
 $('q').addEventListener('input',function(e){S.q=e.target.value.trim();render()});
-$('sport').addEventListener('change',function(e){S.sport=e.target.value;render()});
 $('sort').addEventListener('change',function(e){S.sort=e.target.value==='pay'?'pay':'close';render()});
 $('paid').addEventListener('change',function(e){S.paid=e.target.checked;render()});
 $('soon').addEventListener('change',function(e){S.soon=e.target.checked;render()});
