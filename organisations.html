@@ -145,7 +145,10 @@ header.site {
   color: var(--gold); font-size: 0.55rem; letter-spacing: 0.22em;
   text-transform: uppercase; font-weight: 600; white-space: nowrap;
 }
-nav.primary { display: flex; align-items: center; gap: 20px; }
+nav.primary { display: flex; align-items: center; gap: 18px; }
+nav.primary a { white-space: nowrap; }
+.nav-inner { max-width: 1280px; }
+nav.primary a.nav-cta { padding: 10px 16px; }
 nav.primary a {
   color: var(--white); text-decoration: none; font-size: 0.75rem;
   font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase;
@@ -154,7 +157,7 @@ nav.primary a {
 nav.primary a:hover, nav.primary a:focus-visible { color: var(--gold-hi); }
 nav.primary a.active { border-bottom-color: var(--gold); color: var(--gold-hi); }
 nav.primary a.nav-cta {
-  border: 1px solid var(--gold); padding: 10px 20px; color: var(--gold-hi);
+  border: 1px solid var(--gold); padding: 10px 16px; color: var(--gold-hi);
 }
 nav.primary a.nav-cta:hover { background: var(--gold); color: var(--ink); }
 
@@ -163,7 +166,7 @@ nav.primary a.nav-cta:hover { background: var(--gold); color: var(--ink); }
   color: var(--white); padding: 8px 14px; font-family: "Archivo", sans-serif;
   letter-spacing: 0.14em; text-transform: uppercase; font-size: 0.72rem; cursor: pointer;
 }
-@media (max-width: 1100px) {
+@media (max-width: 1290px) {
   .menu-toggle { display: block; }
   nav.primary {
     display: none; position: absolute; top: 72px; left: 0; right: 0;
@@ -1253,6 +1256,7 @@ document.addEventListener("DOMContentLoaded", function () {
       <a href="about.html">About</a>
       <a href="story.html">Story</a>
       <a href="contact.html">Contact</a>
+      <a class="nav-cta" href="jobs.html">Job Board</a>
       <a class="nav-cta" data-link="booking" href="#" target="_blank" rel="noopener">Book a Call</a>
     </nav>
   </div>
@@ -1540,6 +1544,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <a href="organisations.html">Organisations</a>
         <a href="articles.html">Articles</a>
         <a href="resources.html">Resources</a>
+        <a href="jobs.html">Job Board</a>
         <a href="https://billing.stripe.com/p/login/bJebJ31x6gn7cp43PUdZ600" target="_blank" rel="noopener">Manage Stripe subscription</a>
       </div>
       <div>
