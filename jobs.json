@@ -591,7 +591,7 @@
    "source": "Strava careers",
    "note": "",
    "country": "US",
-   "level": "single",
+   "level": "ind",
    "discipline": "science",
    "setting": "ind"
   },
@@ -968,6 +968,18 @@
    "name": "Jobs in Football",
    "url": "https://jobsinfootball.com/jobs/",
    "desc": "Football roles worldwide with sport science and S&C filters."
+  },
+  {
+   "region": "ALL",
+   "name": "LinkedIn: strength and conditioning",
+   "url": "https://www.linkedin.com/jobs/search/?keywords=strength%20and%20conditioning%20coach",
+   "desc": "Saved search for S&C vacancies. Many clubs post here and on their own pages first."
+  },
+  {
+   "region": "ALL",
+   "name": "LinkedIn: head of performance",
+   "url": "https://www.linkedin.com/jobs/search/?keywords=head%20of%20high%20performance",
+   "desc": "Saved search for department leadership and head of performance roles."
   },
   {
    "region": "ALL",
