@@ -385,6 +385,7 @@ nav.primary a.nav-cta.here{background:var(--gold);color:var(--ink)}
     <select id="sort" aria-label="Sort" title="Sorted by the salary figure as stated, in any currency. Roles with no stated salary come last."><option value="close">Sort: closing date, soonest first</option><option value="pay">Sort: salary, highest first</option></select>
     <label><input type="checkbox" id="paid"> Salary stated</label>
     <label><input type="checkbox" id="soon"> Closing within 7 days</label>
+    <label><input type="checkbox" id="fresh"> New in last 3 days</label>
    </div>
   </div>
   <div class="legend" aria-label="Key">
@@ -476,13 +477,14 @@ var BREG=[['ALL','All regions'],['AU','Australia'],['NZ','New Zealand'],['US','U
 var SPORT_ALIAS={'AFL':'Australian rules (AFL and AFLW)','AFLW':'Australian rules (AFL and AFLW)','AFL (Australian rules)':'Australian rules (AFL and AFLW)','NRL':'Rugby league (NRL, NRLW and UK)','NRLW':'Rugby league (NRL, NRLW and UK)','Rugby league':'Rugby league (NRL, NRLW and UK)','Super League':'Rugby league (NRL, NRLW and UK)','Basketball (NBA)':'Basketball (NBA and WNBA)','NBA':'Basketball (NBA and WNBA)','WNBA':'Basketball (NBA and WNBA)','NFL':'American football (NFL)','NHL':'Ice hockey (NHL)','Soccer':'Football (soccer)'};
 function norm(x){(x.jobs||[]).forEach(function(j){if(SPORT_ALIAS[j.sport])j.sport=SPORT_ALIAS[j.sport]});return x}
 var D=norm(JSON.parse(document.getElementById('seed').textContent));
-var S={level:'',setting:'',region:'',disc:'',sport:'',q:'',sort:'close',paid:false,soon:false,breg:'ALL'};
+var S={level:'',setting:'',region:'',disc:'',sport:'',q:'',sort:'close',paid:false,soon:false,fresh:false,breg:'ALL'};
 var $=function(i){return document.getElementById(i)};
 function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]})}
 function today(){var d=new Date();return new Date(d.getFullYear(),d.getMonth(),d.getDate())}
 function parse(s){if(!s)return null;var p=s.split('-');return new Date(+p[0],+p[1]-1,+p[2])}
 function days(j){var c=parse(j.closes);return c?Math.round((c-today())/86400000):null}
 function live(j){var d=days(j);return d===null||d>=0}
+function recent(j){var a=parse(j.added);return !!a&&Math.round((today()-a)/86400000)<=3}
 function isNew(j){var a=parse(j.added);return a&&Math.round((today()-a)/86400000)<=1}
 function fmt(s){return parse(s).toLocaleDateString('en-AU',{day:'numeric',month:'short'})}
 function name(arr,k,i){for(var n=0;n<arr.length;n++)if(arr[n][0]===k)return arr[n][i||1];return k}
@@ -495,6 +497,7 @@ function match(j,skip){
  if(skip!=='sport'&&S.sport&&j.sport!==S.sport)return false;
  if(S.paid&&!j.salary)return false;
  if(S.soon){var d=days(j);if(d===null||d>7)return false}
+ if(S.fresh&&!recent(j))return false
  if(S.q){var h=(j.title+' '+j.org+' '+j.sport+' '+j.location).toLowerCase();if(h.indexOf(S.q.toLowerCase())<0)return false}
  return true}
 function count(k,v){var n=0;D.jobs.forEach(function(j){var f={level:j.level,setting:j.setting,region:j.region,disc:j.discipline,sport:j.sport}[k];if(f===v&&match(j,k))n++});return n}
@@ -559,15 +562,15 @@ function render(){
   var g=list.filter(function(j){return j.level===l[0]});
   h+='<div class="lvh"><h3>'+esc(l[1])+'</h3><span>'+esc(l[2])+'</span><em>'+g.length+'</em></div>';
   if(g.length)h+='<div class="grid">'+g.map(tile).join('')+'</div>';
-  else if(l[0]==='exec'&&!S.region&&!S.disc&&!S.setting&&!S.q&&!S.paid&&!S.soon&&!S.sport)h+='<div class="empty">No executive roles are advertised publicly right now. Roles at this level are usually filled off-market. If you are hiring or exploring a move at this level <a href="contact.html">start a conversation with ST Performance</a>.</div>';
+  else if(l[0]==='exec'&&!S.region&&!S.disc&&!S.setting&&!S.q&&!S.paid&&!S.soon&&!S.fresh&&!S.sport)h+='<div class="empty">No executive roles are advertised publicly right now. Roles at this level are usually filled off-market. If you are hiring or exploring a move at this level <a href="contact.html">start a conversation with ST Performance</a>.</div>';
   else h+='<div class="empty">No roles match the current filters at this level.</div>'});
  $('out').innerHTML=h;boards();writeHash()}
 function boards(){
  $('b-region').innerHTML=BREG.filter(function(r){return r[0]==='ALL'||(D.boards||[]).some(function(x){return x.region===r[0]})}).map(function(r){return '<button type="button" class="chip" data-k="breg" data-v="'+r[0]+'" aria-pressed="'+(S.breg===r[0])+'">'+r[1]+'</button>'}).join('');
  var b=(D.boards||[]).filter(function(x){return S.breg==='ALL'||x.region===S.breg||x.region==='ALL'});
  $('b-out').innerHTML=b.map(function(x){return '<a class="bd" href="'+esc(x.url)+'" target="_blank" rel="noopener noreferrer"><i>'+(x.region==='ALL'?'GLOBAL':esc(name(REGIONS,x.region)).toUpperCase())+'</i><b>'+esc(x.name)+'</b><p>'+esc(x.desc)+'</p><u>Open board</u></a>'}).join('')}
-function writeHash(){var p=[];['level','setting','region','disc','sport','q'].forEach(function(k){if(S[k])p.push(k+'='+encodeURIComponent(S[k]))});if(S.sort!=='close')p.push('sort='+S.sort);if(S.paid)p.push('paid=1');if(S.soon)p.push('soon=1');try{history.replaceState(null,'',p.length?'#'+p.join('&'):location.pathname+location.search)}catch(e){}}
-function readHash(){var h=location.hash.replace(/^#/,'');if(h.indexOf('=')<0)return;h.split('&').forEach(function(kv){var a=kv.split('='),k=a[0],v=decodeURIComponent(a[1]||'');if(k in S){if(k==='paid'||k==='soon')S[k]=v==='1';else S[k]=v}})}
+function writeHash(){var p=[];['level','setting','region','disc','sport','q'].forEach(function(k){if(S[k])p.push(k+'='+encodeURIComponent(S[k]))});if(S.sort!=='close')p.push('sort='+S.sort);if(S.paid)p.push('paid=1');if(S.soon)p.push('soon=1');if(S.fresh)p.push('fresh=1');try{history.replaceState(null,'',p.length?'#'+p.join('&'):location.pathname+location.search)}catch(e){}}
+function readHash(){var h=location.hash.replace(/^#/,'');if(h.indexOf('=')<0)return;h.split('&').forEach(function(kv){var a=kv.split('='),k=a[0],v=decodeURIComponent(a[1]||'');if(k in S){if(k==='paid'||k==='soon'||k==='fresh')S[k]=v==='1';else S[k]=v}})}
 document.addEventListener('click',function(e){
  var b=e.target.closest('[data-k]');if(!b)return;var k=b.getAttribute('data-k'),v=b.getAttribute('data-v');
  if(k==='breg'){S.breg=v;boards();return}
@@ -577,7 +580,8 @@ $('q').addEventListener('input',function(e){S.q=e.target.value.trim();render()})
 $('sort').addEventListener('change',function(e){S.sort=e.target.value==='pay'?'pay':'close';render()});
 $('paid').addEventListener('change',function(e){S.paid=e.target.checked;render()});
 $('soon').addEventListener('change',function(e){S.soon=e.target.checked;render()});
-$('clear').addEventListener('click',function(){S.level=S.setting=S.region=S.disc=S.sport=S.q='';S.paid=S.soon=false;S.sort='close';$('q').value='';$('paid').checked=false;$('soon').checked=false;$('sort').value='close';render()});
+$('fresh').addEventListener('change',function(e){S.fresh=e.target.checked;render()});
+$('clear').addEventListener('click',function(){S.level=S.setting=S.region=S.disc=S.sport=S.q='';S.paid=S.soon=S.fresh=false;S.sort='close';$('q').value='';$('paid').checked=false;$('soon').checked=false;$('fresh').checked=false;$('sort').value='close';render()});
 $('refresh').addEventListener('click',function(){load(true)});
 function toast(t){var e=$('toast');e.textContent=t;e.classList.add('on');setTimeout(function(){e.classList.remove('on')},2800)}
 function load(manual){
@@ -585,7 +589,7 @@ function load(manual){
  fetch('jobs.json?ts='+Date.now(),{cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(j){
   if(j&&j.jobs&&j.jobs.length){var ch=j.updated!==D.updated||j.jobs.length!==D.jobs.length;D=norm(j);render();if(manual||ch)toast(ch?'Board updated with the latest roles':'Already up to date')}
  }).catch(function(){if(manual)toast('Could not reach the live feed. Showing the last saved roles.')})}
-readHash();if(S.sort!=='pay')S.sort='close';$('q').value=S.q;$('paid').checked=S.paid;$('soon').checked=S.soon;$('sort').value=S.sort;
+readHash();if(S.sort!=='pay')S.sort='close';$('q').value=S.q;$('paid').checked=S.paid;$('soon').checked=S.soon;$('fresh').checked=S.fresh;$('sort').value=S.sort;
 render();load(false);
 setInterval(function(){load(false)},900000);setInterval(updtxt,60000);
 document.addEventListener('visibilitychange',function(){if(!document.hidden)load(false)});
