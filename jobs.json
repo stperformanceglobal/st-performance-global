@@ -560,6 +560,24 @@
    "setting": "pro"
   },
   {
+   "id": "us-jazz-bds",
+   "title": "Basketball Data Scientist",
+   "org": "Utah Jazz",
+   "sport": "Basketball (NBA)",
+   "region": "US",
+   "location": "Salt Lake City UT (open to remote)",
+   "salary": "",
+   "closes": null,
+   "added": "2026-10-11",
+   "url": "https://recruiting.paylocity.com/Recruiting/Jobs/Details/4550501",
+   "source": "Paylocity",
+   "note": "Basketball operations data role working with scouting, coaching and sports science. No closing date shown, so check the ad before applying.",
+   "country": "US",
+   "level": "prac",
+   "discipline": "science",
+   "setting": "pro"
+  },
+  {
    "id": "us-nats-dpd",
    "title": "Director, Physical Development",
    "org": "Washington Nationals",
