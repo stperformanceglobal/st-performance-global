@@ -574,7 +574,7 @@
    "note": "Band from the Indeed listing.",
    "country": "US",
    "level": "dept",
-   "discipline": "multi",
+   "discipline": "mental",
    "setting": "pro"
   },
   {
@@ -772,7 +772,7 @@
    "note": "",
    "country": "US",
    "level": "dept",
-   "discipline": "multi",
+   "discipline": "mental",
    "setting": "dev"
   },
   {
@@ -950,6 +950,12 @@
    "name": "Jobs in Football",
    "url": "https://jobsinfootball.com/jobs/",
    "desc": "Football roles worldwide with sport science and S&C filters."
+  },
+  {
+   "region": "ALL",
+   "name": "The Mind Room",
+   "url": "https://themindroom.substack.com/",
+   "desc": "Monthly newsletter of sport psychology and mental performance vacancies across the UK and the US and Australia."
   },
   {
    "region": "ALL",
