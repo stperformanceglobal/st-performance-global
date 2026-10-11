@@ -507,7 +507,7 @@ function stats(){
  $('stats').innerHTML=cells.map(function(c){return '<div class="sg-c" role="listitem"><div class="sg-n">'+c[0]+'</div><div class="sg-l">'+c[1]+'</div></div>'}).join('');
  $('stats').style.gridTemplateColumns='repeat('+cells.length+',1fr)';updtxt()}
 function updtxt(){var u=new Date(D.updated);if(isNaN(u))return;var m=Math.max(0,Math.round((Date.now()-u)/60000));var ago=m<2?'just now':m<90?m+' min ago':m<2880?Math.round(m/60)+' hours ago':Math.round(m/1440)+' days ago';$('updtxt').textContent='Board data updated '+u.toLocaleString('en-AU',{day:'numeric',month:'short',hour:'numeric',minute:'2-digit'})+' ('+ago+')'}
-function levels(){$('levels').innerHTML=LEVELS.filter(function(l){return has('level',l[0])}).map(function(l){var n=D.jobs.filter(function(j){return j.level===l[0]&&match(j,'level')}).length;return '<button type="button" class="lv" data-k="level" data-v="'+l[0]+'" aria-pressed="'+(S.level===l[0])+'"><span class="n">'+n+'</span><span class="t">'+esc(l[1])+'</span><span class="lvd">'+esc(l[2])+'</span></button>'}).join('')}
+function levels(){$('levels').innerHTML=LEVELS.map(function(l){var n=D.jobs.filter(function(j){return j.level===l[0]&&match(j,'level')}).length;return '<button type="button" class="lv" data-k="level" data-v="'+l[0]+'" aria-pressed="'+(S.level===l[0])+'"><span class="n">'+n+'</span><span class="t">'+esc(l[1])+'</span><span class="lvd">'+esc(l[2])+'</span></button>'}).join('')}
 function filters(){
  $('f-setting').innerHTML=SETTINGS.filter(function(s){return has('setting',s[0])}).map(function(s){return chip('setting',s[0],s[1],'<span class="sw" style="background:'+s[2]+'"></span>')}).join('');
  $('f-region').innerHTML=REGIONS.filter(function(r){return has('region',r[0])}).map(function(r){return chip('region',r[0],r[1],'<svg width="20" height="10" style="border:1px solid rgba(255,255,255,.3)" aria-hidden="true"><use href="#f-'+r[0]+'"/></svg>')}).join('');
@@ -550,12 +550,11 @@ function tile(j){
  (j.note?'<div class="note">'+esc(j.note)+'</div>':'')+'<div class="gap"></div>'+
  '<div class="go">View ad <span>via '+esc(j.source)+'</span></div></a>'}
 function render(){
- ['level','setting','region','disc','sport'].forEach(function(k){if(S[k]&&!has(k,S[k]))S[k]=''});
+ ['setting','region','disc','sport'].forEach(function(k){if(S[k]&&!has(k,S[k]))S[k]=''});
  stats();levels();filters();
  var list=D.jobs.filter(function(j){return match(j)}).sort(cmp),h='';
  $('count').textContent=list.length+' role'+(list.length===1?'':'s')+' shown of '+D.jobs.filter(live).length+' live';
  LEVELS.forEach(function(l){
-  if(!has('level',l[0]))return;
   if(S.level&&S.level!==l[0])return;
   var g=list.filter(function(j){return j.level===l[0]});
   h+='<div class="lvh"><h3>'+esc(l[1])+'</h3><span>'+esc(l[2])+'</span><em>'+g.length+'</em></div>';
