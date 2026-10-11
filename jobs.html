@@ -379,7 +379,7 @@ nav.primary a.nav-cta.here{background:var(--gold);color:var(--ink)}
    <div class="tools">
     <input type="search" id="q" placeholder="Search title, club or sport" aria-label="Search roles">
     <select id="sport" aria-label="Sport"></select>
-    <select id="sort" aria-label="Sort"><option value="close">Sort: closing soonest</option><option value="new">Sort: newest first</option><option value="pay">Sort: salary stated first</option><option value="org">Sort: club A to Z</option></select>
+    <select id="sort" aria-label="Sort" title="Salaries in other currencies are compared as approximate Australian dollars. Roles with no stated salary come last."><option value="close">Sort: closing date, soonest first</option><option value="pay">Sort: salary, highest first</option></select>
     <label><input type="checkbox" id="paid"> Salary stated</label>
     <label><input type="checkbox" id="soon"> Closing within 7 days</label>
    </div>
@@ -513,10 +513,12 @@ function filters(){
  var keys=Object.keys(sp).sort();
  $('sport').innerHTML='<option value="">All sports</option>'+keys.map(function(k){return '<option value="'+esc(k)+'"'+(S.sport===k?' selected':'')+'>'+esc(k)+' ('+sp[k]+')</option>'}).join('')}
 function cl(j){var d=days(j);return d===null?9999:d}
+var FX={AUD:1,NZD:.92,USD:1.5,GBP:1.95,EUR:1.65};
+function salVal(j){var s=j.salary||'';if(!s)return 0;var m=s.match(/(AUD|NZD|USD|GBP|EUR)/);var fx=FX[m?m[1]:'AUD']||1;
+ var nums=(s.replace(/,/g,'').match(/\d+(?:\.\d+)?\s*k?/gi)||[]).map(function(x){var k=/k/i.test(x);var n=parseFloat(x);return k?n*1000:n}).filter(function(n){return n>0});
+ if(!nums.length)return 0;var top=Math.max.apply(null,nums);if(/per day/i.test(s))top*=230;return top*fx}
 function cmp(a,b){
- if(S.sort==='new')return (b.added||'').localeCompare(a.added||'')||a.org.localeCompare(b.org);
- if(S.sort==='org')return a.org.localeCompare(b.org);
- if(S.sort==='pay')return (b.salary?1:0)-(a.salary?1:0)||cl(a)-cl(b);
+ if(S.sort==='pay'){var x=salVal(a),y=salVal(b);if(!x&&!y)return cl(a)-cl(b);if(!x)return 1;if(!y)return -1;return y-x||cl(a)-cl(b)}
  return cl(a)-cl(b)}
 function light(j){var d=days(j);if(d===null)return ['n','Open, no closing date shown'];
  var cls=d<=3?'r':d<=7?'o':'g';
@@ -556,7 +558,7 @@ document.addEventListener('click',function(e){
  if(k==='level'){var o=$('bar');if(o&&o.scrollIntoView)o.scrollIntoView({block:'nearest',behavior:'smooth'})}});
 $('q').addEventListener('input',function(e){S.q=e.target.value.trim();render()});
 $('sport').addEventListener('change',function(e){S.sport=e.target.value;render()});
-$('sort').addEventListener('change',function(e){S.sort=e.target.value;render()});
+$('sort').addEventListener('change',function(e){S.sort=e.target.value==='pay'?'pay':'close';render()});
 $('paid').addEventListener('change',function(e){S.paid=e.target.checked;render()});
 $('soon').addEventListener('change',function(e){S.soon=e.target.checked;render()});
 $('clear').addEventListener('click',function(){S.level=S.setting=S.region=S.disc=S.sport=S.q='';S.paid=S.soon=false;S.sort='close';$('q').value='';$('paid').checked=false;$('soon').checked=false;$('sort').value='close';render()});
@@ -567,7 +569,7 @@ function load(manual){
  fetch('jobs.json?ts='+Date.now(),{cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(j){
   if(j&&j.jobs&&j.jobs.length){var ch=j.updated!==D.updated||j.jobs.length!==D.jobs.length;D=norm(j);render();if(manual||ch)toast(ch?'Board updated with the latest roles':'Already up to date')}
  }).catch(function(){if(manual)toast('Could not reach the live feed. Showing the last saved roles.')})}
-readHash();$('q').value=S.q;$('paid').checked=S.paid;$('soon').checked=S.soon;$('sort').value=S.sort;
+readHash();if(S.sort!=='pay')S.sort='close';$('q').value=S.q;$('paid').checked=S.paid;$('soon').checked=S.soon;$('sort').value=S.sort;
 render();load(false);
 setInterval(function(){load(false)},900000);setInterval(updtxt,60000);
 document.addEventListener('visibilitychange',function(){if(!document.hidden)load(false)});
