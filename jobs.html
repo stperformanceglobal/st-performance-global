@@ -472,7 +472,6 @@ var LEVELS=[
 var SETTINGS=[['pro','Professional','var(--steel)'],['dev','Academy and development','var(--gold)'],['ind','Industry aligned','var(--silver)']];
 var SETDESC={pro:'Professional',dev:'Academy and development',ind:'Industry aligned'};
 var DISC=[['multi','Multidisciplinary'],['sc','Strength and conditioning'],['science','Sport science and analysis'],['medical','Medical and physio'],['nutrition','Nutrition'],['mental','Mental and human performance']];
-var SPORTS_FIXED=['American football (NFL)','Basketball (NBA and WNBA)','Football (soccer)','Ice hockey (NHL)'];
 var BREG=[['ALL','All regions'],['AU','Australia'],['NZ','New Zealand'],['US','United States'],['UK','United Kingdom'],['IE','Ireland']];
 var SPORT_ALIAS={'AFL':'Australian rules (AFL and AFLW)','AFLW':'Australian rules (AFL and AFLW)','AFL (Australian rules)':'Australian rules (AFL and AFLW)','NRL':'Rugby league (NRL, NRLW and UK)','NRLW':'Rugby league (NRL, NRLW and UK)','Rugby league':'Rugby league (NRL, NRLW and UK)','Super League':'Rugby league (NRL, NRLW and UK)','Basketball (NBA)':'Basketball (NBA and WNBA)','NBA':'Basketball (NBA and WNBA)','WNBA':'Basketball (NBA and WNBA)','NFL':'American football (NFL)','NHL':'Ice hockey (NHL)','Soccer':'Football (soccer)'};
 function norm(x){(x.jobs||[]).forEach(function(j){if(SPORT_ALIAS[j.sport])j.sport=SPORT_ALIAS[j.sport]});return x}
@@ -500,21 +499,21 @@ function match(j,skip){
  return true}
 function count(k,v){var n=0;D.jobs.forEach(function(j){var f={level:j.level,setting:j.setting,region:j.region,disc:j.discipline,sport:j.sport}[k];if(f===v&&match(j,k))n++});return n}
 function chip(k,v,label,extra){return '<button type="button" class="chip" data-k="'+k+'" data-v="'+esc(v)+'" aria-pressed="'+(S[k]===v)+'">'+(extra||'')+esc(label)+' <small>'+count(k,v)+'</small></button>'}
+function fld(j,k){return {level:j.level,setting:j.setting,region:j.region,disc:j.discipline,sport:j.sport}[k]}
+function has(k,v){return D.jobs.some(function(j){return live(j)&&fld(j,k)===v})}
 function stats(){
  var L=D.jobs.filter(live),w=L.filter(function(j){var d=days(j);return d!==null&&d<=7}).length,n=L.filter(isNew).length;
- var cells=[[L.length,'Live roles'],[w,'Closing this week']];if(n)cells.push([n,'New in 24 hours']);cells.push([4,'Regions']);
+ var cells=[[L.length,'Live roles'],[w,'Closing this week']];if(n)cells.push([n,'New in 24 hours']);var rg={};L.forEach(function(j){rg[j.region]=1});cells.push([Object.keys(rg).length,'Regions']);
  $('stats').innerHTML=cells.map(function(c){return '<div class="sg-c" role="listitem"><div class="sg-n">'+c[0]+'</div><div class="sg-l">'+c[1]+'</div></div>'}).join('');
  $('stats').style.gridTemplateColumns='repeat('+cells.length+',1fr)';updtxt()}
 function updtxt(){var u=new Date(D.updated);if(isNaN(u))return;var m=Math.max(0,Math.round((Date.now()-u)/60000));var ago=m<2?'just now':m<90?m+' min ago':m<2880?Math.round(m/60)+' hours ago':Math.round(m/1440)+' days ago';$('updtxt').textContent='Board data updated '+u.toLocaleString('en-AU',{day:'numeric',month:'short',hour:'numeric',minute:'2-digit'})+' ('+ago+')'}
-function levels(){$('levels').innerHTML=LEVELS.map(function(l){var n=D.jobs.filter(function(j){return j.level===l[0]&&match(j,'level')}).length;return '<button type="button" class="lv" data-k="level" data-v="'+l[0]+'" aria-pressed="'+(S.level===l[0])+'"><span class="n">'+n+'</span><span class="t">'+esc(l[1])+'</span><span class="lvd">'+esc(l[2])+'</span></button>'}).join('')}
+function levels(){$('levels').innerHTML=LEVELS.filter(function(l){return has('level',l[0])}).map(function(l){var n=D.jobs.filter(function(j){return j.level===l[0]&&match(j,'level')}).length;return '<button type="button" class="lv" data-k="level" data-v="'+l[0]+'" aria-pressed="'+(S.level===l[0])+'"><span class="n">'+n+'</span><span class="t">'+esc(l[1])+'</span><span class="lvd">'+esc(l[2])+'</span></button>'}).join('')}
 function filters(){
- $('f-setting').innerHTML=SETTINGS.map(function(s){return chip('setting',s[0],s[1],'<span class="sw" style="background:'+s[2]+'"></span>')}).join('');
- $('f-region').innerHTML=REGIONS.map(function(r){return chip('region',r[0],r[1],'<svg width="20" height="10" style="border:1px solid rgba(255,255,255,.3)" aria-hidden="true"><use href="#f-'+r[0]+'"/></svg>')}).join('');
- $('f-disc').innerHTML=DISC.map(function(d){return chip('disc',d[0],d[1])}).join('');
+ $('f-setting').innerHTML=SETTINGS.filter(function(s){return has('setting',s[0])}).map(function(s){return chip('setting',s[0],s[1],'<span class="sw" style="background:'+s[2]+'"></span>')}).join('');
+ $('f-region').innerHTML=REGIONS.filter(function(r){return has('region',r[0])}).map(function(r){return chip('region',r[0],r[1],'<svg width="20" height="10" style="border:1px solid rgba(255,255,255,.3)" aria-hidden="true"><use href="#f-'+r[0]+'"/></svg>')}).join('');
+ $('f-disc').innerHTML=DISC.filter(function(d){return has('disc',d[0])}).map(function(d){return chip('disc',d[0],d[1])}).join('');
  var sp={};D.jobs.forEach(function(j){if(live(j))sp[j.sport]=1});
- SPORTS_FIXED.forEach(function(k){sp[k]=1});
- var rest=Object.keys(sp).filter(function(k){return SPORTS_FIXED.indexOf(k)<0}).sort();
- $('f-sport').innerHTML=SPORTS_FIXED.concat(rest).sort().map(function(k){return chip('sport',k,k,sportIcon(k))}).join('')}
+ $('f-sport').innerHTML=Object.keys(sp).sort().map(function(k){return chip('sport',k,k,sportIcon(k))}).join('')}
 var ICONS={
  'American football (NFL)':'<ellipse cx="12" cy="12" rx="10" ry="6" transform="rotate(-35 12 12)"/><path d="M9.5 14.5l5-5M11 11l1.5 1.5M13 9.5l1.5 1.5M9 13l1.5 1.5"/>',
  'Basketball (NBA and WNBA)':'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3v18M5.6 5.6c3.5 3.5 3.5 9.3 0 12.8M18.4 5.6c-3.5 3.5-3.5 9.3 0 12.8"/>',
@@ -551,10 +550,12 @@ function tile(j){
  (j.note?'<div class="note">'+esc(j.note)+'</div>':'')+'<div class="gap"></div>'+
  '<div class="go">View ad <span>via '+esc(j.source)+'</span></div></a>'}
 function render(){
+ ['level','setting','region','disc','sport'].forEach(function(k){if(S[k]&&!has(k,S[k]))S[k]=''});
  stats();levels();filters();
  var list=D.jobs.filter(function(j){return match(j)}).sort(cmp),h='';
  $('count').textContent=list.length+' role'+(list.length===1?'':'s')+' shown of '+D.jobs.filter(live).length+' live';
  LEVELS.forEach(function(l){
+  if(!has('level',l[0]))return;
   if(S.level&&S.level!==l[0])return;
   var g=list.filter(function(j){return j.level===l[0]});
   h+='<div class="lvh"><h3>'+esc(l[1])+'</h3><span>'+esc(l[2])+'</span><em>'+g.length+'</em></div>';
@@ -563,7 +564,7 @@ function render(){
   else h+='<div class="empty">No roles match the current filters at this level.</div>'});
  $('out').innerHTML=h;boards();writeHash()}
 function boards(){
- $('b-region').innerHTML=BREG.map(function(r){return '<button type="button" class="chip" data-k="breg" data-v="'+r[0]+'" aria-pressed="'+(S.breg===r[0])+'">'+r[1]+'</button>'}).join('');
+ $('b-region').innerHTML=BREG.filter(function(r){return r[0]==='ALL'||(D.boards||[]).some(function(x){return x.region===r[0]})}).map(function(r){return '<button type="button" class="chip" data-k="breg" data-v="'+r[0]+'" aria-pressed="'+(S.breg===r[0])+'">'+r[1]+'</button>'}).join('');
  var b=(D.boards||[]).filter(function(x){return S.breg==='ALL'||x.region===S.breg||x.region==='ALL'});
  $('b-out').innerHTML=b.map(function(x){return '<a class="bd" href="'+esc(x.url)+'" target="_blank" rel="noopener noreferrer"><i>'+(x.region==='ALL'?'GLOBAL':esc(name(REGIONS,x.region)).toUpperCase())+'</i><b>'+esc(x.name)+'</b><p>'+esc(x.desc)+'</p><u>Open board</u></a>'}).join('')}
 function writeHash(){var p=[];['level','setting','region','disc','sport','q'].forEach(function(k){if(S[k])p.push(k+'='+encodeURIComponent(S[k]))});if(S.sort!=='close')p.push('sort='+S.sort);if(S.paid)p.push('paid=1');if(S.soon)p.push('soon=1');try{history.replaceState(null,'',p.length?'#'+p.join('&'):location.pathname+location.search)}catch(e){}}
