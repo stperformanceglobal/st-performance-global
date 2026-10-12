@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-12T08:30:00+08:00",
+ "updated": "2026-10-12",
  "jobs": [
   {
    "id": "au-manly-hop",
@@ -936,6 +936,24 @@
    "level": "prac",
    "discipline": "sc",
    "setting": "dev"
+  },
+  {
+   "id": "uk-bristolcity-w-ppc",
+   "title": "Physical Performance Coach",
+   "org": "Bristol City Women FC",
+   "sport": "Football (soccer)",
+   "region": "UK",
+   "location": "Bristol",
+   "salary": "",
+   "closes": "",
+   "added": "2026-10-12",
+   "url": "https://mercury13.teamtailor.com/jobs/8455032-physical-performance-coach",
+   "source": "Club careers",
+   "note": "No closing date shown. Check the ad.",
+   "country": "UK",
+   "level": "prac",
+   "discipline": "sc",
+   "setting": "pro"
   }
  ],
  "boards": [
