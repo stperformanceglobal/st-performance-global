@@ -972,6 +972,60 @@
    "level": "prac",
    "discipline": "sc",
    "setting": "dev"
+  },
+  {
+   "id": "us-brewers-dr-at",
+   "title": "Associate, Minor League Athletic Trainer (Dominican Republic)",
+   "org": "Milwaukee Brewers",
+   "sport": "Baseball",
+   "region": "US",
+   "location": "Santo Domingo Este, Dominican Republic",
+   "salary": "",
+   "closes": "",
+   "added": "2026-10-12",
+   "url": "https://careers-brewers.icims.com/jobs/2789/associate---minor-league-athletic-trainer%2c-dominican-republic/job",
+   "source": "Club careers",
+   "note": "Dominican academy. Open status and closing date not shown. Check the ad.",
+   "country": "DR",
+   "level": "prac",
+   "discipline": "medical",
+   "setting": "dev"
+  },
+  {
+   "id": "us-brewers-az-at",
+   "title": "Associate Athletic Trainer (Minor League)",
+   "org": "Milwaukee Brewers",
+   "sport": "Baseball",
+   "region": "US",
+   "location": "Phoenix AZ",
+   "salary": "",
+   "closes": "",
+   "added": "2026-10-12",
+   "url": "https://careers-brewers.icims.com/jobs/2788/associate-athletic-trainer/job",
+   "source": "Club careers",
+   "note": "Based at the Maryvale spring training facility. Open status and closing date not shown. Check the ad.",
+   "country": "US",
+   "level": "prac",
+   "discipline": "medical",
+   "setting": "dev"
+  },
+  {
+   "id": "us-brewers-az-sc",
+   "title": "Associate, Minor League Strength and Conditioning Specialist",
+   "org": "Milwaukee Brewers",
+   "sport": "Baseball",
+   "region": "US",
+   "location": "Phoenix AZ",
+   "salary": "",
+   "closes": "",
+   "added": "2026-10-12",
+   "url": "https://careers-brewers.icims.com/jobs/2787/associate---minor-league-strength-%26-conditioning-specialist/job",
+   "source": "Club careers",
+   "note": "Based at the Maryvale spring training facility. Open status and closing date not shown. Check the ad.",
+   "country": "US",
+   "level": "prac",
+   "discipline": "sc",
+   "setting": "dev"
   }
  ],
  "boards": [
@@ -1118,6 +1172,12 @@
    "name": "Indeed",
    "url": "https://www.indeed.com/",
    "desc": "Useful for salary bands on US club roles."
+  },
+  {
+   "region": "US",
+   "name": "Milwaukee Brewers careers",
+   "url": "https://careers-brewers.icims.com/jobs/search?ss=1",
+   "desc": "Club board. Check for minor league strength and conditioning, athletic training and performance roles."
   }
  ]
 }
