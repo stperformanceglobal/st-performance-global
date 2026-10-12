@@ -1026,6 +1026,24 @@
    "level": "prac",
    "discipline": "sc",
    "setting": "dev"
+  },
+  {
+   "id": "au-reds-apc",
+   "title": "Athletic Performance Coach",
+   "org": "Queensland Reds",
+   "sport": "Rugby union",
+   "region": "AU",
+   "location": "Herston QLD",
+   "salary": "",
+   "closes": "2026-10-27",
+   "added": "2026-10-12",
+   "url": "https://www.rugby.com.au/more/jobs/queensland-reds-athletic-performance-coach",
+   "source": "Rugby Australia",
+   "note": "Full time contract to 31 October 2028.",
+   "country": "AU",
+   "level": "prac",
+   "discipline": "sc",
+   "setting": "pro"
   }
  ],
  "boards": [
