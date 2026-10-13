@@ -272,7 +272,7 @@ footer .legal { margin-top: 42px; padding-top: 20px; border-top: 1px solid var(-
 .lvh span{font-size:.85rem;color:var(--muted)}
 .lvh em{font-style:normal;margin-left:auto;font-family:"Bebas Neue",sans-serif;font-size:1.6rem;color:var(--gold-hi)}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px}
-.tile{display:flex;flex-direction:column;border:1px solid var(--bd);border-top:3px solid var(--c);background:var(--b);padding:14px 16px 0;min-height:236px;text-decoration:none;color:var(--white);transition:transform .15s,box-shadow .15s,border-color .15s}
+.tile{position:relative;display:flex;flex-direction:column;border:1px solid var(--bd);border-top:3px solid var(--c);background:var(--b);padding:14px 16px 0;min-height:236px;text-decoration:none;color:var(--white);transition:transform .15s,box-shadow .15s,border-color .15s}
 .tile:hover,.tile:focus-visible{transform:translateY(-2px);box-shadow:0 10px 26px rgba(0,0,0,.45);border-color:var(--gold)}
 .s-pro{--c:var(--steel);--b:var(--navy);--bd:rgba(95,130,184,.35)}
 .s-dev{--c:var(--gold);--b:rgba(231,181,48,.11);--bd:rgba(231,181,48,.38)}
@@ -281,7 +281,8 @@ footer .legal { margin-top: 42px; padding-top: 20px; border-top: 1px solid var(-
 .badge{font-size:.58rem;letter-spacing:.16em;font-weight:700;text-transform:uppercase;padding:3px 7px;background:var(--c);color:#fff}
 .s-dev .badge{color:var(--ink)}
 .s-ind .badge{color:var(--ink)}
-.badge.new{background:var(--gold-hi);color:var(--ink)}
+.badge.new{position:absolute;top:8px;right:8px;background:#166534;color:#fff;border-radius:4px;font-size:.55rem;letter-spacing:.04em;padding:4px 6px;line-height:1.2}
+.tile.has-new .tt{padding-right:92px;min-height:20px}
 .badge.dsc{background:transparent;color:var(--muted);border:1px solid var(--chip)}
 .flag{margin-left:auto;display:inline-flex;align-items:center;gap:6px;font-size:.6rem;letter-spacing:.14em;font-weight:700;color:var(--silver);text-transform:uppercase}
 .flag svg{width:26px;height:13px;display:block;border:1px solid rgba(255,255,255,.3);border-radius:2px;opacity:.92}
@@ -485,7 +486,12 @@ function parse(s){if(!s)return null;var p=s.split('-');return new Date(+p[0],+p[
 function days(j){var c=parse(j.closes);return c?Math.round((c-today())/86400000):null}
 function live(j){var d=days(j);return d===null||d>=0}
 function recent(j){var a=parse(j.added);return !!a&&Math.round((today()-a)/86400000)<=3}
-function isNew(j){var a=parse(j.added);return a&&Math.round((today()-a)/86400000)<=1}
+function isNew(j){
+ var m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(j.added||'');if(!m)return false;
+ var a=Date.UTC(+m[1],+m[2]-1,+m[3]),d=new Date(a);if(d.getUTCFullYear()!==+m[1]||d.getUTCMonth()!==+m[2]-1||d.getUTCDate()!==+m[3])return false;
+ var p={};new Intl.DateTimeFormat('en-US',{timeZone:'Australia/Perth',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date()).forEach(function(x){p[x.type]=x.value});
+ var age=(Date.UTC(+p.year,+p.month-1,+p.day)-a)/86400000;return age>=0&&age<3;
+}
 function fmt(s){return parse(s).toLocaleDateString('en-AU',{day:'numeric',month:'short'})}
 function name(arr,k,i){for(var n=0;n<arr.length;n++)if(arr[n][0]===k)return arr[n][i||1];return k}
 function match(j,skip){
@@ -506,7 +512,7 @@ function fld(j,k){return {level:j.level,setting:j.setting,region:j.region,disc:j
 function has(k,v){return D.jobs.some(function(j){return live(j)&&fld(j,k)===v})}
 function stats(){
  var L=D.jobs.filter(live),w=L.filter(function(j){var d=days(j);return d!==null&&d<=7}).length,n=L.filter(isNew).length;
- var cells=[[L.length,'Live roles'],[w,'Closing this week']];if(n)cells.push([n,'New in 24 hours']);var rg={};L.forEach(function(j){rg[j.region]=1});cells.push([Object.keys(rg).length,'Regions']);
+ var cells=[[L.length,'Live roles'],[w,'Closing this week']];if(n)cells.push([n,'New in 3 days']);var rg={};L.forEach(function(j){rg[j.region]=1});cells.push([Object.keys(rg).length,'Regions']);
  $('stats').innerHTML=cells.map(function(c){return '<div class="sg-c" role="listitem"><div class="sg-n">'+c[0]+'</div><div class="sg-l">'+c[1]+'</div></div>'}).join('');
  $('stats').style.gridTemplateColumns='repeat('+cells.length+',1fr)';updtxt()}
 function updtxt(){var u=new Date(D.updated);if(isNaN(u))return;var m=Math.max(0,Math.round((Date.now()-u)/60000));var ago=m<2?'just now':m<90?m+' min ago':m<2880?Math.round(m/60)+' hours ago':Math.round(m/1440)+' days ago';$('updtxt').textContent='Board data updated '+u.toLocaleString('en-AU',{day:'numeric',month:'short',hour:'numeric',minute:'2-digit'})+' ('+ago+')'}
@@ -544,8 +550,9 @@ function light(j){var d=days(j);if(d===null)return ['n','Open, no closing date s
  var txt=d===0?'Closes today':'Closes '+fmt(j.closes)+' ('+d+' day'+(d===1?'':'s')+')';return [cls,txt]}
 function tile(j){
  var t=light(j),c=j.country||j.region;
- return '<a class="tile s-'+j.setting+'" href="'+esc(j.url)+'" target="_blank" rel="noopener noreferrer">'+
- '<div class="tt"><span class="badge">'+esc(SETDESC[j.setting])+'</span>'+(isNew(j)?'<span class="badge new">New</span>':'')+
+ return '<a class="tile s-'+j.setting+(isNew(j)?' has-new':'')+'" href="'+esc(j.url)+'" target="_blank" rel="noopener noreferrer">'+
+ (isNew(j)?'<span class="badge new">New listing</span>':'')+
+ '<div class="tt"><span class="badge">'+esc(SETDESC[j.setting])+'</span>'+
  '<span class="flag" title="'+esc(COUNTRY[c]||c)+'"><svg role="img" aria-label="'+esc(COUNTRY[c]||c)+' flag"><use href="#f-'+(c==='PG'?'PG':c)+'"/></svg></span></div>'+
  '<h4>'+esc(j.title)+'</h4><div class="org">'+esc(j.org)+'</div>'+
  '<div class="meta">'+esc(j.location)+' | '+esc(j.sport)+'</div><div class="meta">'+esc(name(DISC,j.discipline))+'</div>'+
@@ -591,7 +598,7 @@ function load(manual){
  }).catch(function(){if(manual)toast('Could not reach the live feed. Showing the last saved roles.')})}
 readHash();if(S.sort!=='pay')S.sort='close';$('q').value=S.q;$('paid').checked=S.paid;$('soon').checked=S.soon;$('fresh').checked=S.fresh;$('sort').value=S.sort;
 render();load(false);
-setInterval(function(){load(false)},900000);setInterval(updtxt,60000);
+setInterval(function(){load(false)},900000);setInterval(function(){render();updtxt()},60000);
 document.addEventListener('visibilitychange',function(){if(!document.hidden)load(false)});
 })();
 </script>
