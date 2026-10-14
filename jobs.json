@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-14T19:12:01+08:00",
+ "updated": "2026-10-14T19:13:19+08:00",
  "jobs": [
   {
    "id": "au-manly-hop",
@@ -917,7 +917,7 @@
    "country": "US",
    "level": "prac",
    "discipline": "medical",
-   "setting": "dev"
+   "setting": "pro"
   },
   {
    "id": "us-brewers-az-sc",
@@ -935,7 +935,7 @@
    "country": "US",
    "level": "prac",
    "discipline": "sc",
-   "setting": "dev"
+   "setting": "pro"
   },
   {
    "id": "au-reds-apc",
@@ -1393,7 +1393,7 @@
    "country": "US",
    "level": "prac",
    "discipline": "medical",
-   "setting": "dev",
+   "setting": "pro",
    "salary": "USD 15 per hour or state minimum wage if higher plus housing stipend",
    "closes": null,
    "added": "2026-10-14",
@@ -1411,7 +1411,7 @@
    "country": "US",
    "level": "prac",
    "discipline": "medical",
-   "setting": "dev",
+   "setting": "pro",
    "salary": "",
    "closes": null,
    "added": "2026-10-14",
@@ -1429,7 +1429,7 @@
    "country": "US",
    "level": "prac",
    "discipline": "sc",
-   "setting": "dev",
+   "setting": "pro",
    "salary": "",
    "closes": null,
    "added": "2026-10-14",
@@ -1447,7 +1447,7 @@
    "country": "US",
    "level": "prac",
    "discipline": "medical",
-   "setting": "dev",
+   "setting": "pro",
    "salary": "",
    "closes": null,
    "added": "2026-10-14",
@@ -1465,7 +1465,7 @@
    "country": "US",
    "level": "prac",
    "discipline": "medical",
-   "setting": "dev",
+   "setting": "pro",
    "salary": "",
    "closes": null,
    "added": "2026-10-14",
@@ -1483,7 +1483,7 @@
    "country": "US",
    "level": "prac",
    "discipline": "medical",
-   "setting": "dev",
+   "setting": "pro",
    "salary": "",
    "closes": null,
    "added": "2026-10-14",
