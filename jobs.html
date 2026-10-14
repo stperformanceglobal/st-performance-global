@@ -281,8 +281,9 @@ footer .legal { margin-top: 42px; padding-top: 20px; border-top: 1px solid var(-
 .badge{font-size:.58rem;letter-spacing:.16em;font-weight:700;text-transform:uppercase;padding:3px 7px;background:var(--c);color:#fff}
 .s-dev .badge{color:var(--ink)}
 .s-ind .badge{color:var(--ink)}
-.badge.new{position:absolute;top:8px;right:8px;background:#166534;color:#fff;border-radius:4px;font-size:.55rem;letter-spacing:.04em;padding:4px 6px;line-height:1.2}
-.tile.has-new .tt{padding-right:92px;min-height:20px}
+.badge.new{position:static;background:#166534;color:#fff;border-radius:4px;font-size:.55rem;letter-spacing:.04em;padding:4px 6px;line-height:1.2}
+.tile.has-new .badge.new{margin-left:auto}
+.tile.has-new .flag{margin-left:0}
 .badge.dsc{background:transparent;color:var(--muted);border:1px solid var(--chip)}
 .flag{margin-left:auto;display:inline-flex;align-items:center;gap:6px;font-size:.6rem;letter-spacing:.14em;font-weight:700;color:var(--silver);text-transform:uppercase}
 .flag svg{width:26px;height:13px;display:block;border:1px solid rgba(255,255,255,.3);border-radius:2px;opacity:.92}
@@ -551,8 +552,8 @@ function light(j){var d=days(j);if(d===null)return ['n','Open, no closing date s
 function tile(j){
  var t=light(j),c=j.country||j.region;
  return '<a class="tile s-'+j.setting+(isNew(j)?' has-new':'')+'" href="'+esc(j.url)+'" target="_blank" rel="noopener noreferrer">'+
- (isNew(j)?'<span class="badge new">New listing</span>':'')+
  '<div class="tt"><span class="badge">'+esc(SETDESC[j.setting])+'</span>'+
+ (isNew(j)?'<span class="badge new">New</span>':'')+
  '<span class="flag" title="'+esc(COUNTRY[c]||c)+'"><svg role="img" aria-label="'+esc(COUNTRY[c]||c)+' flag"><use href="#f-'+(c==='PG'?'PG':c)+'"/></svg></span></div>'+
  '<h4>'+esc(j.title)+'</h4><div class="org">'+esc(j.org)+'</div>'+
  '<div class="meta">'+esc(j.location)+' | '+esc(j.sport)+'</div><div class="meta">'+esc(name(DISC,j.discipline))+'</div>'+
