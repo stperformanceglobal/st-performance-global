@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-14T19:13:19+08:00",
+ "updated": "2026-10-15T05:58:56+08:00",
  "jobs": [
   {
    "id": "au-manly-hop",
@@ -1764,6 +1764,42 @@
    "url": "https://jobs.ashbyhq.com/whoop/2e5d5377-f7c1-4974-83ee-1a0dfe7dca23",
    "source": "WHOOP careers",
    "note": "Deep learning research using physiological and biosensor data. No closing date shown."
+  },
+  {
+   "region": "US",
+   "country": "US",
+   "level": "prac",
+   "discipline": "sc",
+   "setting": "pro",
+   "closes": null,
+   "added": "2026-10-15",
+   "source": "TeamWork Online",
+   "id": "us-dodgers-minor-league-performance-coach",
+   "title": "Minor League Performance Coach",
+   "org": "Los Angeles Dodgers",
+   "sport": "Baseball",
+   "location": "Glendale AZ",
+   "salary": "USD 55,000 to 70,000",
+   "url": "https://www.teamworkonline.com/baseball-jobs/los-angeles-dodgers-jobs/los-angeles-dodgers/minor-league-performance-coach-2194588",
+   "note": "Based at the Arizona complex covering Extended Spring Training and the Arizona Complex League. Reports to the Director, Minor League Performance. No closing date shown."
+  },
+  {
+   "region": "US",
+   "country": "US",
+   "level": "prac",
+   "discipline": "sc",
+   "setting": "pro",
+   "closes": null,
+   "added": "2026-10-15",
+   "source": "TeamWork Online",
+   "id": "us-angelcity-physical-performance-coach",
+   "title": "Physical Performance Coach",
+   "org": "Angel City FC",
+   "sport": "Football (soccer)",
+   "location": "Thousand Oaks CA",
+   "salary": "USD 90,000 to 100,000",
+   "url": "https://www.teamworkonline.com/soccer-jobs/nwslsoccer/angel-city-fc/physical-performance-coach-2194595",
+   "note": "Reports to the Director of Performance with a focus on field preparation, speed development, training load and recovery. No closing date shown."
   }
  ],
  "boards": [
