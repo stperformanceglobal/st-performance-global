@@ -180,7 +180,13 @@ nav.primary a.nav-cta:hover { background: var(--gold); color: var(--ink); }
 }
 
 
-/* ---------- Athlete Support dropdown ---------- */
+/* ---------- Tools dropdown ---------- */
+nav.primary .dd-menu { min-width: 280px; }
+nav.primary .dd-menu a.dd-h { color: var(--gold-hi); font-size: 0.66rem; letter-spacing: 0.2em; padding-top: 14px; padding-bottom: 6px; }
+nav.primary .dd-menu a.dd-h:first-child { padding-top: 8px; }
+nav.primary .dd-menu a:not(.dd-h) { padding-left: 30px; }
+@media (max-width: 1400px) { nav.primary .dd-menu a:not(.dd-h) { padding-left: 14px; } nav.primary .dd-menu a.dd-h { padding-left: 0; } }
+
 nav.primary .dd { position: relative; display: flex; align-items: center; }
 nav.primary .dd-btn {
   background: none; border: 0; border-bottom: 1px solid transparent; color: var(--white); cursor: pointer;
@@ -1281,7 +1287,7 @@ document.addEventListener("DOMContentLoaded", function () {
       <a href="about.html">About</a>
       <a href="story.html">Story</a>
       <a href="contact.html">Contact</a>
-      <div class="dd"><button class="dd-btn" type="button" aria-haspopup="true" aria-expanded="false">Athlete Support</button><div class="dd-menu"><a href="athlete-support/programmer/">Programmer</a><a href="athlete-support/conditioning/">Conditioning Tool</a><a href="athlete-support/viewer/">Running Drill Viewer</a></div></div>
+      <div class="dd"><button class="dd-btn" type="button" aria-haspopup="true" aria-expanded="false">Tools</button><div class="dd-menu"><a class="dd-h" href="athlete-support/">Athlete / Player Support</a><a href="athlete-support/programmer/">Programmer</a><a href="athlete-support/conditioning/">Conditioning Tool</a><a href="athlete-support/viewer/">Running Drill Viewer</a><a class="dd-h" href="staff-development/">Leader / Practitioner Support</a><a href="staff-development/">Tool Suite</a></div></div>
       <a class="nav-cta" href="jobs.html">Job Board</a>
       <a class="nav-cta" data-link="booking" href="#" target="_blank" rel="noopener">Book a Call</a>
     </nav>
@@ -1290,7 +1296,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 <div class="page-hero">
   <div class="wrap">
-    <div class="kicker">Athlete Support</div>
+    <div class="kicker">Athlete / Player Support</div>
     <h1>Tools for <span class="script">training that travels.</span></h1>
     <p class="lede">Build a programme, see every conditioning drill run on the field, or open a session a coach has sent you. Each tool asks for an access code and can be added to your phone's home screen as its own app.</p>
   </div>
