@@ -212,6 +212,23 @@ nav.primary .dd:hover .dd-menu, nav.primary .dd.open .dd-menu, nav.primary .dd:f
   .nav-inner { padding: 0 16px; }
 }
 
+
+.btnrow { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.btn.ghost { background: transparent; border: 1px solid var(--gold); color: var(--gold-hi); }
+.btn.ghost:hover { background: var(--gold); color: var(--ink); }
+.gl { margin-top: 26px; color: var(--muted); font-size: .92rem; }
+.gl a { color: inherit; font-weight: 600; border-bottom: 1px solid var(--gold); text-decoration: none; }
+.btnrow .btn { padding: 10px 14px; letter-spacing: .1em; }
+.free { display: grid; grid-template-columns: minmax(0,1.1fr) minmax(0,1fr); gap: 40px; align-items: center; }
+.free-img img { width: 100%; height: auto; display: block; border: 1px solid var(--line); box-shadow: 0 16px 40px rgba(0,0,0,.35); }
+.free-t h2 { margin: 8px 0 14px; }
+.free-t p { margin-bottom: 10px; }
+.nextsteps { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 26px; }
+.nextsteps > div { border-top: 2px solid var(--gold); padding-top: 12px; display: flex; flex-direction: column; gap: 6px; align-items: flex-start; }
+.nextsteps span { font-size: .9rem; color: var(--muted); }
+.band.alt { background: var(--navy-panel); }
+@media (max-width: 860px) { .free { grid-template-columns: 1fr; gap: 24px; } .nextsteps { grid-template-columns: 1fr; } }
+
 /* ---------- Buttons ---------- */
 .btn {
   display: inline-block; text-decoration: none; font-weight: 700;
@@ -1283,25 +1300,47 @@ document.addEventListener("DOMContentLoaded", function () {
   <div class="wrap">
     <div class="cards three">
       <div class="card">
-        <span class="card-label">Coaches and athletes</span>
+        <span class="card-label">Build the programme</span>
         <h3>Programmer</h3>
-        <p style="margin-top:12px;">Builds a lifting, speed, running and indoor conditioning programme. Save it, print it or send it to a coach.</p>
-        <a class="btn" href="athlete-support/programmer/">Open</a>
+        <p style="margin-top:12px;"><b>Athletes:</b> build your own lifting, speed and running block, follow it on your phone or on paper and send it to your coach.</p>
+        <p style="margin-top:8px;"><b>Coaches:</b> prescribe a programme, swap any lift, then send the saved file or a PDF. Load an athlete's file to see what they built.</p>
+        <div class="btnrow"><a class="btn" href="athlete-support/programmer/">Open</a><a class="btn ghost" href="athlete-support/downloads/programmer-guide.pdf" download>Guide (PDF)</a></div>
       </div>
       <div class="card">
-        <span class="card-label">Coaches and athletes</span>
+        <span class="card-label">See every drill run</span>
         <h3>Conditioning Tool</h3>
-        <p style="margin-top:12px;">Shows each running drill on a pitch with distance, changes of direction and work to rest. Builds sessions and plans.</p>
-        <a class="btn" href="athlete-support/conditioning/">Open</a>
+        <p style="margin-top:12px;"><b>Athletes:</b> look up a drill, watch it from above or behind the player and run your session in order.</p>
+        <p style="margin-top:8px;"><b>Coaches:</b> build sessions to a distance and energy system, plan the week and share a session as a PDF.</p>
+        <div class="btnrow"><a class="btn" href="athlete-support/conditioning/">Open</a><a class="btn ghost" href="athlete-support/downloads/conditioning-tool-guide.pdf" download>Guide (PDF)</a></div>
       </div>
       <div class="card">
-        <span class="card-label">Players</span>
+        <span class="card-label">Short notice sessions</span>
         <h3>Running Drill Viewer</h3>
-        <p style="margin-top:12px;">One screen to find, watch and line up drills. Open a session link a coach sends you and follow it.</p>
-        <a class="btn" href="athlete-support/viewer/">Open</a>
+        <p style="margin-top:12px;"><b>Athletes:</b> tap a link from your coach and follow the session, or line up your own playlist of drills.</p>
+        <p style="margin-top:8px;"><b>Coaches:</b> line up a session in a minute and message the link to a player when you need one fast.</p>
+        <div class="btnrow"><a class="btn" href="athlete-support/viewer/">Open</a><a class="btn ghost" href="athlete-support/downloads/viewer-guide.pdf" download>Guide (PDF)</a></div>
       </div>
     </div>
-    <p style="margin-top:28px;">Need the access code, or want a programme built for you? <a class="btn" data-link="booking" href="#" target="_blank" rel="noopener">Book a call</a></p>
+    <p class="gl">Prefer one guide for each role? Download the <a href="athlete-support/downloads/coach-guide.pdf" download>Coach and Practitioner Guide</a> or the <a href="athlete-support/downloads/player-guide.pdf" download>Player and Athlete Guide</a>. Each tool asks for an access code.</p>
+  </div>
+</section>
+
+<section class="band alt" id="drill-master">
+  <div class="wrap">
+    <div class="free">
+      <a class="free-img" href="athlete-support/downloads/running-drill-master.pdf" download><img src="athlete-support/downloads/running-drill-master-cover.jpg" alt="Cover of the ST Performance Running Drill Master showing the Running Drill Viewer on a phone" loading="lazy"></a>
+      <div class="free-t">
+        <span class="card-label">Free resource</span>
+        <h2>The Running Drill Master</h2>
+        <p>Every drill in the bank, 117 in all, by category with a field diagram, step by step instructions and default work to rest. It is the companion to the Programmer, the Conditioning Tool and the Running Drill Viewer.</p>
+        <p>Use it to pick drills, then let the tools do the rest: watch each one run on the field and send a session to a player as a link.</p>
+        <div class="btnrow"><a class="btn solid" href="athlete-support/downloads/running-drill-master.pdf" download>Download the free PDF</a></div>
+        <div class="nextsteps">
+          <div><b>Want it built for you?</b><span>Programming and prescription with Simon Thomas.</span><a class="btn" data-link="booking" href="#" target="_blank" rel="noopener">Book a call</a></div>
+          <div><b>Want the tools?</b><span>Subscribe for the Conditioning Tool and Viewer.</span><a class="btn" href="individuals.html">See membership options</a></div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
