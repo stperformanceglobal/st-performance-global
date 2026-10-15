@@ -1151,6 +1151,35 @@ section.band.deepest p a, section.band.imaged p a, .statement p a { color: var(-
   .book-grid { grid-template-columns: 1fr; gap: 0; margin-top: 24px; }
   .book-option { border: none; border-top: 1px solid var(--hairline); padding: 18px 0; }
 }
+
+/* ---------- Quick buttons (tablet and phone) ---------- */
+.nav-quick { display: none; align-items: center; gap: 8px; margin-left: auto; margin-right: 10px; }
+.nav-quick a.qb, .nav-quick .dd-btn.qb {
+  display: inline-block; background: none; border: 1px solid var(--gold); color: var(--gold-hi); cursor: pointer;
+  font-family: "Archivo", sans-serif; font-size: 0.66rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 8px 11px; text-decoration: none; white-space: nowrap; line-height: 1.2;
+}
+.nav-quick a.qb.solid { background: var(--gold); color: var(--ink); }
+.nav-quick a.qb:hover, .nav-quick .dd-btn.qb:hover, .nav-quick .dd.open .dd-btn.qb { background: var(--gold); color: var(--ink); }
+.nav-quick .dd-btn.qb::after { content: ""; display: inline-block; margin-left: 7px; width: 5px; height: 5px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: translateY(-2px) rotate(45deg); }
+.nav-quick .dd { position: relative; display: block; }
+.nav-quick .dd-menu { display: none; position: absolute; top: calc(100% + 8px); right: 0; left: auto; min-width: 250px; padding: 8px 0; z-index: 70; background: var(--deeper); border: 1px solid var(--line); box-shadow: 0 12px 30px rgba(0,0,0,.45); }
+.nav-quick .dd.open .dd-menu { display: block; }
+.nav-quick .dd-menu a { display: block; color: var(--white); text-decoration: none; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 9px 18px 9px 30px; }
+.nav-quick .dd-menu a.dd-h { color: var(--gold-hi); font-size: 0.62rem; letter-spacing: 0.18em; padding: 12px 18px 5px; }
+.nav-quick .dd-menu a.dd-h:first-child { padding-top: 6px; }
+.nav-quick .dd-menu a:not(.dd-h):hover { color: var(--gold-hi); }
+@media (max-width: 1400px) { .nav-quick { display: flex; } }
+@media (max-width: 600px) {
+  .nav-inner { flex-wrap: wrap; padding: 8px 16px 10px; min-height: 0; row-gap: 8px; }
+  .menu-toggle { order: 2; }
+  .nav-quick { order: 3; flex: 1 0 100%; margin: 0; justify-content: space-between; gap: 6px; }
+  .nav-quick a.qb, .nav-quick .dd-btn.qb { flex: 1 1 0; text-align: center; padding: 9px 4px; font-size: 0.62rem; letter-spacing: 0.08em; }
+  .nav-quick .dd { flex: 1 1 0; }
+  .nav-quick .dd-btn.qb { width: 100%; }
+  .nav-quick .dd-menu { left: 0; right: auto; min-width: min(280px, calc(100vw - 32px)); }
+  nav.primary { top: 100%; max-height: calc(100vh - 110px); }
+}
 </style>
 <script>
 /* ---------------------------------------------------------------
@@ -1270,6 +1299,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <span class="brand-tag">People. Leadership. Culture.</span>
       </span>
     </a>
+    <div class="nav-quick" aria-label="Quick links"><div class="dd"><button class="dd-btn qb" type="button" aria-haspopup="true" aria-expanded="false">Tools</button><div class="dd-menu"><a class="dd-h" href="athlete-support/">Athlete / Player Support</a><a href="athlete-support/programmer/">Programmer</a><a href="athlete-support/conditioning/">Conditioning Tool</a><a href="athlete-support/viewer/">Running Drill Viewer</a><a class="dd-h" href="staff-development/">Leader / Practitioner Support</a><a href="staff-development/">Tool Suite</a></div></div><a class="qb" href="jobs.html">Job Board</a><a class="qb solid" data-link="booking" href="#" target="_blank" rel="noopener">Book Call</a></div>
     <button class="menu-toggle" aria-expanded="false" aria-controls="mainnav" onclick="this.nextElementSibling.classList.toggle('open');this.setAttribute('aria-expanded',this.getAttribute('aria-expanded')==='true'?'false':'true')">Menu</button>
     <nav class="primary" id="mainnav">
       <a href="individuals.html">Individuals</a>
@@ -1407,9 +1437,9 @@ document.addEventListener("scroll", function () {
 }, { passive: true });
 </script>
 <script>
-(function(){document.querySelectorAll("nav.primary .dd").forEach(function(d){var b=d.querySelector(".dd-btn");b.addEventListener("click",function(e){e.stopPropagation();var o=!d.classList.contains("open");d.classList.toggle("open",o);b.setAttribute("aria-expanded",o);});});
-document.addEventListener("click",function(){document.querySelectorAll("nav.primary .dd.open").forEach(function(d){d.classList.remove("open");d.querySelector(".dd-btn").setAttribute("aria-expanded","false");});});
-document.addEventListener("keydown",function(e){if(e.key==="Escape")document.querySelectorAll("nav.primary .dd.open").forEach(function(d){d.classList.remove("open");});});})();
+(function(){document.querySelectorAll("nav.primary .dd,.nav-quick .dd").forEach(function(d){var b=d.querySelector(".dd-btn");b.addEventListener("click",function(e){e.stopPropagation();var o=!d.classList.contains("open");d.classList.toggle("open",o);b.setAttribute("aria-expanded",o);});});
+document.addEventListener("click",function(){document.querySelectorAll("nav.primary .dd.open,.nav-quick .dd.open").forEach(function(d){d.classList.remove("open");d.querySelector(".dd-btn").setAttribute("aria-expanded","false");});});
+document.addEventListener("keydown",function(e){if(e.key==="Escape")document.querySelectorAll("nav.primary .dd.open,.nav-quick .dd.open").forEach(function(d){d.classList.remove("open");});});})();
 </script>
 </body>
 </html>
