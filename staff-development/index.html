@@ -1199,6 +1199,19 @@ section.band.deepest p a, section.band.imaged p a, .statement p a { color: var(-
   nav.primary { top: 100%; max-height: calc(100vh - 110px); }
 }
 
+.sd-chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 8px}
+.sd-chips a{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:#182C4D;border:1px solid #182C4D;padding:8px 12px;background:#fff}
+.sd-chips a:hover{background:#182C4D;color:#E7B530}
+.sd-tabs{position:sticky;top:var(--sd-hdr,72px);z-index:40;background:#182C4D;border-bottom:3px solid #E7B530;box-shadow:0 4px 14px rgba(12,21,36,.18)}
+.sd-tabs-in{max-width:1180px;margin:0 auto;padding:0 20px;display:flex;align-items:stretch;gap:2px;overflow-x:auto;scrollbar-width:none}
+.sd-tabs-in::-webkit-scrollbar{display:none}
+.sd-tabs a{flex:none;color:#fff;text-decoration:none;font-size:.74rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:15px 16px;border-bottom:3px solid transparent;margin-bottom:-3px;opacity:.82;white-space:nowrap}
+.sd-tabs a:hover{opacity:1}
+.sd-tabs a.on{color:#E7B530;border-bottom-color:#E7B530;opacity:1}
+.sd-tabs a.sd-tabs-cta{margin-left:auto;background:#E7B530;color:#182C4D;opacity:1;margin-bottom:0;border-bottom:0;align-self:center;padding:9px 14px}
+section[id]{scroll-margin-top:calc(var(--sd-hdr,72px) + 56px)}
+.sd-tool{scroll-margin-top:calc(var(--sd-hdr,72px) + 70px)}
+@media(max-width:640px){.sd-tabs a{padding:13px 12px;font-size:.68rem}.sd-tabs a.sd-tabs-cta{display:none}}
 .sd-cover{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:0 0 26px;padding:18px 22px;background:#fff;border-left:4px solid #E7B530}
 .sd-cover .lab{font-size:.68rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:#A8791A}
 .sd-cover p{margin:6px 0 0;color:#33415A}
@@ -1450,6 +1463,14 @@ document.addEventListener("DOMContentLoaded", function () {
   </div>
 </div>
 
+<nav class="sd-tabs" id="sdtabs" aria-label="On this page"><div class="sd-tabs-in">
+  <a href="staff-development/#suite" data-t="suite">The suite</a>
+  <a href="staff-development/#who" data-t="who">Who it is for</a>
+  <a href="staff-development/#tools" data-t="tools">The tools</a>
+  <a href="staff-development/#framework" data-t="framework">Framework</a>
+  <a href="staff-development/#flyer" data-t="flyer">Download</a>
+  <a class="sd-tabs-cta" href="staff-development/suite/">Open the tool suite</a>
+</div></nav>
 <section class="band" id="suite">
   <div class="wrap">
     <div class="sd-gridhead"><div><span class="card-label" style="font-size:.7rem;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:#A8791A;">The suite in the order it is used</span><h2>Six tools, <span class="script">one loop.</span></h2></div>
@@ -1486,6 +1507,7 @@ document.addEventListener("DOMContentLoaded", function () {
 <section class="band" id="tools">
   <div class="wrap">
     <div class="band-head"><span class="card-label" style="font-size:.7rem;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:#A8791A;">The tools</span><h2>What each one <span class="script">produces.</span></h2></div>
+    <div class="sd-chips"><a href="staff-development/#baseline">1 Baseline</a><a href="staff-development/#checkpoint">2 Checkpoint</a><a href="staff-development/#c360">3 360 Feedback</a><a href="staff-development/#dashboard">3 PSG Dashboard</a><a href="staff-development/#platform">4 Platform</a><a href="staff-development/#feedback">5 Feedback Loop</a></div>
     <div class="sd-tool" id="baseline">
   <div class="sd-tool-t"><span class="lab">Where you start</span><h3>Individual Baseline</h3><p>A self assessment completed before the first conversation. It takes about twenty minutes and covers 25 personal areas with the professional areas for your role. Nobody marks it. The point is an honest starting position to measure against later.</p><h4>What it produces</h4><ul><li>Personal and professional averages</li><li>A radar for each half with a spread by group</li><li>Your lowest scored areas and a short written reflection</li><li>A saved record on your device and a PDF summary to send</li></ul><div class="sd-tags"><span class="sd-tag">Practitioners and leaders</span><span class="sd-tag">Open access</span></div>
   <div class="btnrow"><a class="btn solid" href="https://stperformanceglobal.github.io/individual-baseline-assessment/" target="_blank" rel="noopener">Open the demo</a></div></div>
@@ -1545,6 +1567,19 @@ document.addEventListener("DOMContentLoaded", function () {
   </div>
 </section>
 
+<script>
+(function(){
+var h=document.querySelector('header.site'),bar=document.getElementById('sdtabs');
+function set(){if(h)document.documentElement.style.setProperty('--sd-hdr',h.offsetHeight+'px')}
+set();addEventListener('resize',set);addEventListener('load',set);
+var links=[].slice.call(bar.querySelectorAll('a[data-t]')),secs=links.map(function(a){return document.getElementById(a.dataset.t)});
+function spy(){var y=(h?h.offsetHeight:0)+bar.offsetHeight+30,cur=0;secs.forEach(function(s,i){if(s&&s.getBoundingClientRect().top<=y)cur=i});
+ if(secs[0]&&secs[0].getBoundingClientRect().top>y)cur=-1;
+ links.forEach(function(a,i){a.classList.toggle('on',i===cur)});
+ if(cur>=0){var a=links[cur],bx=a.parentNode;if(a.offsetLeft<bx.scrollLeft||a.offsetLeft+a.offsetWidth>bx.scrollLeft+bx.clientWidth)bx.scrollLeft=a.offsetLeft-20}}
+addEventListener('scroll',spy,{passive:true});spy();
+})();
+</script>
 <footer class="site">
   <div class="foot-motto"><span>Evidence Informed.</span> <em>Human Centred.</em> <span>Performance Driven.</span></div>
   <div class="wrap">
