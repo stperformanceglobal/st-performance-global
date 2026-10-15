@@ -1203,6 +1203,9 @@ section.band.deepest p a, section.band.imaged p a, .statement p a { color: var(-
 .tshot img{max-height:272px;max-width:92%;width:auto;height:auto;border-radius:12px;border:2px solid #2b3a55;box-shadow:0 10px 26px rgba(0,0,0,.5)}
 .tshot.land img{max-height:none;width:92%}
 
+.sd-chips{display:grid!important;grid-template-columns:repeat(3,1fr);gap:10px!important}
+.sd-chips a{text-align:center;padding:12px 8px!important;white-space:nowrap}
+@media(max-width:560px){.sd-chips{grid-template-columns:repeat(2,1fr)}.sd-chips a{font-size:.66rem!important;letter-spacing:.06em!important;padding:11px 4px!important}}
 .sd-pairs{gap:10px!important;margin-top:4px;grid-template-columns:1fr!important}
 .sd-pair{background:#fff;border:1px solid #D9D0BC;padding:0!important;gap:0!important;align-items:stretch!important;grid-template-columns:1fr 34px 1fr!important}
 .sd-pair span{display:flex;align-items:center;padding:12px 14px;font-size:.88rem}
@@ -1515,9 +1518,9 @@ document.addEventListener("DOMContentLoaded", function () {
       <a class="sd-gc" href="staff-development/#baseline"><span class="gn">1</span><b>Individual Baseline</b><span class="gd">Each person scores themselves before the first conversation.</span><i>See the demo &rarr;</i></a>
       <a class="sd-gc" href="staff-development/#checkpoint"><span class="gn">2</span><b>Checkpoint Evaluation</b><span class="gd">A return visit shows what has moved since the baseline.</span><i>See the demo &rarr;</i></a>
       <a class="sd-gc" href="staff-development/#c360"><span class="gn">3</span><b>360 Feedback</b><span class="gd">Colleagues add constructive input without names attached.</span><i>See the demo &rarr;</i></a>
-      <a class="sd-gc" href="staff-development/#dashboard"><span class="gn">3</span><b>360 PSG Dashboard</b><span class="gd">The guide reads every response by person and department.</span><i>See the demo &rarr;</i></a>
-      <a class="sd-gc" href="staff-development/#platform"><span class="gn">4</span><b>Performance Platform</b><span class="gd">Weekly pulse and monthly deep dive for the whole department.</span><i>See the demo &rarr;</i></a>
-      <a class="sd-gc" href="staff-development/#feedback"><span class="gn">5</span><b>Value Feedback Loop</b><span class="gd">Everyone says whether the support is worth the time.</span><i>See the demo &rarr;</i></a>
+      <a class="sd-gc" href="staff-development/#dashboard"><span class="gn">4</span><b>360 PSG Dashboard</b><span class="gd">The guide reads every response by person and department.</span><i>See the demo &rarr;</i></a>
+      <a class="sd-gc" href="staff-development/#platform"><span class="gn">5</span><b>Performance Platform</b><span class="gd">Weekly pulse and monthly deep dive for the whole department.</span><i>See the demo &rarr;</i></a>
+      <a class="sd-gc" href="staff-development/#feedback"><span class="gn">6</span><b>Value Feedback Loop</b><span class="gd">Everyone says whether the support is worth the time.</span><i>See the demo &rarr;</i></a>
     </div>
     <p class="sd-note">Use the tools together or one at a time. The tool suite page is the single door to all six demos and sits behind an access code. Request one code and it opens the suite and every demo. Every screenshot uses synthetic people and scores.</p>
   </div>
@@ -1543,7 +1546,7 @@ document.addEventListener("DOMContentLoaded", function () {
 <section class="band" id="tools">
   <div class="wrap">
     <div class="band-head"><span class="card-label" style="font-size:.7rem;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:#A8791A;">The tools</span><h2>What each one <span class="script">produces.</span></h2></div>
-    <div class="sd-chips"><a href="staff-development/#baseline">1 Baseline</a><a href="staff-development/#checkpoint">2 Checkpoint</a><a href="staff-development/#c360">3 360 Feedback</a><a href="staff-development/#dashboard">3 PSG Dashboard</a><a href="staff-development/#platform">4 Platform</a><a href="staff-development/#feedback">5 Feedback Loop</a></div>
+    <div class="sd-chips"><a href="staff-development/#baseline">1 Baseline</a><a href="staff-development/#checkpoint">2 Checkpoint</a><a href="staff-development/#c360">3 360 Feedback</a><a href="staff-development/#dashboard">4 PSG Dashboard</a><a href="staff-development/#platform">5 Platform</a><a href="staff-development/#feedback">6 Feedback Loop</a></div>
     <div class="sd-tool" id="baseline">
   <div class="sd-tool-t"><span class="lab">Where you start</span><h3>Individual Baseline</h3><p>A twenty minute self assessment across the personal and professional frameworks. Nobody marks it.</p><div class="sd-tags"><span class="sd-tag">Practitioners and leaders</span><span class="sd-tag gate">Access code</span></div></div>
   <div class="sd-tool-p"><h4>What it produces</h4><ul><li>Personal and professional radars</li><li>Your lowest scored areas</li><li>A PDF summary to send</li></ul>
