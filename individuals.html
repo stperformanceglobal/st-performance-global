@@ -166,7 +166,7 @@ nav.primary a.nav-cta:hover { background: var(--gold); color: var(--ink); }
   color: var(--white); padding: 8px 14px; font-family: "Archivo", sans-serif;
   letter-spacing: 0.14em; text-transform: uppercase; font-size: 0.72rem; cursor: pointer;
 }
-@media (max-width: 1290px) {
+@media (max-width: 1400px) {
   .menu-toggle { display: block; }
   nav.primary {
     display: none; position: absolute; top: 72px; left: 0; right: 0;
@@ -176,6 +176,39 @@ nav.primary a.nav-cta:hover { background: var(--gold); color: var(--ink); }
   nav.primary.open { display: flex; }
   nav.primary a { padding: 13px 0; border-bottom: 1px solid var(--hairline); }
   nav.primary a.nav-cta { margin-top: 12px; text-align: center; border: 1px solid var(--gold); }
+}
+
+
+/* ---------- Athlete Support dropdown ---------- */
+nav.primary .dd { position: relative; display: flex; align-items: center; }
+nav.primary .dd-btn {
+  background: none; border: 0; border-bottom: 1px solid transparent; color: var(--white); cursor: pointer;
+  font: inherit; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase;
+  padding: 6px 0; white-space: nowrap; font-family: "Archivo", sans-serif;
+}
+nav.primary .dd-btn::after { content: ""; display: inline-block; margin-left: 8px; width: 6px; height: 6px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: translateY(-2px) rotate(45deg); }
+nav.primary .dd-btn:hover, nav.primary .dd-btn:focus-visible, nav.primary .dd.open .dd-btn { color: var(--gold-hi); }
+nav.primary .dd-menu {
+  display: none; position: absolute; top: 100%; left: -14px; min-width: 230px; padding: 8px 0; z-index: 60;
+  background: var(--deeper); border: 1px solid var(--line); box-shadow: 0 14px 30px rgba(0,0,0,.35);
+}
+nav.primary .dd-menu a { display: block; padding: 11px 18px; border-bottom: 0; }
+nav.primary .dd:hover .dd-menu, nav.primary .dd.open .dd-menu, nav.primary .dd:focus-within .dd-menu { display: block; }
+@media (max-width: 1400px) {
+  nav.primary .dd { display: block; border-bottom: 1px solid var(--hairline); }
+  nav.primary .dd-btn { width: 100%; text-align: left; padding: 13px 0; }
+  nav.primary .dd-menu { position: static; display: none; min-width: 0; border: 0; box-shadow: none; padding: 0 0 8px 14px; background: transparent; }
+  nav.primary .dd:hover .dd-menu { display: none; }
+  nav.primary .dd.open .dd-menu { display: block; }
+  nav.primary .dd-menu a { padding: 11px 0; border-bottom: 1px solid var(--hairline); }
+}
+
+
+@media (min-width: 1401px) and (max-width: 1660px) {
+  nav.primary { gap: 12px; }
+  nav.primary a, nav.primary .dd-btn { letter-spacing: 0.1em; }
+  nav.primary a.nav-cta { padding: 9px 11px; }
+  .nav-inner { padding: 0 16px; }
 }
 
 /* ---------- Buttons ---------- */
@@ -1260,6 +1293,7 @@ document.addEventListener("DOMContentLoaded", function () {
       <a href="about.html">About</a>
       <a href="story.html">Story</a>
       <a href="contact.html">Contact</a>
+      <div class="dd"><button class="dd-btn" type="button" aria-haspopup="true" aria-expanded="false">Athlete Support</button><div class="dd-menu"><a href="athlete-support/programmer/">Programmer</a><a href="athlete-support/conditioning/">Conditioning Tool</a><a href="athlete-support/viewer/">Running Drill Viewer</a></div></div>
       <a class="nav-cta" href="jobs.html">Job Board</a>
       <a class="nav-cta" data-link="booking" href="#" target="_blank" rel="noopener">Book a Call</a>
     </nav>
@@ -1441,6 +1475,11 @@ document.addEventListener("scroll", function () {
   var h = document.querySelector("header.site");
   if (h) { h.classList.toggle("scrolled", window.scrollY > 12); }
 }, { passive: true });
+</script>
+<script>
+(function(){document.querySelectorAll("nav.primary .dd").forEach(function(d){var b=d.querySelector(".dd-btn");b.addEventListener("click",function(e){e.stopPropagation();var o=!d.classList.contains("open");d.classList.toggle("open",o);b.setAttribute("aria-expanded",o);});});
+document.addEventListener("click",function(){document.querySelectorAll("nav.primary .dd.open").forEach(function(d){d.classList.remove("open");d.querySelector(".dd-btn").setAttribute("aria-expanded","false");});});
+document.addEventListener("keydown",function(e){if(e.key==="Escape")document.querySelectorAll("nav.primary .dd.open").forEach(function(d){d.classList.remove("open");});});})();
 </script>
 </body>
 </html>
