@@ -1198,6 +1198,10 @@ section.band.deepest p a, section.band.imaged p a, .statement p a { color: var(-
   .nav-quick .dd-menu { left: 0; right: auto; min-width: min(280px, calc(100vw - 32px)); }
   nav.primary { top: 100%; max-height: calc(100vh - 110px); }
 }
+
+.tshot{height:300px;display:flex;align-items:center;justify-content:center;margin:-6px 0 18px;background:radial-gradient(ellipse at 50% 40%,#16294a 0%,#0b1626 75%);border:1px solid var(--hairline);overflow:hidden}
+.tshot img{max-height:272px;max-width:92%;width:auto;height:auto;border-radius:12px;border:2px solid #2b3a55;box-shadow:0 10px 26px rgba(0,0,0,.5)}
+.tshot.land img{max-height:none;width:92%}
 </style>
 <script>
 /* ---------------------------------------------------------------
@@ -1346,6 +1350,7 @@ document.addEventListener("DOMContentLoaded", function () {
   <div class="wrap">
     <div class="cards three">
       <div class="card">
+        <div class="tshot"><img src="athlete-support/img/tool-programmer.jpg" alt="Programme Builder on a phone in portrait with an eight week programme being set up" loading="lazy"></div>
         <span class="card-label">Build the programme</span>
         <h3>Programmer</h3>
         <p style="margin-top:12px;"><b>Athletes:</b> build your own lifting, speed and running block, follow it on your phone or on paper and send it to your coach.</p>
@@ -1353,6 +1358,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="btnrow"><a class="btn" href="athlete-support/programmer/">Open</a><a class="btn ghost" href="athlete-support/downloads/programmer-guide.pdf" download>Guide (PDF)</a></div>
       </div>
       <div class="card">
+        <div class="tshot land"><img src="athlete-support/img/tool-conditioning.jpg" alt="Conditioning Tool in programme view with a programme loaded, shown in landscape" loading="lazy"></div>
         <span class="card-label">See every drill run</span>
         <h3>Conditioning Tool</h3>
         <p style="margin-top:12px;"><b>Athletes:</b> look up a drill, watch it from above or behind the player and run your session in order.</p>
@@ -1360,6 +1366,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="btnrow"><a class="btn" href="athlete-support/conditioning/">Open</a><a class="btn ghost" href="athlete-support/downloads/conditioning-tool-guide.pdf" download>Guide (PDF)</a></div>
       </div>
       <div class="card">
+        <div class="tshot"><img src="athlete-support/img/tool-viewer.jpg" alt="Running Drill Viewer on a phone in portrait with a playlist loaded" loading="lazy"></div>
         <span class="card-label">Short notice sessions</span>
         <h3>Running Drill Viewer</h3>
         <p style="margin-top:12px;"><b>Athletes:</b> tap a link from your coach and follow the session, or line up your own playlist of drills.</p>

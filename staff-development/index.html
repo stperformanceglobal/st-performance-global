@@ -8,19 +8,19 @@
 <meta name="stp-build" content="2026-09-20 update 6">
 <base href="../">
 <title>Leader / Practitioner Support | ST Performance Global</title>
-<meta name="description" content="Six tools for leaders and practitioners: self baseline, checkpoint, 360 feedback, a full development platform and a value feedback loop. See what each one produces and open the demos.">
+<meta name="description" content="Six tools across every layer and discipline: self baseline, checkpoint, 360 feedback, a full development platform and a value feedback loop. See what each one produces and open the demos.">
 <meta name="robots" content="index, follow">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="favicon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ST Performance Global">
 <meta property="og:title" content="Leader / Practitioner Support | ST Performance Global">
-<meta property="og:description" content="Six tools for leaders and practitioners: self baseline, checkpoint, 360 feedback, a full development platform and a value feedback loop. See what each one produces and open the demos.">
+<meta property="og:description" content="Six tools across every layer and discipline: self baseline, checkpoint, 360 feedback, a full development platform and a value feedback loop. See what each one produces and open the demos.">
 <meta property="og:url" content="https://www.stperformanceglobal.com/staff-development/">
 <meta property="og:image" content="https://www.stperformanceglobal.com/og-share.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Leader / Practitioner Support | ST Performance Global">
-<meta name="twitter:description" content="Six tools for leaders and practitioners: self baseline, checkpoint, 360 feedback, a full development platform and a value feedback loop. See what each one produces and open the demos.">
+<meta name="twitter:description" content="Six tools across every layer and discipline: self baseline, checkpoint, 360 feedback, a full development platform and a value feedback loop. See what each one produces and open the demos.">
 <meta name="twitter:image" content="https://www.stperformanceglobal.com/og-share.jpg">
 <meta name="theme-color" content="#0C1524">
 <style>
@@ -1199,6 +1199,31 @@ section.band.deepest p a, section.band.imaged p a, .statement p a { color: var(-
   nav.primary { top: 100%; max-height: calc(100vh - 110px); }
 }
 
+.tshot{height:300px;display:flex;align-items:center;justify-content:center;margin:-6px 0 18px;background:radial-gradient(ellipse at 50% 40%,#16294a 0%,#0b1626 75%);border:1px solid var(--hairline);overflow:hidden}
+.tshot img{max-height:272px;max-width:92%;width:auto;height:auto;border-radius:12px;border:2px solid #2b3a55;box-shadow:0 10px 26px rgba(0,0,0,.5)}
+.tshot.land img{max-height:none;width:92%}
+
+.sd-tool{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr)!important;align-items:start!important;gap:48px!important;padding:40px 0!important}
+.sd-tool-p{background:#fff;border:1px solid #E1D9C8;border-top:3px solid #E7B530;padding:22px 24px}
+.sd-tool-p h4{margin:0 0 8px}.sd-tool-p ul{margin:0 0 18px}
+.sd-cue{display:block;margin-top:12px;font-size:.82rem;color:#6a7790;font-style:italic}
+@media(max-width:900px){.sd-tool{grid-template-columns:1fr!important;gap:20px!important}}
+.sd-gc{padding-top:46px!important;min-height:178px}
+.sd-gc .gn{top:12px!important}
+.sd-tabs .n{display:none}
+.sd-tabs a{font-size:.66rem!important;padding:11px 12px!important;letter-spacing:.12em!important}
+@media(max-width:640px){.sd-tabs a{font-size:.6rem!important;padding:9px 9px!important;letter-spacing:.08em!important}.sd-tabs-in{padding:0 10px!important}}
+@media(min-width:1360px){
+ .sd-tabs{position:fixed!important;left:10px;top:50%!important;transform:translateY(-50%);background:transparent!important;border:0!important;box-shadow:none!important}
+ .sd-tabs-in{flex-direction:column;padding:0!important;gap:8px;overflow:visible;max-width:none}
+ .sd-tabs a{position:relative;width:34px;height:34px;padding:0!important;display:flex!important;align-items:center;justify-content:center;background:#182C4D;border:1px solid #182C4D;border-bottom-width:1px!important;margin:0!important;opacity:1!important}
+ .sd-tabs .n{display:block;font-size:.72rem;font-weight:800;color:#fff;letter-spacing:0}
+ .sd-tabs a.on{background:#E7B530;border-color:#E7B530}.sd-tabs a.on .n{color:#182C4D}
+ .sd-tabs .lb{position:absolute;left:42px;top:50%;transform:translateY(-50%);background:#182C4D;color:#fff;padding:7px 10px;white-space:nowrap;font-size:.64rem;letter-spacing:.14em;opacity:0;pointer-events:none;transition:opacity .15s}
+ .sd-tabs a:hover .lb,.sd-tabs a:focus-visible .lb,.sd-tabs a.on .lb{opacity:1}
+ .sd-tabs a.sd-tabs-cta{display:none!important}
+ section[id]{scroll-margin-top:calc(var(--sd-hdr,72px) + 16px)}
+}
 .sd-shot img{max-height:380px;object-fit:cover;object-position:top left}
 .sd-chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 8px}
 .sd-chips a{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:#182C4D;border:1px solid #182C4D;padding:8px 12px;background:#fff}
@@ -1454,8 +1479,8 @@ document.addEventListener("DOMContentLoaded", function () {
 <div class="page-hero">
   <div class="wrap">
     <div class="kicker">Leader / Practitioner Support</div>
-    <h1>Development that <span class="script">people can see.</span></h1>
-    <p class="lede">Six tools that give leaders and practitioners an honest starting point, a way to track movement, structured input from colleagues and a check that the support is working. They run from one framework with two tracks, and every demo here uses synthetic people and scores.</p>
+    <h1>Development support <span class="script">people can feel.</span></h1>
+    <p class="lede">Six tools for performance staff across every layer and discipline. They suit every role from Practitioner to Director and every discipline from strength and conditioning to mental skills. Together they give an honest starting point, a way to track movement, structured input from colleagues and a check that the support is working.</p>
     <div class="sd-hero-actions">
       <a class="btn solid" href="staff-development/suite/">Open the tool suite</a>
       <a class="btn ghost" href="staff-development/downloads/ST-Performance-Practitioner-and-Leadership-Framework.pdf" download>Framework flyer (PDF)</a>
@@ -1465,24 +1490,24 @@ document.addEventListener("DOMContentLoaded", function () {
 </div>
 
 <nav class="sd-tabs" id="sdtabs" aria-label="On this page"><div class="sd-tabs-in">
-  <a href="staff-development/#suite" data-t="suite">The suite</a>
-  <a href="staff-development/#who" data-t="who">Who it is for</a>
-  <a href="staff-development/#tools" data-t="tools">The tools</a>
-  <a href="staff-development/#framework" data-t="framework">Framework</a>
-  <a href="staff-development/#flyer" data-t="flyer">Download</a>
+  <a href="staff-development/#suite" data-t="suite"><span class="n">1</span><span class="lb">Suite</span></a>
+  <a href="staff-development/#who" data-t="who"><span class="n">2</span><span class="lb">Who for</span></a>
+  <a href="staff-development/#tools" data-t="tools"><span class="n">3</span><span class="lb">Tools</span></a>
+  <a href="staff-development/#framework" data-t="framework"><span class="n">4</span><span class="lb">Framework</span></a>
+  <a href="staff-development/#flyer" data-t="flyer"><span class="n">5</span><span class="lb">Flyer</span></a>
   <a class="sd-tabs-cta" href="staff-development/suite/">Open the tool suite</a>
 </div></nav>
 <section class="band" id="suite">
   <div class="wrap">
-    <div class="sd-gridhead"><div><span class="card-label" style="font-size:.7rem;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:#A8791A;">The suite in the order it is used</span><h2>Six tools, <span class="script">one loop.</span></h2></div>
+    <div class="sd-gridhead"><div><span class="card-label" style="font-size:.7rem;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:#A8791A;">Across every layer and discipline, in the order it is used</span><h2>Six tools, <span class="script">one loop.</span></h2></div>
     <div class="btnrow" style="margin:0"><a class="btn solid" href="staff-development/suite/">Open the tool suite</a><a class="btn" data-link="booking" href="#" target="_blank" rel="noopener">Request access</a></div></div>
     <div class="sd-grid">
-      <a class="sd-gc" href="staff-development/#baseline"><img src="staff-development/img/baseline-results.jpg" alt="" loading="eager" width="700"><span class="gn">1</span><b>Individual Baseline</b><span class="gd">Each person scores themselves before the first conversation.</span><i>Access code</i></a>
-      <a class="sd-gc" href="staff-development/#checkpoint"><img src="staff-development/img/checkpoint-results.jpg" alt="" loading="eager" width="700"><span class="gn">2</span><b>Checkpoint Evaluation</b><span class="gd">A return visit shows what has moved since the baseline.</span><i>Access code</i></a>
-      <a class="sd-gc" href="staff-development/#c360"><img src="staff-development/img/c360-form.jpg" alt="" loading="eager" width="700"><span class="gn">3</span><b>360 Feedback</b><span class="gd">Colleagues add constructive input without names attached.</span><i>Access code</i></a>
-      <a class="sd-gc" href="staff-development/#dashboard"><img src="staff-development/img/dashboard-roster.jpg" alt="" loading="eager" width="700"><span class="gn">3</span><b>360 PSG Dashboard</b><span class="gd">The guide reads every response by person and department.</span><i>Access code</i></a>
-      <a class="sd-gc" href="staff-development/#platform"><img src="staff-development/img/platform-group.jpg" alt="" loading="eager" width="700"><span class="gn">4</span><b>Performance Platform</b><span class="gd">Weekly pulse and monthly deep dive for the whole department.</span><i>Access code</i></a>
-      <a class="sd-gc" href="staff-development/#feedback"><img src="staff-development/img/vfl-section.jpg" alt="" loading="eager" width="700"><span class="gn">5</span><b>Value Feedback Loop</b><span class="gd">Everyone says whether the support is worth the time.</span><i>Access code</i></a>
+      <a class="sd-gc" href="staff-development/#baseline"><span class="gn">1</span><b>Individual Baseline</b><span class="gd">Each person scores themselves before the first conversation.</span><i>See the demo &rarr;</i></a>
+      <a class="sd-gc" href="staff-development/#checkpoint"><span class="gn">2</span><b>Checkpoint Evaluation</b><span class="gd">A return visit shows what has moved since the baseline.</span><i>See the demo &rarr;</i></a>
+      <a class="sd-gc" href="staff-development/#c360"><span class="gn">3</span><b>360 Feedback</b><span class="gd">Colleagues add constructive input without names attached.</span><i>See the demo &rarr;</i></a>
+      <a class="sd-gc" href="staff-development/#dashboard"><span class="gn">3</span><b>360 PSG Dashboard</b><span class="gd">The guide reads every response by person and department.</span><i>See the demo &rarr;</i></a>
+      <a class="sd-gc" href="staff-development/#platform"><span class="gn">4</span><b>Performance Platform</b><span class="gd">Weekly pulse and monthly deep dive for the whole department.</span><i>See the demo &rarr;</i></a>
+      <a class="sd-gc" href="staff-development/#feedback"><span class="gn">5</span><b>Value Feedback Loop</b><span class="gd">Everyone says whether the support is worth the time.</span><i>See the demo &rarr;</i></a>
     </div>
     <p class="sd-note">Use the tools together or one at a time. The tool suite page is the single door to all six demos and sits behind an access code. Request one code and it opens the suite and every demo. Every screenshot uses synthetic people and scores.</p>
   </div>
@@ -1510,24 +1535,24 @@ document.addEventListener("DOMContentLoaded", function () {
     <div class="band-head"><span class="card-label" style="font-size:.7rem;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:#A8791A;">The tools</span><h2>What each one <span class="script">produces.</span></h2></div>
     <div class="sd-chips"><a href="staff-development/#baseline">1 Baseline</a><a href="staff-development/#checkpoint">2 Checkpoint</a><a href="staff-development/#c360">3 360 Feedback</a><a href="staff-development/#dashboard">3 PSG Dashboard</a><a href="staff-development/#platform">4 Platform</a><a href="staff-development/#feedback">5 Feedback Loop</a></div>
     <div class="sd-tool" id="baseline">
-  <div class="sd-tool-t"><span class="lab">Where you start</span><h3>Individual Baseline</h3><p>A twenty minute self assessment across the personal and professional frameworks. Nobody marks it.</p><h4>What it produces</h4><ul><li>Personal and professional radars</li><li>Your lowest scored areas</li><li>A PDF summary to send</li></ul><div class="sd-tags"><span class="sd-tag">Practitioners and leaders</span><span class="sd-tag gate">Access code</span></div>
-  <div class="btnrow"><a class="btn solid" href="https://stperformanceglobal.github.io/individual-baseline-assessment/" target="_blank" rel="noopener">Open the demo</a></div></div>
-  <div class="sd-tool-s"><figure class="sd-shot"><img src="staff-development/img/baseline-results.jpg" alt="Individual Baseline results page with radar" loading="lazy" width="1400"><figcaption>Results page. Synthetic data.</figcaption></figure></div></div><div class="sd-tool flip" id="checkpoint">
-  <div class="sd-tool-t"><span class="lab">What has moved</span><h3>Checkpoint Evaluation</h3><p>The return visit. Earlier answers carry forward so the result is a comparison, not another snapshot.</p><h4>What it produces</h4><ul><li>Areas up and down</li><li>Now against last time</li><li>A new reference point</li></ul><div class="sd-tags"><span class="sd-tag">Practitioners and leaders</span><span class="sd-tag gate">Access code</span></div>
-  <div class="btnrow"><a class="btn solid" href="https://stperformanceglobal.github.io/individual-progress-checkpoint/" target="_blank" rel="noopener">Open the demo</a></div></div>
-  <div class="sd-tool-s"><figure class="sd-shot"><img src="staff-development/img/checkpoint-results.jpg" alt="Checkpoint Evaluation results" loading="lazy" width="1400"><figcaption>Movement since baseline. Synthetic data.</figcaption></figure></div></div><div class="sd-tool" id="c360">
-  <div class="sd-tool-t"><span class="lab">Input from colleagues</span><h3>360 Feedback Tool</h3><p>A short structured round between colleagues. Input is shared without names and never used in reviews.</p><h4>What it produces</h4><ul><li>Strengths and growth areas</li><li>Optional observed practice</li><li>A one page review to send</li></ul><div class="sd-tags"><span class="sd-tag">Practitioners and leaders</span><span class="sd-tag gate">Access code</span></div>
-  <div class="btnrow"><a class="btn solid" href="https://stperformanceglobal.github.io/coach360/" target="_blank" rel="noopener">Open the demo</a></div></div>
-  <div class="sd-tool-s"><figure class="sd-shot"><img src="staff-development/img/c360-form.jpg" alt="360 Feedback form" loading="lazy" width="1400"><figcaption>One stage of the form. Synthetic data.</figcaption></figure></div></div><div class="sd-tool flip" id="dashboard">
-  <div class="sd-tool-t"><span class="lab">The guide’s view</span><h3>360 PSG Dashboard</h3><p>Reads each submitted review and groups the input by person and department.</p><h4>What it produces</h4><ul><li>Roster with reviewer counts</li><li>Scores and comments by area</li><li>An anonymised preview safe to share</li></ul><div class="sd-tags"><span class="sd-tag">Practitioners and leaders</span><span class="sd-tag gate">Access code</span></div>
-  <div class="btnrow"><a class="btn solid" href="https://stperformanceglobal.github.io/360-feedback-dashboard/" target="_blank" rel="noopener">Open the demo</a></div></div>
-  <div class="sd-tool-s"><figure class="sd-shot"><img src="staff-development/img/dashboard-roster.jpg" alt="360 PSG Dashboard roster" loading="lazy" width="1400"><figcaption>The roster. Synthetic data.</figcaption></figure></div></div><div class="sd-tool" id="platform">
-  <div class="sd-tool-t"><span class="lab">The whole department</span><h3>Performance Platform</h3><p>A weekly check-in and monthly deep dive for every person, with a group view for leaders.</p><h4>What it produces</h4><ul><li>Personal and professional profiles</li><li>Effort and outcome flags</li><li>Thriving, Steady and Surviving groups</li></ul><div class="sd-tags"><span class="sd-tag">Practitioners and leaders</span><span class="sd-tag gate">Access code</span></div>
-  <div class="btnrow"><a class="btn solid" href="https://stperformanceglobal.github.io/performance-development-platform-demo/" target="_blank" rel="noopener">Open the demo</a></div></div>
-  <div class="sd-tool-s"><figure class="sd-shot"><img src="staff-development/img/platform-group.jpg" alt="Performance Platform group view" loading="lazy" width="1400"><figcaption>The group view. Synthetic data.</figcaption></figure></div></div><div class="sd-tool flip" id="feedback">
-  <div class="sd-tool-t"><span class="lab">Is the support working</span><h3>Value Feedback Loop</h3><p>Staff reflect on the process and the tools. Anonymous by design and read by the guide to improve the support.</p><h4>What it produces</h4><ul><li>Five short sections</li><li>Room for a specific example</li><li>A one page review</li></ul><div class="sd-tags"><span class="sd-tag">Practitioners and leaders</span><span class="sd-tag gate">Access code</span></div>
-  <div class="btnrow"><a class="btn solid" href="https://stperformanceglobal.github.io/value-feedback-loop/" target="_blank" rel="noopener">Open the demo</a></div></div>
-  <div class="sd-tool-s"><figure class="sd-shot"><img src="staff-development/img/vfl-section.jpg" alt="Value Feedback Loop section" loading="lazy" width="1400"><figcaption>One section. Synthetic data.</figcaption></figure></div></div>
+  <div class="sd-tool-t"><span class="lab">Where you start</span><h3>Individual Baseline</h3><p>A twenty minute self assessment across the personal and professional frameworks. Nobody marks it.</p><div class="sd-tags"><span class="sd-tag">Practitioners and leaders</span><span class="sd-tag gate">Access code</span></div></div>
+  <div class="sd-tool-p"><h4>What it produces</h4><ul><li>Personal and professional radars</li><li>Your lowest scored areas</li><li>A PDF summary to send</li></ul>
+  <div class="btnrow"><a class="btn solid" href="https://stperformanceglobal.github.io/individual-baseline-assessment/" target="_blank" rel="noopener">Open the demo</a></div><span class="sd-cue">The visuals are in the demo.</span></div></div><div class="sd-tool flip" id="checkpoint">
+  <div class="sd-tool-t"><span class="lab">What has moved</span><h3>Checkpoint Evaluation</h3><p>The return visit. Earlier answers carry forward so the result is a comparison, not another snapshot.</p><div class="sd-tags"><span class="sd-tag">Practitioners and leaders</span><span class="sd-tag gate">Access code</span></div></div>
+  <div class="sd-tool-p"><h4>What it produces</h4><ul><li>Areas up and down</li><li>Now against last time</li><li>A new reference point</li></ul>
+  <div class="btnrow"><a class="btn solid" href="https://stperformanceglobal.github.io/individual-progress-checkpoint/" target="_blank" rel="noopener">Open the demo</a></div><span class="sd-cue">The visuals are in the demo.</span></div></div><div class="sd-tool" id="c360">
+  <div class="sd-tool-t"><span class="lab">Input from colleagues</span><h3>360 Feedback Tool</h3><p>A short structured round between colleagues. Input is shared without names and never used in reviews.</p><div class="sd-tags"><span class="sd-tag">Practitioners and leaders</span><span class="sd-tag gate">Access code</span></div></div>
+  <div class="sd-tool-p"><h4>What it produces</h4><ul><li>Strengths and growth areas</li><li>Optional observed practice</li><li>A one page review to send</li></ul>
+  <div class="btnrow"><a class="btn solid" href="https://stperformanceglobal.github.io/coach360/" target="_blank" rel="noopener">Open the demo</a></div><span class="sd-cue">The visuals are in the demo.</span></div></div><div class="sd-tool flip" id="dashboard">
+  <div class="sd-tool-t"><span class="lab">The guide’s view</span><h3>360 PSG Dashboard</h3><p>Reads each submitted review and groups the input by person and department.</p><div class="sd-tags"><span class="sd-tag">Practitioners and leaders</span><span class="sd-tag gate">Access code</span></div></div>
+  <div class="sd-tool-p"><h4>What it produces</h4><ul><li>Roster with reviewer counts</li><li>Scores and comments by area</li><li>An anonymised preview safe to share</li></ul>
+  <div class="btnrow"><a class="btn solid" href="https://stperformanceglobal.github.io/360-feedback-dashboard/" target="_blank" rel="noopener">Open the demo</a></div><span class="sd-cue">The visuals are in the demo.</span></div></div><div class="sd-tool" id="platform">
+  <div class="sd-tool-t"><span class="lab">The whole department</span><h3>Performance Platform</h3><p>A weekly check-in and monthly deep dive for every person, with a group view for leaders.</p><div class="sd-tags"><span class="sd-tag">Practitioners and leaders</span><span class="sd-tag gate">Access code</span></div></div>
+  <div class="sd-tool-p"><h4>What it produces</h4><ul><li>Personal and professional profiles</li><li>Effort and outcome flags</li><li>Thriving, Steady and Surviving groups</li></ul>
+  <div class="btnrow"><a class="btn solid" href="https://stperformanceglobal.github.io/performance-development-platform-demo/" target="_blank" rel="noopener">Open the demo</a></div><span class="sd-cue">The visuals are in the demo.</span></div></div><div class="sd-tool flip" id="feedback">
+  <div class="sd-tool-t"><span class="lab">Is the support working</span><h3>Value Feedback Loop</h3><p>Staff reflect on the process and the tools. Anonymous by design and read by the guide to improve the support.</p><div class="sd-tags"><span class="sd-tag">Practitioners and leaders</span><span class="sd-tag gate">Access code</span></div></div>
+  <div class="sd-tool-p"><h4>What it produces</h4><ul><li>Five short sections</li><li>Room for a specific example</li><li>A one page review</li></ul>
+  <div class="btnrow"><a class="btn solid" href="https://stperformanceglobal.github.io/value-feedback-loop/" target="_blank" rel="noopener">Open the demo</a></div><span class="sd-cue">The visuals are in the demo.</span></div></div>
     <p class="sd-syn">Every screenshot on this page uses synthetic names and scores. No real staff data is shown or stored.</p>
   </div>
 </section>
