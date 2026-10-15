@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-15T14:15:18+08:00",
+ "updated": "2026-10-15T21:52:23+08:00",
  "jobs": [
   {
    "id": "au-manly-hop",
@@ -485,42 +485,6 @@
    "country": "US",
    "level": "prac",
    "discipline": "science",
-   "setting": "pro"
-  },
-  {
-   "id": "us-nats-dpd",
-   "title": "Director, Physical Development",
-   "org": "Washington Nationals",
-   "sport": "Baseball",
-   "region": "US",
-   "location": "Washington DC",
-   "salary": "USD 200k to 250k",
-   "closes": null,
-   "added": "2026-10-09",
-   "url": "https://www.teamworkonline.com/baseball-jobs/washington-nationals/washington-nationals/director-physical-development-2190331",
-   "source": "TeamWork Online",
-   "note": "Covers MLB and MiLB strength and conditioning, rehab and nutrition.",
-   "country": "US",
-   "level": "dept",
-   "discipline": "multi",
-   "setting": "pro"
-  },
-  {
-   "id": "us-nats-dphmp",
-   "title": "Director, Player Health and Mental Performance",
-   "org": "Washington Nationals",
-   "sport": "Baseball",
-   "region": "US",
-   "location": "Washington DC",
-   "salary": "USD 225k to 300k",
-   "closes": null,
-   "added": "2026-10-09",
-   "url": "https://www.teamworkonline.com/baseball-jobs/washington-nationals/washington-nationals/director-player-health-and-mental-performance-2190330",
-   "source": "TeamWork Online",
-   "note": "Band from the Indeed listing.",
-   "country": "US",
-   "level": "dept",
-   "discipline": "mental",
    "setting": "pro"
   },
   {
