@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-15T21:52:23+08:00",
+ "updated": "2026-10-16T08:03:58+08:00",
  "jobs": [
   {
    "id": "au-manly-hop",
@@ -1872,6 +1872,24 @@
    "url": "https://www.snowsports.co.nz/jobs",
    "source": "Snow Sports NZ",
    "note": "Senior 0.6 FTE role reporting to the Chief Executive. Leads leadership capability, psychological safety and the embedded wellbeing function. Fixed term until July 2030."
+  },
+  {
+   "id": "us-rsl-head-physical-performance",
+   "title": "Head of Physical Performance",
+   "org": "Real Salt Lake",
+   "sport": "Football (soccer)",
+   "region": "US",
+   "country": "US",
+   "location": "Sandy UT",
+   "level": "dept",
+   "discipline": "multi",
+   "setting": "pro",
+   "salary": "",
+   "closes": null,
+   "added": "2026-10-16",
+   "url": "https://www.teamworkonline.com/soccer-jobs/real-salt-lake/real-salt-lake/head-of-physical-performance-2194787",
+   "source": "TeamWork Online",
+   "note": "First team role leading strength and conditioning, sport science, load management and recovery. Reports to the Senior Director of Player Health and Performance. No closing date shown."
   }
  ],
  "boards": [
